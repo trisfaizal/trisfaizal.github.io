@@ -6,8 +6,6 @@ layout: page
 
 <p>Hi, nama saya 𝐭𝐫𝐢𝐬𝐟. Jika anda ingin tau lebih dalam tentanng saya, silahkan kirim email atau bisa langsung mengirim pesan ke Telegram saya.</p>
 
-<h2>Skills</h2>
-
 <h2>Projects</h2>
 
 <ul>

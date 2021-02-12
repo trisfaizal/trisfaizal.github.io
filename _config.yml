@@ -34,7 +34,6 @@ disqus:
   categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-telegram: trisfproject
 # facebook: myfacebook
 # twitter: mytwitter
 # instagram: myinstagram
@@ -51,7 +50,6 @@ github: trisfproject
 # medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
-blog: trisf.my.id
 email: trisfaizal@gmail.com
 
 authors:

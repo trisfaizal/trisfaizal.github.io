@@ -1,42 +1,46 @@
-# trisfaizal.github.io
+# TRISF
 
-Personal landing page.
+Premium minimalist landing page for TRISF, built as a lightweight static website for GitHub Pages.
 
-Mostly links.
-Mostly experiments.
-Hosted with GitHub Pages.
-3. Save and wait for deployment
+## Stack
 
-## Customization
+- Pure HTML, CSS, and JavaScript
+- GitHub Pages deployment via GitHub Actions
+- Custom domain: `trisf.my.id`
 
-1. **Update personal info**: Edit `index.html` with your name, roles, and links
-2. **Add projects**: Update `projects.html` with your project cards
-3. **Customize colors**: Edit `assets/css/main.css` CSS variables
-4. **Add new pages**: Copy existing page structure and modify
+## Structure
 
-## Folder Structure
-
-```
-/
-├── index.html          # Main identity page
-├── projects.html       # Projects showcase
-├── infra.html         # Infrastructure work
-├── android.html       # Android device work
-├── automation.html    # Automation tools
+```text
+.
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
 ├── assets/
-│   └── css/
-│       ├── main.css
-│       └── noscript.css
-├── sass/
+│   ├── css/
+│   │   └── main.css
+│   ├── img/
+│   └── js/
+│       └── main.js
+├── CNAME
+├── index.html
 └── README.md
 ```
 
-## License
+## Deployment
 
-Original template: [Aerial by HTML5UP](https://html5up.net/aerial) (CC BY 3.0)
-Content & modifications: MIT License
+The site deploys automatically on every push to `main`.
 
-## Contact
+GitHub repository setting:
 
-- GitHub: [@trisfaizal](https://github.com/trisfaizal)
-- Email: trisf@email.com
+`Settings` -> `Pages` -> `Build and deployment` -> `Source` -> `GitHub Actions`
+
+Workflow:
+
+1. Checkout repository
+2. Configure GitHub Pages
+3. Upload static site artifact
+4. Deploy to GitHub Pages
+
+## Development
+
+Open `index.html` directly in a browser, or serve the repository root with any static file server.

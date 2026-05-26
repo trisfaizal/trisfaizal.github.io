@@ -27,8 +27,8 @@ body {
 	min-width: 320px;
 	margin: 0;
 	background:
-		radial-gradient(circle at 50% 6%, rgba(0, 255, 156, 0.11), transparent 32rem),
-		radial-gradient(circle at 88% 36%, rgba(0, 208, 132, 0.08), transparent 28rem),
+		radial-gradient(circle at 50% 8%, rgba(0, 255, 156, 0.075), transparent 34rem),
+		radial-gradient(circle at 86% 34%, rgba(0, 208, 132, 0.045), transparent 30rem),
 		linear-gradient(180deg, var(--bg), var(--bg-soft) 42%, var(--bg));
 	color: var(--text);
 	font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -50,8 +50,8 @@ body::after {
 
 body::before {
 	background-image:
-		linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+		linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
 	background-size: 72px 72px;
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.88), transparent 88%);
 }
@@ -215,7 +215,7 @@ a {
 }
 
 .hero-shell {
-	width: min(1220px, 100%);
+	width: min(1480px, 100%);
 	margin: 0 auto;
 }
 
@@ -236,38 +236,74 @@ a {
 }
 
 .terminal-hero {
-	width: min(1120px, calc(100vw - 48px));
-	min-height: clamp(14rem, 21vw, 17rem);
+	width: min(1400px, 88vw);
+	min-height: clamp(15.5rem, 22vw, 18.75rem);
 	margin: 0 auto;
-	padding: clamp(1.85rem, 3.2vw, 2.8rem) clamp(2rem, 6vw, 4.4rem);
-	border: 1px solid rgba(0, 255, 156, 0.11);
-	border-radius: 10px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.105);
+	border-radius: 12px;
 	background:
-		linear-gradient(180deg, rgba(255, 255, 255, 0.064), rgba(255, 255, 255, 0.024)),
-		rgba(5, 5, 5, 0.58);
+		linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.026)),
+		rgba(5, 5, 5, 0.54);
 	box-shadow:
-		0 26px 90px rgba(0, 0, 0, 0.38),
-		0 0 64px rgba(0, 255, 156, 0.06),
-		inset 0 1px 0 rgba(255, 255, 255, 0.07);
-	-webkit-backdrop-filter: blur(20px);
-	backdrop-filter: blur(20px);
+		0 34px 120px rgba(0, 0, 0, 0.46),
+		0 0 80px rgba(0, 255, 156, 0.045),
+		inset 0 1px 0 rgba(255, 255, 255, 0.075),
+		inset 0 -1px 0 rgba(0, 255, 156, 0.035);
+	-webkit-backdrop-filter: blur(22px);
+	backdrop-filter: blur(22px);
+	overflow: hidden;
 	text-align: left;
 	transform: translateZ(0);
 }
 
+.terminal-window-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	height: 46px;
+	padding: 0 clamp(1rem, 2.2vw, 1.35rem);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+}
+
+.terminal-dot {
+	width: 11px;
+	height: 11px;
+	border-radius: 999px;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+	opacity: 0.86;
+}
+
+.terminal-dot-red {
+	background: #ff5f57;
+}
+
+.terminal-dot-yellow {
+	background: #ffbd2e;
+}
+
+.terminal-dot-green {
+	background: #28c840;
+}
+
+.terminal-body {
+	padding: clamp(1.65rem, 3.2vw, 2.45rem) clamp(2rem, 6vw, 4.6rem) clamp(1.9rem, 3.6vw, 2.85rem);
+}
+
 .terminal-line {
-	min-height: 1.38em;
+	min-height: 1.45em;
 	color: var(--text);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-	font-size: clamp(1.22rem, 1.55vw, 1.62rem);
+	font-size: clamp(1.12rem, 1.28vw, 1.42rem);
 	font-weight: 400;
-	line-height: 1.38;
+	line-height: 1.45;
 	letter-spacing: 0;
 	white-space: nowrap;
 }
 
 .terminal-line + .terminal-line {
-	margin-top: 0.22em;
+	margin-top: 0.3em;
 }
 
 .cursor {
@@ -580,14 +616,17 @@ a {
 	}
 
 	.terminal-hero {
-		width: min(820px, calc(100vw - 40px));
-		min-height: clamp(12.5rem, 28vw, 15rem);
+		width: min(860px, calc(100vw - 40px));
+		min-height: clamp(13rem, 30vw, 15.5rem);
+	}
+
+	.terminal-body {
 		padding-right: clamp(1.35rem, 4vw, 2.2rem);
 		padding-left: clamp(1.35rem, 4vw, 2.2rem);
 	}
 
 	.terminal-line {
-		font-size: clamp(1.05rem, 2.9vw, 1.35rem);
+		font-size: clamp(1rem, 2.55vw, 1.24rem);
 	}
 }
 
@@ -644,7 +683,22 @@ a {
 
 	.terminal-hero {
 		width: 100%;
-		min-height: 11.75rem;
+		min-height: 12.75rem;
+	}
+
+	.terminal-window-bar {
+		height: 40px;
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+
+	.terminal-dot {
+		width: 10px;
+		height: 10px;
+	}
+
+	.terminal-body {
+		padding: 1.35rem 1rem 1.55rem;
 	}
 
 	.terminal-line {

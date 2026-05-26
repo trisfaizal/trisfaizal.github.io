@@ -220,7 +220,6 @@ a {
 }
 
 .eyebrow,
-.feature-kicker,
 .terminal-command,
 .status-line {
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -505,21 +504,13 @@ a {
 	white-space: pre;
 }
 
-.whoami-kicker,
-.whoami-copy {
+.whoami-kicker {
 	margin: 24px 0 0;
+	color: var(--muted);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 	font-size: clamp(0.88rem, 1.6vw, 1rem);
 	font-weight: 400;
 	line-height: 1.7;
-}
-
-.whoami-kicker {
-	color: var(--accent-soft);
-}
-
-.whoami-copy {
-	color: var(--muted);
 }
 
 .identity-grid {
@@ -529,6 +520,7 @@ a {
 }
 
 .mini-card {
+	display: block;
 	position: relative;
 	min-height: 118px;
 	padding: 1rem;
@@ -536,6 +528,29 @@ a {
 		linear-gradient(180deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.02)),
 		rgba(5, 5, 5, 0.48);
 	border-color: rgba(255, 255, 255, 0.095);
+}
+
+.mini-card-link::after {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	color: rgba(0, 255, 156, 0.5);
+	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.76rem;
+	content: "↗";
+	opacity: 0;
+	transform: translate3d(-3px, 3px, 0);
+	transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.mini-card-link:hover::after,
+.mini-card-link:focus-visible::after {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.mini-card-identity span {
+	color: rgba(255, 255, 255, 0.86);
 }
 
 .mini-card-signature {
@@ -560,22 +575,20 @@ a {
 	content: "";
 }
 
-.mini-card span,
-.feature-kicker {
+.mini-card span {
 	display: block;
-	margin-bottom: 18px;
+	margin-bottom: 20px;
 	color: var(--accent-soft);
-	font-size: 0.68rem;
+	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.72rem;
 	font-weight: 600;
 	letter-spacing: 0;
-	text-transform: uppercase;
 }
 
-.mini-card h3,
-.feature-card h3 {
+.mini-card h3 {
 	margin: 0;
 	font-family: "Space Grotesk", Inter, sans-serif;
-	font-size: 1rem;
+	font-size: 0.98rem;
 	font-weight: 500;
 	line-height: 1.24;
 	letter-spacing: 0;
@@ -823,7 +836,16 @@ a {
 	}
 
 	.identity-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.identity-grid .mini-card-link {
+		min-height: 106px;
+	}
+
+	.identity-grid .mini-card-identity,
+	.identity-grid .mini-card-signature {
+		grid-column: 1 / -1;
 	}
 
 	.mini-card {

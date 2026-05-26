@@ -215,7 +215,7 @@ a {
 }
 
 .hero-shell {
-	width: min(1480px, 100%);
+	width: min(1180px, 100%);
 	margin: 0 auto;
 }
 
@@ -236,8 +236,8 @@ a {
 }
 
 .terminal-hero {
-	width: min(1400px, 88vw);
-	min-height: clamp(15.5rem, 22vw, 18.75rem);
+	width: min(1100px, 82vw);
+	min-height: clamp(14.25rem, 20vw, 17rem);
 	margin: 0 auto;
 	padding: 0;
 	border: 1px solid rgba(255, 255, 255, 0.105);
@@ -288,7 +288,7 @@ a {
 }
 
 .terminal-body {
-	padding: clamp(1.65rem, 3.2vw, 2.45rem) clamp(2rem, 6vw, 4.6rem) clamp(1.9rem, 3.6vw, 2.85rem);
+	padding: clamp(1.65rem, 3vw, 2.35rem) clamp(2rem, 4.6vw, 3.6rem) clamp(1.9rem, 3.2vw, 2.65rem);
 }
 
 .terminal-line {
@@ -616,8 +616,8 @@ a {
 	}
 
 	.terminal-hero {
-		width: min(860px, calc(100vw - 40px));
-		min-height: clamp(13rem, 30vw, 15.5rem);
+		width: min(780px, calc(100vw - 48px));
+		min-height: clamp(12.75rem, 29vw, 15rem);
 	}
 
 	.terminal-body {

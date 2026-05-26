@@ -62,12 +62,14 @@ const runTypewriter = async () => {
 
 	for (const target of typeTargets) {
 		const text = target.dataset.typeLine;
-		await wait(280);
+		await wait(340);
 
 		for (let index = 0; index <= text.length; index += 1) {
 			target.textContent = text.slice(0, index);
-			await wait(46);
+			await wait(38);
 		}
+
+		await wait(120);
 	}
 };
 

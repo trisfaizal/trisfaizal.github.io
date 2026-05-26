@@ -312,18 +312,18 @@ a {
 }
 
 .hero-subtitle {
-	margin: 46px 0 0;
+	margin: 54px 0 0;
 	color: var(--text);
 	font-family: "Space Grotesk", Inter, sans-serif;
-	font-size: clamp(1.12rem, 2.15vw, 1.38rem);
+	font-size: clamp(1.22rem, 2.35vw, 1.6rem);
 	font-weight: 500;
-	line-height: 1.45;
-	letter-spacing: 0.01em;
+	line-height: 1.5;
+	letter-spacing: 0.015em;
 }
 
 .hero-description {
 	max-width: 460px;
-	margin: 16px auto 0;
+	margin: 20px auto 0;
 	color: var(--muted);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 	font-size: clamp(0.9rem, 1.8vw, 1rem);

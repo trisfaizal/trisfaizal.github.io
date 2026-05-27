@@ -308,7 +308,13 @@ a {
 .cursor {
 	display: inline-block;
 	color: var(--accent);
+	opacity: 0;
 	animation: blink 1s steps(2, start) infinite;
+}
+
+.terminal-line.is-active .cursor,
+.terminal-line.is-idle .cursor {
+	opacity: 1;
 }
 
 .hero-subtitle {

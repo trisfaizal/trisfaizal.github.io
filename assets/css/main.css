@@ -480,11 +480,11 @@ a {
 
 .mini-card-link::after {
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
+	right: 0.95rem;
+	bottom: 0.9rem;
 	color: rgba(0, 255, 156, 0.5);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-	font-size: 0.76rem;
+	font-size: 0.68rem;
 	content: "↗";
 	opacity: 0;
 	transform: translate3d(-3px, 3px, 0);
@@ -508,18 +508,39 @@ a {
 }
 
 .mini-card-signature::after {
-	position: absolute;
-	top: 1.15rem;
-	right: 1.15rem;
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background: var(--accent-soft);
-	box-shadow: 0 0 16px rgba(0, 255, 156, 0.28);
-	content: "";
+	display: none;
 }
 
-.mini-card span {
+.card-icon {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	color: rgba(255, 255, 255, 0.34);
+	font-size: 18px;
+	font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+	line-height: 1;
+	text-shadow: 0 0 14px rgba(255, 255, 255, 0.04);
+	transition: color 180ms ease, opacity 180ms ease, text-shadow 180ms ease, transform 180ms ease;
+}
+
+.mini-card:hover .card-icon,
+.mini-card:focus-visible .card-icon {
+	color: rgba(255, 255, 255, 0.5);
+	text-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
+	transform: translateY(-1px);
+}
+
+.mini-card-signature .card-icon {
+	color: rgba(0, 255, 156, 0.54);
+	text-shadow: 0 0 16px rgba(0, 255, 156, 0.13);
+}
+
+.mini-card-signature:hover .card-icon {
+	color: rgba(0, 255, 156, 0.72);
+	text-shadow: 0 0 18px rgba(0, 255, 156, 0.18);
+}
+
+.mini-card .card-label {
 	display: block;
 	margin-bottom: 20px;
 	color: var(--accent-soft);
@@ -790,20 +811,18 @@ a {
 	}
 
 	.mini-card-link::after {
-		top: 0.78rem;
 		right: 0.78rem;
+		bottom: 0.72rem;
 		font-size: 0.66rem;
 	}
 
-	.mini-card-signature::after {
-		top: 0.86rem;
-		right: 0.86rem;
-		width: 6px;
-		height: 6px;
-		box-shadow: 0 0 12px rgba(0, 255, 156, 0.22);
+	.card-icon {
+		top: 0.78rem;
+		right: 0.78rem;
+		font-size: 16px;
 	}
 
-	.mini-card span {
+	.mini-card .card-label {
 		margin-bottom: 13px;
 		font-size: 0.62rem;
 		font-weight: 500;

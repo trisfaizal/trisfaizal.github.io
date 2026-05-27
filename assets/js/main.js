@@ -48,10 +48,62 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
 const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
+const appendPromptPart = (target, className, text) => {
+	if (!text) {
+		return;
+	}
+
+	const span = document.createElement('span');
+	span.className = className;
+	span.textContent = text;
+	target.append(span);
+};
+
+const renderTypedLine = (target, text) => {
+	if (!target.hasAttribute('data-prompt-line')) {
+		target.textContent = text;
+		return;
+	}
+
+	const promptMatch = target.dataset.typeLine.match(/^([^:]+)(:)(~)(\$)(.*)$/);
+
+	if (!promptMatch) {
+		target.textContent = text;
+		return;
+	}
+
+	const [, user, separator, directory, symbol, command] = promptMatch;
+	const parts = [
+		['prompt-user', user],
+		['prompt-separator', separator],
+		['prompt-dir', directory],
+		['prompt-symbol', symbol],
+		['', command],
+	];
+
+	let remaining = text.length;
+	target.textContent = '';
+
+	for (const [className, part] of parts) {
+		if (remaining <= 0) {
+			break;
+		}
+
+		const visible = part.slice(0, remaining);
+		remaining -= visible.length;
+
+		if (className) {
+			appendPromptPart(target, className, visible);
+		} else {
+			target.append(document.createTextNode(visible));
+		}
+	}
+};
+
 const runTypewriter = async () => {
 	if (reducedMotion) {
 		typeTargets.forEach((target) => {
-			target.textContent = target.dataset.typeLine;
+			renderTypedLine(target, target.dataset.typeLine);
 		});
 		typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
 		return;
@@ -72,7 +124,7 @@ const runTypewriter = async () => {
 		await wait(220);
 
 		for (let index = 0; index <= text.length; index += 1) {
-			target.textContent = text.slice(0, index);
+			renderTypedLine(target, text.slice(0, index));
 			await wait(speed);
 		}
 

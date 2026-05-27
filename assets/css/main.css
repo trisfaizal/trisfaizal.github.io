@@ -312,7 +312,6 @@ a {
 	animation: blink 1s steps(2, start) infinite;
 }
 
-.terminal-line.is-active .cursor,
 .terminal-line.is-idle .cursor {
 	opacity: 1;
 }

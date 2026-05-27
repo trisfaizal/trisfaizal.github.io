@@ -761,18 +761,47 @@ a {
 
 	.identity-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-auto-rows: 1fr;
+		gap: 10px;
 	}
 
 	.identity-grid .mini-card-link {
-		min-height: 106px;
+		min-height: 92px;
 	}
 
 	.identity-grid .mini-card-signature {
-		grid-column: 1 / -1;
+		grid-column: auto;
 	}
 
 	.mini-card {
-		min-height: 108px;
+		min-height: 92px;
+		padding: 0.78rem;
+	}
+
+	.mini-card-link::after {
+		top: 0.78rem;
+		right: 0.78rem;
+		font-size: 0.66rem;
+	}
+
+	.mini-card-signature::after {
+		top: 0.86rem;
+		right: 0.86rem;
+		width: 6px;
+		height: 6px;
+		box-shadow: 0 0 12px rgba(0, 255, 156, 0.22);
+	}
+
+	.mini-card span {
+		margin-bottom: 13px;
+		font-size: 0.62rem;
+		font-weight: 500;
+	}
+
+	.mini-card h3 {
+		font-size: 0.78rem;
+		line-height: 1.22;
+		overflow-wrap: anywhere;
 	}
 
 	.contact-page .about {

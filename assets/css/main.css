@@ -547,21 +547,22 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 18px;
+	gap: 14px;
 	width: min(var(--max-width), 100%);
 	margin: 0 auto;
-	padding-top: 9px;
+	padding-top: 8px;
 	border-top: 1px solid rgba(255, 255, 255, 0.06);
 	font-size: 0.72rem;
 	font-weight: 400;
-	line-height: 1.4;
+	line-height: 1.3;
 }
 
 .footer-inner .brand {
 	color: rgba(156, 163, 175, 0.62);
-	font-size: 0.7rem;
+	font-size: 0.72rem;
 	font-weight: 400;
-	line-height: 1.35;
+	line-height: 1.3;
+	white-space: nowrap;
 }
 
 .footer-inner a:not(.brand) {
@@ -583,6 +584,8 @@ a {
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 	font-size: 0.68rem;
 	font-weight: 400;
+	line-height: 1.3;
+	white-space: nowrap;
 	text-shadow: 0 0 14px rgba(0, 255, 156, 0.1);
 }
 
@@ -738,16 +741,15 @@ a {
 	}
 
 	.site-footer {
-		padding: 0 16px 12px;
+		padding: 0 12px 12px;
 	}
 
 	.footer-inner {
-		justify-content: center;
-		gap: 4px 14px;
+		justify-content: space-between;
+		gap: 10px;
 		padding-top: 8px;
-		font-size: 0.68rem;
-		text-align: center;
-		flex-wrap: wrap;
+		font-size: 0.66rem;
+		text-align: left;
 	}
 
 	.footer-inner .brand {
@@ -756,7 +758,7 @@ a {
 
 	.status-line {
 		color: rgba(0, 255, 156, 0.64);
-		font-size: 0.64rem;
+		font-size: 0.62rem;
 		text-shadow: 0 0 14px rgba(0, 255, 156, 0.1);
 	}
 
@@ -818,10 +820,6 @@ a {
 		padding-bottom: 32px;
 	}
 
-	.footer-inner {
-		display: grid;
-		justify-items: start;
-	}
 }
 
 @media (prefers-reduced-motion: reduce) {

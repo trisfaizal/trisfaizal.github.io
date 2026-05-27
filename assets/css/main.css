@@ -817,9 +817,13 @@ a {
 	}
 
 	.hero-subtitle {
-		max-width: 21rem;
+		max-width: none;
 		margin-right: auto;
 		margin-left: auto;
+		font-size: clamp(0.95rem, 4.2vw, 1.08rem);
+		line-height: 1.35;
+		letter-spacing: 0;
+		white-space: nowrap;
 	}
 
 	.hero-actions {

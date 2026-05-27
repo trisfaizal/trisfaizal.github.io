@@ -539,7 +539,7 @@ a {
 }
 
 .site-footer {
-	padding: 6px 20px 16px;
+	padding: 4px 20px 14px;
 	color: var(--muted);
 }
 
@@ -550,15 +550,15 @@ a {
 	gap: 18px;
 	width: min(var(--max-width), 100%);
 	margin: 0 auto;
-	padding-top: 12px;
+	padding-top: 9px;
 	border-top: 1px solid rgba(255, 255, 255, 0.06);
-	font-size: 0.76rem;
+	font-size: 0.72rem;
 	font-weight: 400;
 	line-height: 1.4;
 }
 
 .footer-inner .brand {
-	color: rgba(156, 163, 175, 0.74);
+	color: rgba(156, 163, 175, 0.62);
 	font-weight: 400;
 }
 
@@ -577,9 +577,9 @@ a {
 }
 
 .status-line {
-	color: rgba(156, 163, 175, 0.68);
+	color: rgba(0, 255, 156, 0.64);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-	font-size: 0.72rem;
+	font-size: 0.68rem;
 	font-weight: 400;
 }
 
@@ -735,20 +735,20 @@ a {
 	}
 
 	.site-footer {
-		padding: 0 16px 14px;
+		padding: 0 16px 12px;
 	}
 
 	.footer-inner {
 		justify-content: center;
 		gap: 4px 14px;
-		padding-top: 10px;
-		font-size: 0.72rem;
+		padding-top: 8px;
+		font-size: 0.68rem;
 		text-align: center;
 		flex-wrap: wrap;
 	}
 
 	.status-line {
-		font-size: 0.68rem;
+		font-size: 0.64rem;
 	}
 
 	.section {

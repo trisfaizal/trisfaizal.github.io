@@ -559,7 +559,9 @@ a {
 
 .footer-inner .brand {
 	color: rgba(156, 163, 175, 0.62);
+	font-size: 0.7rem;
 	font-weight: 400;
+	line-height: 1.35;
 }
 
 .footer-inner a:not(.brand) {
@@ -746,6 +748,10 @@ a {
 		font-size: 0.68rem;
 		text-align: center;
 		flex-wrap: wrap;
+	}
+
+	.footer-inner .brand {
+		font-size: 0.66rem;
 	}
 
 	.status-line {

@@ -53,24 +53,34 @@ const runTypewriter = async () => {
 		typeTargets.forEach((target) => {
 			target.textContent = target.dataset.typeLine;
 		});
+		typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
 		return;
 	}
 
 	typeTargets.forEach((target) => {
 		target.textContent = '';
+		target.parentElement?.classList.remove('is-active', 'is-idle');
 	});
 
 	for (const target of typeTargets) {
 		const text = target.dataset.typeLine;
-		await wait(340);
+		const speed = Number(target.dataset.typeSpeed || 32);
+		const pause = Number(target.dataset.typePause || 260);
+		const line = target.parentElement;
+
+		line?.classList.add('is-active');
+		await wait(220);
 
 		for (let index = 0; index <= text.length; index += 1) {
 			target.textContent = text.slice(0, index);
-			await wait(38);
+			await wait(speed);
 		}
 
-		await wait(120);
+		line?.classList.remove('is-active');
+		await wait(pause);
 	}
+
+	typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
 };
 
 runTypewriter();

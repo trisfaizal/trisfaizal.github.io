@@ -80,6 +80,7 @@ const runTypewriter = async () => {
 		await wait(pause);
 	}
 
+	await wait(180);
 	typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
 };
 

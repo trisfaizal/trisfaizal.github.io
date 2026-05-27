@@ -576,11 +576,12 @@ a {
 	margin: 0;
 }
 
-.status-line {
+.site-footer .status-line {
 	color: rgba(0, 255, 156, 0.64);
 	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 	font-size: 0.68rem;
 	font-weight: 400;
+	text-shadow: 0 0 14px rgba(0, 255, 156, 0.1);
 }
 
 .reveal {
@@ -748,7 +749,9 @@ a {
 	}
 
 	.status-line {
+		color: rgba(0, 255, 156, 0.64);
 		font-size: 0.64rem;
+		text-shadow: 0 0 14px rgba(0, 255, 156, 0.1);
 	}
 
 	.section {

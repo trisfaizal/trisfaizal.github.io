@@ -539,7 +539,7 @@ a {
 }
 
 .site-footer {
-	padding: 14px 20px 22px;
+	padding: 6px 20px 16px;
 	color: var(--muted);
 }
 
@@ -547,18 +547,18 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 16px;
+	gap: 18px;
 	width: min(var(--max-width), 100%);
 	margin: 0 auto;
-	padding-top: 22px;
-	border-top: 1px solid var(--line);
-	font-size: 0.84rem;
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	font-size: 0.76rem;
 	font-weight: 400;
-	flex-wrap: wrap;
+	line-height: 1.4;
 }
 
 .footer-inner .brand {
-	color: var(--muted);
+	color: rgba(156, 163, 175, 0.74);
 	font-weight: 400;
 }
 
@@ -577,8 +577,9 @@ a {
 }
 
 .status-line {
-	color: var(--accent);
-	font-size: 0.74rem;
+	color: rgba(156, 163, 175, 0.68);
+	font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.72rem;
 	font-weight: 400;
 }
 
@@ -731,6 +732,23 @@ a {
 
 	.hero-links a {
 		font-size: 0.78rem;
+	}
+
+	.site-footer {
+		padding: 0 16px 14px;
+	}
+
+	.footer-inner {
+		justify-content: center;
+		gap: 4px 14px;
+		padding-top: 10px;
+		font-size: 0.72rem;
+		text-align: center;
+		flex-wrap: wrap;
+	}
+
+	.status-line {
+		font-size: 0.68rem;
 	}
 
 	.section {

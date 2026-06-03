@@ -117,3 +117,23 @@ const runTypewriter = async () => {
 };
 
 runTypewriter();
+
+// Mobile Menu Toggle logic
+const menuToggle = document.querySelector('.menu-toggle');
+const navbar = document.querySelector('.navbar');
+
+if (menuToggle && navbar) {
+	menuToggle.addEventListener('click', (event) => {
+		event.stopPropagation();
+		const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+		menuToggle.setAttribute('aria-expanded', !expanded);
+		navbar.classList.toggle('is-active');
+	});
+
+	document.addEventListener('click', (event) => {
+		if (!navbar.contains(event.target)) {
+			menuToggle.setAttribute('aria-expanded', 'false');
+			navbar.classList.remove('is-active');
+		}
+	});
+}

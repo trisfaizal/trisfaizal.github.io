@@ -173,7 +173,8 @@ button, a {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start; /* Moved entire hero upward */
+	align-items: center; /* Center-aligns all block elements */
+	justify-content: flex-start;
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
@@ -182,25 +183,18 @@ button, a {
 
 /* Hero Section */
 .hero {
+	width: 100%;
+	max-width: 760px; /* Restrict hero text width */
+	text-align: center;
 	padding: 0;
-	margin-top: 0;
+	margin-top: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .hero-shell {
 	width: 100%;
-}
-
-.hero-grid {
-	display: grid;
-	grid-template-columns: 1.1fr 0.9fr;
-	gap: 64px;
-	align-items: center;
-}
-
-.hero-left {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 }
 
 .hero-headline {
@@ -210,15 +204,21 @@ button, a {
 	line-height: 1.1;
 	letter-spacing: -0.03em;
 	color: var(--text);
-	margin: 0 0 24px;
+	margin: 0 0 24px 0; /* Spacing Headline -> Description (24px) */
 }
 
 .hero-description {
 	font-size: clamp(0.95rem, 1.8vw, 1.1rem);
 	line-height: 1.6;
 	color: var(--muted);
-	margin: 0 0 44px; /* Increased from 32px (+12px) for CTA breathing room */
-	max-width: 520px;
+	margin: 0 auto 32px auto; /* Spacing Description -> CTA (32px) & centering */
+	max-width: 580px; /* Restricts width for 2-3 lines of text */
+}
+
+.hero-cta-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 /* CTA */
@@ -245,18 +245,19 @@ button, a {
 	transform: translateY(-1px);
 }
 
-/* Right Column - Terminal */
-.hero-right {
+/* Terminal Section */
+.terminal-container {
+	width: 100%;
+	max-width: 860px; /* Restrict terminal width to 800-900px */
+	margin-top: 48px; /* Spacing below Hero (CTA) to Terminal */
 	display: flex;
 	justify-content: center;
-	width: 100%;
 }
 
 .terminal-window {
 	width: 100%;
-	max-width: 780px; /* Increased (+15%) */
 	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(12px); /* Softer premium blur */
+	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
@@ -269,7 +270,7 @@ button, a {
 }
 
 .terminal-window:hover {
-	transform: translateY(-4px); /* Gentle floating hover effect */
+	transform: translateY(-4px);
 	box-shadow: 
 		0 48px 96px rgba(0, 0, 0, 0.06), 
 		0 4px 12px rgba(0, 0, 0, 0.01),
@@ -297,10 +298,11 @@ button, a {
 .terminal-dot.green { background: #28c840; }
 
 .terminal-body {
-	padding: 44px 40px; /* Increased (+10% height) */
+	padding: 40px 36px;
 	font-family: var(--font-mono);
 	font-size: 0.95rem;
 	line-height: 1.6;
+	text-align: left;
 }
 
 .terminal-line {
@@ -309,7 +311,7 @@ button, a {
 	word-break: break-all;
 	color: var(--text);
 	position: relative;
-	min-height: 1.9em; /* Slightly larger height scale */
+	min-height: 1.9em;
 }
 
 .terminal-line + .terminal-line {
@@ -365,7 +367,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 36px 0 24px 0; /* Increased top margin for clear separation */
+	margin: 56px 0; /* 48-64px spacing above and below */
 	width: 100%;
 }
 
@@ -383,7 +385,7 @@ button, a {
 }
 
 .social-icons-row a svg {
-	width: 22px; /* Increased size to 22px */
+	width: 22px;
 	height: 22px;
 	transition: stroke 0.25s ease, color 0.25s ease;
 }
@@ -615,21 +617,6 @@ button, a {
    RESPONSIVE DESIGN / MEDIA QUERIES
    ---------------------------------------------------- */
 @media (max-width: 968px) {
-	.hero-grid {
-		grid-template-columns: 1fr;
-		gap: 48px;
-		text-align: center;
-	}
-
-	.hero-left {
-		align-items: center;
-	}
-
-	.hero-description {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
 	.about-grid {
 		grid-template-columns: 1fr;
 		gap: 32px;

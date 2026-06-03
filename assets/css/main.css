@@ -184,7 +184,7 @@ button, a {
 .hero {
 	width: 100%;
 	padding: 0;
-	margin-top: 120px; /* Navbar ↓ 120px ↓ Hero Grid (110-130px range) */
+	margin-top: 170px; /* Navbar ↓ 170px ↓ Hero Grid (added +50px breathing room) */
 }
 
 .hero-shell {
@@ -378,7 +378,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 120px 0 120px 0; /* Centered between Hero and Footer with equal X = 120px spacing */
+	margin: 150px 0 150px 0; /* Centered precisely between bottom of terminal and footer line */
 	width: 100%;
 }
 
@@ -654,13 +654,13 @@ button, a {
 /* Tablet Spacing Refinements (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
 	.hero {
-		margin-top: 90px; /* Navbar -> 90px -> Headline (80-100px range) */
+		margin-top: 130px; /* Navbar -> 130px -> Headline (added +40px spacing) */
 	}
 	.terminal-container {
 		margin-top: 52px; /* CTA -> 52px (48–56px range) -> Terminal */
 	}
 	.social-icons-row {
-		margin: 84px 0 84px 0; /* Terminal -> 84px (72–96px range) -> Social Icons -> 84px -> Footer */
+		margin: 100px 0 100px 0; /* Centered precisely between terminal and footer */
 	}
 }
 
@@ -703,10 +703,8 @@ button, a {
 	}
 
 	.terminal-window {
-		min-height: 0;
-		min-height: none;
-		min-height: initial;
-		height: auto; /* Content-driven height */
+		min-height: 210px; /* Fit terminal lines snugly (reduced by ~38%) */
+		height: auto;
 	}
 
 	.terminal-body {

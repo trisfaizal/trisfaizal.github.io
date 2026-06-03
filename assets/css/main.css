@@ -372,13 +372,31 @@ button, a {
 	50% { opacity: 0; }
 }
 
-/* Social Icons Row */
+/* Social Section & Eyebrow Heading */
+.social-section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 100px 0 100px 0; /* Centered precisely between bottom of terminal and footer line */
+}
+
+.social-heading {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	color: var(--muted);
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	text-align: center;
+	margin: 0 0 24px 0; /* 24px spacing between heading and social icons */
+}
+
 .social-icons-row {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 100px 0 100px 0; /* Centered precisely between bottom of terminal and footer line */
+	margin: 0;
 	width: 100%;
 }
 
@@ -456,173 +474,7 @@ button, a {
 	transform: translateY(0);
 }
 
-/* ----------------------------------------------------
-   CONTACT PAGE SPECIFIC STYLES
-   ---------------------------------------------------- */
-.contact-page {
-	padding-top: 40px;
-	padding-bottom: 40px;
-}
 
-.section-heading {
-	margin-bottom: 32px;
-}
-
-.eyebrow {
-	font-family: var(--font-mono);
-	font-size: 0.8rem;
-	color: var(--accent);
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	margin: 0;
-}
-
-.about-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 40px;
-	align-items: flex-start;
-}
-
-.terminal-card {
-	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	border: 1px solid var(--line);
-	border-radius: var(--radius);
-	box-shadow: 
-		0 40px 80px rgba(0, 0, 0, 0.04),
-		inset 0 1px 0 rgba(255, 255, 255, 0.9);
-	overflow: hidden;
-	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.terminal-card:hover {
-	transform: translateY(-4px);
-	box-shadow: 
-		0 48px 96px rgba(0, 0, 0, 0.06),
-		inset 0 1px 0 rgba(255, 255, 255, 0.95);
-}
-
-.terminal-card-body {
-	padding: 44px 40px;
-}
-
-.terminal-command {
-	font-family: var(--font-mono);
-	font-size: 0.85rem;
-	color: var(--text);
-	margin: 0 0 20px 0;
-}
-
-.whoami-ascii {
-	font-family: var(--font-mono);
-	font-size: 0.7rem;
-	line-height: 1.2;
-	color: var(--text);
-	margin: 0 0 20px 0;
-	white-space: pre;
-	overflow-x: auto;
-}
-
-.whoami-kicker {
-	font-family: var(--font-mono);
-	font-size: 0.85rem;
-	line-height: 1.5;
-	color: var(--muted);
-	margin: 0;
-}
-
-.identity-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 16px;
-}
-
-.mini-card {
-	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	border: 1px solid var(--line);
-	border-radius: var(--radius);
-	padding: 20px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	min-height: 120px;
-	box-shadow: 
-		0 10px 20px rgba(0, 0, 0, 0.02),
-		inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.mini-card:hover {
-	border-color: rgba(0, 184, 107, 0.3);
-	background: rgba(255, 255, 255, 0.85);
-	box-shadow: 
-		0 12px 28px rgba(0, 184, 107, 0.04),
-		inset 0 1px 0 rgba(255, 255, 255, 0.95);
-	transform: translateY(-2px);
-}
-
-.mini-card-link::after {
-	position: absolute;
-	right: 16px;
-	bottom: 16px;
-	font-size: 0.8rem;
-	content: "↗";
-	color: var(--muted);
-	opacity: 0.6;
-	transition: all 0.2s ease;
-}
-
-.mini-card-link:hover::after {
-	color: var(--accent);
-	transform: translate(2px, -2px);
-	opacity: 1;
-}
-
-.card-icon {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	color: var(--muted);
-	font-size: 1.1rem;
-}
-
-.mini-card:hover .card-icon {
-	color: var(--accent);
-}
-
-.mini-card .card-label {
-	font-family: var(--font-mono);
-	font-size: 0.7rem;
-	color: var(--muted);
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	margin-bottom: 8px;
-}
-
-.mini-card h3 {
-	font-size: 1rem;
-	font-weight: 600;
-	color: var(--text);
-	margin: 0;
-}
-
-.mini-card-signature {
-	border-color: rgba(0, 184, 107, 0.15);
-	background: rgba(0, 184, 107, 0.02);
-}
-
-.mini-card-signature:hover {
-	border-color: var(--accent);
-	background: rgba(0, 184, 107, 0.04);
-}
-
-.mini-card-signature .card-icon {
-	color: var(--accent);
-}
 
 /* ----------------------------------------------------
    RESPONSIVE DESIGN / MEDIA QUERIES
@@ -645,10 +497,7 @@ button, a {
 		text-align: center;
 	}
 
-	.about-grid {
-		grid-template-columns: 1fr;
-		gap: 32px;
-	}
+
 }
 
 /* Tablet Spacing Refinements (768px - 1024px) */
@@ -659,7 +508,7 @@ button, a {
 	.terminal-container {
 		margin-top: 44px; /* CTA -> 44px -> Terminal (compact to avoid overflow) */
 	}
-	.social-icons-row {
+	.social-section {
 		margin: 56px 0 56px 0; /* Centered between terminal and footer (compact to avoid scroll) */
 	}
 }
@@ -716,17 +565,13 @@ button, a {
 		min-height: auto; /* Content-based height */
 	}
 
-	.social-icons-row {
-		gap: 20px;
+	.social-section {
 		margin: 48px 0 48px 0; /* Terminal -> 48px -> Social Icons -> 48px -> Footer */
 	}
 
-	.identity-grid {
-		grid-template-columns: 1fr;
-	}
-	
-	.mini-card {
-		min-height: 100px;
+	.social-icons-row {
+		gap: 20px;
+		margin: 0;
 	}
 }
 

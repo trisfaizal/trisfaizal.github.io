@@ -15,8 +15,6 @@ Premium minimalist landing page for TRISF, built as a lightweight static website
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
-├── contact/
-│   └── index.html
 ├── assets/
 │   ├── css/
 │   │   └── main.css

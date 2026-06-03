@@ -7,7 +7,7 @@
 	--accent-soft: #00c16a;
 	--line: rgba(17, 17, 17, 0.08);
 	--line-bright: rgba(0, 184, 107, 0.25);
-	--max-width: 1400px; /* Increased from 1100px for breathing room */
+	--max-width: 1400px;
 	--nav-height: 72px;
 	--radius: 12px;
 	--font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -50,8 +50,8 @@ body::before {
 	pointer-events: none;
 	content: "";
 	background-image:
-		linear-gradient(rgba(17, 17, 17, 0.0025) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(17, 17, 17, 0.0025) 1px, transparent 1px);
+		linear-gradient(rgba(17, 17, 17, 0.0015) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(17, 17, 17, 0.0015) 1px, transparent 1px);
 	background-size: 64px 64px;
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
 	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
@@ -129,14 +129,14 @@ button, a {
 	color: var(--text);
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: 4px;
 }
 
 .brand-dot {
 	color: var(--accent);
 	font-size: 0.8rem;
-	margin-left: 2px;
-	text-shadow: 0 0 8px rgba(0, 184, 107, 0.45);
+	margin-left: 3px;
+	text-shadow: none;
 }
 
 .brand:hover {
@@ -173,7 +173,7 @@ button, a {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start; /* Moved entire hero upward */
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
@@ -182,7 +182,8 @@ button, a {
 
 /* Hero Section */
 .hero {
-	padding: 56px 0 8px 0; /* Reduced bottom padding */
+	padding: 40px 0 0 0; /* Reduced top spacing significantly */
+	margin-top: 24px;
 }
 
 .hero-shell {
@@ -216,7 +217,7 @@ button, a {
 	font-size: clamp(0.95rem, 1.8vw, 1.1rem);
 	line-height: 1.6;
 	color: var(--muted);
-	margin: 0 0 32px;
+	margin: 0 0 44px; /* Increased from 32px (+12px) for CTA breathing room */
 	max-width: 520px;
 }
 
@@ -253,17 +254,26 @@ button, a {
 
 .terminal-window {
 	width: 100%;
-	max-width: 680px; /* Increased from 540px (+25%) */
+	max-width: 780px; /* Increased (+15%) */
 	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(12px); /* Softer premium blur */
+	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 35px 70px rgba(0, 0, 0, 0.07), 
-		0 1px 3px rgba(0, 0, 0, 0.02),
-		inset 0 1px 0 rgba(255, 255, 255, 0.8);
+		0 40px 80px rgba(0, 0, 0, 0.04), 
+		0 2px 6px rgba(0, 0, 0, 0.01),
+		inset 0 1px 0 rgba(255, 255, 255, 0.9);
 	overflow: hidden;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.terminal-window:hover {
+	transform: translateY(-4px); /* Gentle floating hover effect */
+	box-shadow: 
+		0 48px 96px rgba(0, 0, 0, 0.06), 
+		0 4px 12px rgba(0, 0, 0, 0.01),
+		inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .terminal-header {
@@ -287,9 +297,9 @@ button, a {
 .terminal-dot.green { background: #28c840; }
 
 .terminal-body {
-	padding: 40px 36px; /* Increased padding (+20% height context) */
+	padding: 44px 40px; /* Increased (+10% height) */
 	font-family: var(--font-mono);
-	font-size: 0.95rem; /* Increased (+1 step) */
+	font-size: 0.95rem;
 	line-height: 1.6;
 }
 
@@ -299,7 +309,7 @@ button, a {
 	word-break: break-all;
 	color: var(--text);
 	position: relative;
-	min-height: 1.8em; /* Slightly larger height scale */
+	min-height: 1.9em; /* Slightly larger height scale */
 }
 
 .terminal-line + .terminal-line {
@@ -355,7 +365,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 8px 0 24px 0; /* Reduced top gap to pull row upward */
+	margin: -12px 0 24px 0; /* Reduced top gap significantly to move icons upward */
 	width: 100%;
 }
 
@@ -370,14 +380,12 @@ button, a {
 
 .social-icons-row a:hover {
 	color: var(--accent);
-	transform: translateY(-2px);
-	background: rgba(0, 184, 107, 0.05);
 }
 
 .social-icons-row a svg {
-	width: 20px;
-	height: 20px;
-	transition: stroke 0.2s ease;
+	width: 22px; /* Increased size to 22px */
+	height: 22px;
+	transition: stroke 0.25s ease, color 0.25s ease;
 }
 
 /* Site Footer */
@@ -465,18 +473,26 @@ button, a {
 
 .terminal-card {
 	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 35px 70px rgba(0, 0, 0, 0.07),
-		inset 0 1px 0 rgba(255, 255, 255, 0.8);
+		0 40px 80px rgba(0, 0, 0, 0.04),
+		inset 0 1px 0 rgba(255, 255, 255, 0.9);
 	overflow: hidden;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.terminal-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 
+		0 48px 96px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .terminal-card-body {
-	padding: 40px 36px;
+	padding: 44px 40px;
 }
 
 .terminal-command {
@@ -512,8 +528,8 @@ button, a {
 
 .mini-card {
 	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
 	padding: 20px;
@@ -524,7 +540,7 @@ button, a {
 	min-height: 120px;
 	box-shadow: 
 		0 10px 20px rgba(0, 0, 0, 0.02),
-		inset 0 1px 0 rgba(255, 255, 255, 0.8);
+		inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .mini-card:hover {

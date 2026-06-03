@@ -381,7 +381,7 @@ button, a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin: 120px auto; /* Centered between hero and footer with 120px vertical offset */
+	margin: 190px auto 120px auto; /* 190px space below hero, 120px above footer */
 }
 
 .social-heading {
@@ -507,13 +507,13 @@ button, a {
 /* Tablet Spacing Refinements (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
 	.hero {
-		margin-top: 130px; /* Navbar -> 130px -> Headline (proportional top offset) */
+		margin-top: 110px; /* Navbar -> 110px -> Headline (proportional top offset) */
 	}
 	.terminal-container {
 		margin-top: 44px; /* CTA -> 44px -> Terminal (compact to avoid overflow) */
 	}
 	.social-section {
-		margin: 170px auto 120px auto; /* 170px space below hero, 120px above footer */
+		margin: 190px auto 120px auto; /* 190px space below hero, 120px above footer */
 	}
 }
 

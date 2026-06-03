@@ -488,7 +488,7 @@ button, a {
 /* Desktop Spacing Refinements (>= 1024px) */
 @media (min-width: 1024px) {
 	.hero {
-		margin-bottom: 80px; /* Hero ↓ 80px ↓ LET'S CONNECT */
+		margin-bottom: 140px; /* Hero ↓ 140px ↓ LET'S CONNECT (~75% increase) */
 	}
 
 	.social-section {

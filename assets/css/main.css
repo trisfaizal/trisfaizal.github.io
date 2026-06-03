@@ -10,6 +10,7 @@
 	--line-bright: rgba(0, 184, 107, 0.25);
 	--max-width: 1400px;
 	--nav-height: 72px;
+	--nav-height-mobile: 60px;
 	--radius: 12px;
 	--font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	--font-serif: "Space Grotesk", "Inter", sans-serif;
@@ -22,6 +23,7 @@
 
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: var(--nav-height); /* prevent anchor links hiding under sticky header */
 }
 
 body {
@@ -110,7 +112,8 @@ button, a {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	background-color: rgba(250, 250, 249, 0.92);
+	background-color: var(--bg); /* fully opaque — prevents content bleed-through when scrolling */
+	border-bottom: 1px solid var(--line);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
 }
@@ -120,7 +123,6 @@ button, a {
 	align-items: center;
 	justify-content: space-between;
 	height: var(--nav-height);
-	border-bottom: 1px solid var(--line);
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 24px;
@@ -556,9 +558,13 @@ button, a {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		height: 60px;
+		height: var(--nav-height-mobile);
 		padding: 0;
-		position: relative;
+		position: relative; /* keeps dropdown anchored to navbar bottom */
+	}
+
+	html {
+		scroll-padding-top: var(--nav-height-mobile);
 	}
 
 	.desktop-nav {

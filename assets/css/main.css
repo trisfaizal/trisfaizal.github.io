@@ -191,7 +191,7 @@ button, a {
 .hero {
 	width: 100%;
 	padding: 0;
-	margin-top: 160px; /* Desktop: Navbar ↓ 160px ↓ Hero */
+	margin-top: 140px; /* Desktop baseline: Navbar ↓ 140px ↓ Hero */
 }
 
 .hero-shell {
@@ -499,7 +499,8 @@ button, a {
 	}
 
 	.social-icons-row {
-		margin-bottom: 60px; /* Social Icons ↓ 60px ↓ Footer */
+		/* Icons ↓ 90–120px ↓ Footer, scales with viewport height */
+		margin-bottom: clamp(90px, 9vh, 120px);
 	}
 }
 
@@ -540,7 +541,8 @@ button, a {
 	}
 
 	.social-icons-row {
-		margin-bottom: 40px; /* Social Icons ↓ 40px ↓ Footer */
+		/* Icons ↓ ~64px ↓ Footer, clearly separated on tablet */
+		margin-bottom: clamp(52px, 6vh, 72px);
 	}
 
 	.terminal-container {
@@ -699,7 +701,8 @@ button, a {
 
 	.social-icons-row {
 		gap: 24px;
-		margin-bottom: 32px; /* Social Icons ↓ 32px ↓ Footer */
+		/* Icons ↓ 40–48px ↓ Footer — enough to not feel attached */
+		margin-bottom: clamp(40px, 5vh, 48px);
 	}
 
 	.social-icons-row a svg {

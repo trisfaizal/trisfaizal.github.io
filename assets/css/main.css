@@ -538,7 +538,7 @@ button, a {
 /* Tablet Spacing Refinements (768px – 1023px) */
 @media (max-width: 1023px) and (min-width: 768px) {
 	.hero {
-		margin-top: 60px;    /* Navbar ↓ 60px ↓ Hero */
+		margin-top: 87px;    /* Navbar ↓ 87px ↓ Hero */
 		margin-bottom: 70px; /* Hero ↓ 70px ↓ LET'S CONNECT */
 	}
 

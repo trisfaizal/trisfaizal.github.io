@@ -535,10 +535,9 @@ button, a {
 
 }
 
-/* Tablet Spacing Refinements (768px – 1023px) */
 @media (max-width: 1023px) and (min-width: 768px) {
 	.hero {
-		margin-top: 140px;    /* Navbar ↓ 140px ↓ Hero */
+		margin-top: 190px;    /* Navbar ↓ 190px ↓ Hero */
 		margin-bottom: 90px; /* Hero ↓ 90px ↓ LET'S CONNECT */
 	}
 
@@ -548,8 +547,7 @@ button, a {
 	}
 
 	.social-icons-row {
-		/* Icons ↓ 60–80px ↓ Footer on tablet */
-		margin-bottom: clamp(60px, 6vh, 80px);
+		margin-bottom: 70px; /* Icons ↓ 70px ↓ Footer */
 	}
 
 	.terminal-container {

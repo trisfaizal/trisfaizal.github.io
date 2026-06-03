@@ -167,7 +167,7 @@ button, a {
 
 .mobile-nav,
 .mobile-menu-toggle {
-	display: none;
+	display: none !important;
 }
 
 /* Main content */
@@ -538,7 +538,7 @@ button, a {
 	}
 
 	.mobile-menu-toggle {
-		display: flex;
+		display: flex !important;
 		align-items: center;
 		justify-content: center;
 		background: none;
@@ -562,7 +562,7 @@ button, a {
 	}
 
 	.mobile-nav {
-		display: none;
+		display: none !important;
 		position: absolute;
 		top: calc(100% + 4px);
 		right: 0;
@@ -582,7 +582,7 @@ button, a {
 	}
 
 	.mobile-nav.is-open {
-		display: flex;
+		display: flex !important;
 		animation: menu-slide-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 	}
 

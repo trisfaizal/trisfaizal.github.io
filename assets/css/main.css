@@ -1,13 +1,25 @@
 :root {
-	--bg: #fafaf9;
+	--bg: #fafafa;
 	--bg-soft: #f5f5f4;
+	--surface: #ffffff;
 	--text: #111111;
-	--muted: #5f6673;
+	--muted: #666666;
 	--accent: #00b86b;
 	--accent-green: #00b86b;
 	--accent-soft: #00c16a;
-	--line: rgba(17, 17, 17, 0.08);
+	--line: #e5e7eb;
 	--line-bright: rgba(0, 184, 107, 0.25);
+	
+	--selection-bg: rgba(0, 184, 107, 0.12);
+	--accent-bg: rgba(0, 184, 107, 0.05);
+	--grid-line: rgba(17, 17, 17, 0.025);
+	--terminal-bg: rgba(255, 255, 255, 0.65);
+	--terminal-header-bg: rgba(255, 255, 255, 0.4);
+	--terminal-border: rgba(17, 17, 17, 0.06);
+	--inset-shadow: rgba(255, 255, 255, 0.9);
+	--shadow-color: rgba(0, 0, 0, 0.04);
+	--shadow-hover-color: rgba(0, 0, 0, 0.06);
+
 	--max-width: 1400px;
 	--nav-height: 72px;
 	--nav-height-mobile: 60px;
@@ -15,6 +27,40 @@
 	--font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	--font-serif: "Space Grotesk", "Inter", sans-serif;
 	--font-mono: "JetBrains Mono", monospace;
+}
+
+html[data-theme="dark"] {
+	--bg: #0f1115;
+	--bg-soft: #1d2330; /* Secondary Surface */
+	--surface: #161a22; /* Surface */
+	--text: #f5f7fa;
+	--muted: #9aa4b2;
+	--accent: #00cf76; /* Accent Green (slightly brighter) */
+	--accent-green: #00cf76;
+	--accent-soft: #10b981;
+	--line: #2b3240; /* Border */
+	--line-bright: rgba(0, 207, 118, 0.25);
+	
+	--selection-bg: rgba(0, 207, 118, 0.15);
+	--accent-bg: rgba(0, 207, 118, 0.08);
+	--grid-line: rgba(255, 255, 255, 0.015);
+	--terminal-bg: #111827;
+	--terminal-header-bg: #1f2937;
+	--terminal-border: #2b3240;
+	--inset-shadow: rgba(255, 255, 255, 0.05);
+	--shadow-color: rgba(0, 0, 0, 0.3);
+	--shadow-hover-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Smooth transitions for theme switching */
+body,
+.site-header,
+.mobile-nav,
+.terminal-window,
+.terminal-header,
+.terminal-body,
+.site-footer {
+	transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 * {
@@ -52,8 +98,8 @@ body::before {
 	pointer-events: none;
 	content: "";
 	background-image:
-		linear-gradient(rgba(17, 17, 17, 0.0015) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(17, 17, 17, 0.0015) 1px, transparent 1px);
+		linear-gradient(var(--grid-line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 	background-size: 64px 64px;
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
 	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
@@ -70,7 +116,7 @@ button, a {
 }
 
 ::selection {
-	background: rgba(0, 184, 107, 0.12);
+	background: var(--selection-bg);
 	color: var(--text);
 }
 
@@ -170,6 +216,35 @@ button, a {
 
 .desktop-nav a[aria-current="page"] {
 	color: var(--accent);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--muted);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	padding: 0;
+}
+
+.theme-toggle:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.desktop-nav .theme-toggle {
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+}
+
+.desktop-nav .theme-toggle:hover {
+	color: var(--text);
+	background-color: var(--bg-soft);
 }
 
 .mobile-nav,
@@ -277,15 +352,15 @@ button, a {
 	min-height: 340px; /* Desktop: 320-360px height range */
 	display: flex;
 	flex-direction: column;
-	background: rgba(255, 255, 255, 0.65);
+	background: var(--terminal-bg);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
-	border: 1px solid var(--line);
+	border: 1px solid var(--terminal-border);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 40px 80px rgba(0, 0, 0, 0.04), 
+		0 40px 80px var(--shadow-color), 
 		0 2px 6px rgba(0, 0, 0, 0.01),
-		inset 0 1px 0 rgba(255, 255, 255, 0.9);
+		inset 0 1px 0 var(--inset-shadow);
 	overflow: hidden;
 	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -293,9 +368,9 @@ button, a {
 .terminal-window:hover {
 	transform: translateY(-4px);
 	box-shadow: 
-		0 48px 96px rgba(0, 0, 0, 0.06), 
+		0 48px 96px var(--shadow-hover-color), 
 		0 4px 12px rgba(0, 0, 0, 0.01),
-		inset 0 1px 0 rgba(255, 255, 255, 0.95);
+		inset 0 1px 0 var(--inset-shadow);
 }
 
 .terminal-header {
@@ -304,8 +379,8 @@ button, a {
 	gap: 6px;
 	height: 38px;
 	padding: 0 16px;
-	border-bottom: 1px solid rgba(17, 17, 17, 0.06);
-	background: rgba(255, 255, 255, 0.4);
+	border-bottom: 1px solid var(--terminal-border);
+	background: var(--terminal-header-bg);
 	flex-shrink: 0;
 }
 
@@ -614,7 +689,7 @@ button, a {
 		position: absolute;
 		top: calc(100% + 4px);
 		right: 0;
-		background: #ffffff;
+		background: var(--surface);
 		border: 1px solid var(--line);
 		border-radius: 12px; /* 12px border radius */
 		box-shadow: 
@@ -656,6 +731,23 @@ button, a {
 	.mobile-nav a[aria-current="page"] {
 		color: var(--accent);
 		background: rgba(0, 184, 107, 0.05);
+	}
+
+	.mobile-nav .theme-toggle {
+		width: 100%;
+		min-height: 44px;
+		padding: 0 16px;
+		font-size: 0.88rem;
+		font-weight: 500;
+		border-radius: 8px;
+		justify-content: flex-start;
+		box-sizing: border-box;
+		color: var(--muted);
+	}
+
+	.mobile-nav .theme-toggle:hover {
+		background: var(--bg-soft);
+		color: var(--text);
 	}
 
 	@keyframes menu-slide-in {

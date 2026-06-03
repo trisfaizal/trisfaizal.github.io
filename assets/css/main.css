@@ -185,7 +185,7 @@ button, a {
 .hero {
 	width: 100%;
 	padding: 0;
-	margin-top: 120px; /* Navbar ↓ 120px ↓ Hero Grid */
+	margin-top: 150px; /* Navbar ↓ 150px ↓ Hero Grid */
 }
 
 .hero-shell {
@@ -381,7 +381,7 @@ button, a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin: 90px auto; /* Centered between hero and footer with 90px vertical offset */
+	margin: 120px auto; /* Centered between hero and footer with 120px vertical offset */
 }
 
 .social-heading {
@@ -507,13 +507,13 @@ button, a {
 /* Tablet Spacing Refinements (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
 	.hero {
-		margin-top: 230px; /* Navbar -> 230px -> Headline (large top offset) */
+		margin-top: 150px; /* Navbar -> 150px -> Headline (proportional top offset) */
 	}
 	.terminal-container {
 		margin-top: 44px; /* CTA -> 44px -> Terminal (compact to avoid overflow) */
 	}
 	.social-section {
-		margin: 56px auto; /* Centered between terminal and footer (compact to avoid scroll) */
+		margin: 120px auto; /* Centered with 120px vertical offset */
 	}
 }
 

@@ -381,7 +381,7 @@ button, a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin: 120px auto 120px auto; /* 120px space below hero, 120px above footer */
+	margin: 80px auto; /* 80px space below hero, 80px above footer */
 }
 
 .social-heading {
@@ -392,7 +392,7 @@ button, a {
 	text-transform: uppercase;
 	letter-spacing: 0.18em;
 	text-align: center;
-	margin: 0 0 24px 0; /* 24px spacing between heading and social icons */
+	margin: 0 0 20px 0; /* 20px spacing between heading and social icons */
 }
 
 .social-icons-row {

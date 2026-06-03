@@ -182,8 +182,8 @@ button, a {
 
 /* Hero Section */
 .hero {
-	padding: 40px 0 0 0; /* Reduced top spacing significantly */
-	margin-top: 24px;
+	padding: 0;
+	margin-top: 0;
 }
 
 .hero-shell {
@@ -365,7 +365,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: -12px 0 24px 0; /* Reduced top gap significantly to move icons upward */
+	margin: 36px 0 24px 0; /* Increased top margin for clear separation */
 	width: 100%;
 }
 

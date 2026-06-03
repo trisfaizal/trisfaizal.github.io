@@ -4,40 +4,36 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>TRISF</title>
-		<meta name="description" content="powered by caffeine, linux, and late night ideas." />
-		<meta name="theme-color" content="#050505" />
+		<meta name="description" content="Building reliable systems. Shipping useful ideas." />
+		<meta name="theme-color" content="#fafaf9" />
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href="https://trisf.my.id/" />
 
 		<meta property="og:title" content="TRISF" />
-		<meta property="og:description" content="powered by caffeine, linux, and late night ideas." />
+		<meta property="og:description" content="Building reliable systems. Shipping useful ideas." />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://trisf.my.id/" />
 		<meta property="og:site_name" content="TRISF" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="TRISF" />
-		<meta name="twitter:description" content="sudo make coffee &amp;&amp; deploy things" />
+		<meta name="twitter:description" content="Building reliable systems. Shipping useful ideas." />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
-		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23050505'/%3E%3Cpath d='M23 31h54M23 50h35M23 69h54' stroke='%2300ff9c' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fafaf9' stroke='%23e4e4e3' stroke-width='2'/%3E%3Cpath d='M23 31h54M23 50h35M23 69h54' stroke='%2300b86b' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="assets/js/main.js" defer></script>
 	</head>
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
 
-		<header class="site-header" data-header>
+		<header class="site-header">
 			<nav class="navbar" aria-label="Primary navigation">
-				<a class="brand" href="#hero" aria-label="TRISF home">TRISF</a>
-				<button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle>
-					<span></span>
-					<span></span>
-				</button>
-				<div class="nav-links" id="primary-menu" data-nav-menu>
-					<a href="#hero" aria-current="page">Home</a>
+				<a class="brand" href="./" aria-label="TRISF home">TRISF</a>
+				<div class="nav-links" id="primary-menu">
+					<a href="./" aria-current="page">Home</a>
 					<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
 					<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
 					<a href="contact/">Contact</a>
@@ -46,40 +42,68 @@
 		</header>
 
 		<main id="main">
-			<section class="hero section" id="hero" aria-labelledby="hero-title">
-				<div class="hero-shell reveal">
-					<h1 id="hero-title" class="sr-only">TRISF - Sysadmin, Open Source, Full Stack</h1>
-					<div class="terminal-hero" aria-label="Terminal status">
-						<div class="terminal-window-bar" aria-hidden="true">
-							<span class="terminal-dot terminal-dot-red"></span>
-							<span class="terminal-dot terminal-dot-yellow"></span>
-							<span class="terminal-dot terminal-dot-green"></span>
+			<section class="hero reveal">
+				<div class="hero-shell">
+					<div class="hero-grid">
+						<div class="hero-left">
+							<h1 class="hero-headline">Building reliable systems.<br />Shipping useful ideas.</h1>
+							<p class="hero-description">I build reliable infrastructure, develop scalable applications, and contribute to open source. Always learning, always building.</p>
+							<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer" class="cta-button">View Projects</a>
 						</div>
-						<div class="terminal-body">
-							<div class="terminal-line"><span data-type-line="trisf@lab:~$ deploy --target projects" data-type-speed="32" data-type-pause="680" data-prompt-line>trisf@lab:~$ deploy --target projects</span></div>
-							<div class="terminal-line"><span data-type-line="&gt; loading caffeine" data-type-speed="30" data-type-pause="260">&gt; loading caffeine</span></div>
-							<div class="terminal-line"><span data-type-line="&gt; initializing workspace..." data-type-speed="30" data-type-pause="280">&gt; initializing workspace</span></div>
-							<div class="terminal-line"><span data-type-line="&gt; syncing projects" data-type-speed="28" data-type-pause="260">&gt; syncing projects</span></div>
-							<div class="terminal-line"><span data-type-line="&gt; deployment complete" data-type-speed="26" data-type-pause="0">&gt; deployment complete</span><span class="cursor" aria-hidden="true">_</span></div>
+						<div class="hero-right">
+							<div class="terminal-window" aria-label="Terminal status">
+								<div class="terminal-header" aria-hidden="true">
+									<span class="terminal-dot red"></span>
+									<span class="terminal-dot yellow"></span>
+									<span class="terminal-dot green"></span>
+								</div>
+								<div class="terminal-body">
+									<div class="terminal-line"><span data-type-line="trisf@lab:~$ deploy --target projects" data-type-speed="32" data-type-pause="680" data-prompt-line>trisf@lab:~$ deploy --target projects</span></div>
+									<div class="terminal-line"><span data-type-line="&gt; loading caffeine" data-type-speed="30" data-type-pause="260">&gt; loading caffeine</span></div>
+									<div class="terminal-line"><span data-type-line="&gt; initializing workspace..." data-type-speed="30" data-type-pause="280">&gt; initializing workspace...</span></div>
+									<div class="terminal-line"><span data-type-line="&gt; syncing projects" data-type-speed="28" data-type-pause="260">&gt; syncing projects</span></div>
+									<div class="terminal-line"><span data-type-line="&gt; deployment complete" data-type-speed="26" data-type-pause="0">&gt; deployment complete</span></div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<p class="hero-subtitle">coffee • code • repeat</p>
-					<p class="hero-description">sudo make coffee && deploy things</p>
-					<nav class="hero-links" aria-label="Quick links">
-						<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
-						<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
-						<a href="contact/">Contact</a>
-					</nav>
 				</div>
 			</section>
+
+			<!-- Centered Social Icons Row -->
+			<div class="social-icons-row reveal">
+				<!-- Telegram -->
+				<a href="https://t.me/trisf" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" /></svg>
+				</a>
+				<span class="social-separator">•</span>
+				<!-- Channel -->
+				<a href="https://t.me/trisfproject" target="_blank" rel="noopener noreferrer" aria-label="Channel">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z" /><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" /></svg>
+				</a>
+				<span class="social-separator">•</span>
+				<!-- Group -->
+				<a href="https://t.me/trisfgarage" target="_blank" rel="noopener noreferrer" aria-label="Group">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+				</a>
+				<span class="social-separator">•</span>
+				<!-- Instagram -->
+				<a href="https://instagram.com/trisfproject" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+				</a>
+				<span class="social-separator">•</span>
+				<!-- Email -->
+				<a href="mailto:hello@trisf.my.id" target="_blank" rel="noopener noreferrer" aria-label="Email">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+				</a>
+			</div>
 		</main>
 
 		<footer class="site-footer">
 			<div class="footer-inner">
-				<a class="brand" href="#hero">TRISF &copy; <span data-year></span></a>
-				<p class="status-line">&gt; SYSTEM STATUS: ONLINE</p>
+				<p>TRISF &copy; <span data-year></span></p>
+				<p class="status-line">● SYSTEM STATUS: ONLINE</p>
 			</div>
 		</footer>
-
 	</body>
 </html>

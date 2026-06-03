@@ -1,34 +1,13 @@
-const header = document.querySelector('[data-header]');
-const navToggle = document.querySelector('[data-nav-toggle]');
-const navMenu = document.querySelector('[data-nav-menu]');
 const typeTargets = [...document.querySelectorAll('[data-type-line]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const year = document.querySelector('[data-year]');
 
+// Dynamic Current Year
 if (year) {
 	year.textContent = new Date().getFullYear();
 }
 
-const setHeaderState = () => {
-	header?.classList.toggle('is-scrolled', window.scrollY > 16);
-};
-
-navToggle?.addEventListener('click', () => {
-	const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-	navToggle.setAttribute('aria-expanded', String(!expanded));
-	navMenu?.classList.toggle('is-open', !expanded);
-});
-
-navMenu?.addEventListener('click', (event) => {
-	if (event.target instanceof HTMLAnchorElement) {
-		navToggle?.setAttribute('aria-expanded', 'false');
-		navMenu.classList.remove('is-open');
-	}
-});
-
-window.addEventListener('scroll', setHeaderState, { passive: true });
-setHeaderState();
-
+// Reveal on Scroll / Intersection Observer
 const revealItems = [...document.querySelectorAll('.reveal')];
 
 if ('IntersectionObserver' in window && !reducedMotion) {
@@ -39,13 +18,14 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 				observer.unobserve(entry.target);
 			}
 		});
-	}, { threshold: 0.16 });
+	}, { threshold: 0.1 });
 
 	revealItems.forEach((item) => observer.observe(item));
 } else {
 	revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+// Typing Terminal Animation
 const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 const appendPromptPart = (target, className, text) => {

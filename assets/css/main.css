@@ -184,7 +184,7 @@ button, a {
 .hero {
 	width: 100%;
 	padding: 0;
-	margin-top: 90px; /* Navbar ↓ 90px ↓ Hero Grid */
+	margin-top: 120px; /* Navbar ↓ 120px ↓ Hero Grid (110-130px range) */
 }
 
 .hero-shell {
@@ -378,7 +378,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 100px 0 100px 0; /* Desktop: Hero Block ↓ 100px ↓ Social Icons ↓ 100px ↓ Footer */
+	margin: 120px 0 120px 0; /* Centered between Hero and Footer with equal X = 120px spacing */
 	width: 100%;
 }
 
@@ -654,7 +654,7 @@ button, a {
 /* Tablet Spacing Refinements (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
 	.hero {
-		margin-top: 60px; /* Navbar -> 60px -> Headline */
+		margin-top: 90px; /* Navbar -> 90px -> Headline (80-100px range) */
 	}
 	.terminal-container {
 		margin-top: 52px; /* CTA -> 52px (48–56px range) -> Terminal */
@@ -703,7 +703,10 @@ button, a {
 	}
 
 	.terminal-window {
-		min-height: auto; /* Remove forced desktop height */
+		min-height: 0;
+		min-height: none;
+		min-height: initial;
+		height: auto; /* Content-driven height */
 	}
 
 	.terminal-body {

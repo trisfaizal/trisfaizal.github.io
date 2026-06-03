@@ -381,7 +381,7 @@ button, a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin: 120px auto 90px auto; /* 120px space below hero, 90px above footer */
+	margin: 120px auto 120px auto; /* 120px space below hero, 120px above footer */
 }
 
 .social-heading {

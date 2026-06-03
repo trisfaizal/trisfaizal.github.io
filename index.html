@@ -32,13 +32,24 @@
 		<header class="site-header">
 			<nav class="navbar" aria-label="Primary navigation">
 				<a class="brand" href="./" aria-label="TRISF home">TRISF <span class="brand-dot">●</span></a>
-				<button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
-				</button>
-				<div class="nav-links" id="primary-menu">
+				
+				<!-- Desktop Navigation -->
+				<div class="nav-links desktop-nav" id="primary-menu">
 					<a href="./" aria-current="page">Home</a>
 					<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
 					<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
+				</div>
+
+				<!-- Mobile Navigation -->
+				<div class="mobile-nav">
+					<button class="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+					</button>
+					<div class="mobile-menu" id="mobile-menu">
+						<a href="./" aria-current="page">Home</a>
+						<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
+						<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
+					</div>
 				</div>
 			</nav>
 		</header>

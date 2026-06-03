@@ -165,7 +165,7 @@ button, a {
 	color: var(--accent);
 }
 
-.menu-toggle {
+.mobile-nav {
 	display: none;
 }
 
@@ -532,7 +532,16 @@ button, a {
 		position: relative;
 	}
 
-	.menu-toggle {
+	.desktop-nav {
+		display: none !important;
+	}
+
+	.mobile-nav {
+		display: block;
+		position: relative;
+	}
+
+	.mobile-menu-button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -545,7 +554,7 @@ button, a {
 		transition: all 0.15s ease;
 	}
 
-	.menu-toggle:hover {
+	.mobile-menu-button:hover {
 		color: var(--text);
 		background: var(--bg-soft);
 	}
@@ -556,45 +565,51 @@ button, a {
 		stroke-width: 2.2;
 	}
 
-	.nav-links {
+	.mobile-menu {
 		display: none;
 		position: absolute;
 		top: calc(100% + 4px);
 		right: 0;
 		background: #ffffff;
 		border: 1px solid var(--line);
-		border-radius: var(--radius);
+		border-radius: 12px; /* 12px border radius */
 		box-shadow: 
 			0 12px 28px rgba(0, 0, 0, 0.06),
 			0 4px 12px rgba(0, 0, 0, 0.02);
-		padding: 8px 6px;
+		padding: 6px;
 		flex-direction: column;
 		align-items: stretch;
 		gap: 2px;
-		width: 160px;
+		min-width: 180px; /* min-width: 180px */
 		z-index: 100;
 		transform-origin: top right;
 	}
 
-	.navbar.is-active .nav-links {
+	.mobile-nav.is-active .mobile-menu {
 		display: flex;
 		animation: menu-slide-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 	}
 
-	.nav-links a {
-		display: block;
+	.mobile-menu a {
+		display: flex;
+		align-items: center;
 		width: 100%;
-		padding: 8px 12px;
+		min-height: 44px; /* min-height: 44px touch target */
+		padding: 0 16px;
 		font-size: 0.88rem;
-		border-radius: 6px;
+		font-weight: 500;
+		color: var(--muted);
+		border-radius: 8px;
 		box-sizing: border-box;
+		transition: all 0.15s ease;
 	}
 
-	.nav-links a:hover {
+	.mobile-menu a:hover {
 		background: var(--bg-soft);
+		color: var(--text);
 	}
 
-	.nav-links a[aria-current="page"] {
+	.mobile-menu a[aria-current="page"] {
 		color: var(--accent);
 		background: rgba(0, 184, 107, 0.05);
 	}

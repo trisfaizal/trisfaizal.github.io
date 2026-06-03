@@ -173,7 +173,6 @@ button, a {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Center-aligns all block elements */
 	justify-content: flex-start;
 	width: 100%;
 	max-width: var(--max-width);
@@ -181,29 +180,30 @@ button, a {
 	padding: 0 24px;
 }
 
-/* Hero Group Container */
-.hero-group {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 80px; /* Space between Navbar and Hero Group (80-100px target) */
-}
-
 /* Hero Section */
 .hero {
 	width: 100%;
-	max-width: 760px; /* Restrict hero text width */
-	text-align: center;
 	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	margin-top: 90px; /* Space between Navbar and Hero: 90px */
 }
 
 .hero-shell {
 	width: 100%;
+}
+
+/* 55% left, 45% right layout */
+.hero-grid {
+	display: grid;
+	grid-template-columns: 1.1fr 0.9fr;
+	gap: 64px;
+	align-items: center;
+}
+
+.hero-left {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
 }
 
 .hero-headline {
@@ -213,21 +213,16 @@ button, a {
 	line-height: 1.1;
 	letter-spacing: -0.03em;
 	color: var(--text);
-	margin: 0 0 24px 0; /* Spacing Headline -> Description (24px) */
+	margin: 0 0 24px 0;
 }
 
 .hero-description {
 	font-size: clamp(0.95rem, 1.8vw, 1.1rem);
 	line-height: 1.6;
 	color: var(--muted);
-	margin: 0 auto 32px auto; /* Spacing Description -> CTA (32px) & centering */
-	max-width: 580px; /* Restricts width for 2-3 lines of text */
-}
-
-.hero-cta-container {
-	display: flex;
-	justify-content: center;
-	width: 100%;
+	margin: 0 0 32px 0; /* Description -> 32px -> CTA spacing (28-32px target) */
+	max-width: 540px; /* Restrict width to 520-560px for 2-3 lines */
+	text-align: left;
 }
 
 /* CTA */
@@ -254,17 +249,16 @@ button, a {
 	transform: translateY(-1px);
 }
 
-/* Terminal Section */
-.terminal-container {
-	width: 100%;
-	max-width: 860px; /* Restrict terminal width to 800-900px */
-	margin-top: 48px; /* Spacing below Hero (CTA) to Terminal */
+/* Right Column - Terminal container */
+.hero-right {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
 
 .terminal-window {
 	width: 100%;
+	max-width: 590px; /* Sits beside hero grid, size +10% width from 540px */
 	background: rgba(255, 255, 255, 0.65);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
@@ -307,7 +301,7 @@ button, a {
 .terminal-dot.green { background: #28c840; }
 
 .terminal-body {
-	padding: 40px 36px;
+	padding: 36px 32px; /* Increased (+10% height scale context) */
 	font-family: var(--font-mono);
 	font-size: 0.95rem;
 	line-height: 1.6;
@@ -376,7 +370,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 32px 0 48px 0; /* Terminal -> 32px -> Social Icons -> 48px -> Footer */
+	margin: 60px 0 50px 0; /* Spacing: Hero Block -> 60px -> Social Icons -> 50px -> Footer */
 	width: 100%;
 }
 
@@ -626,6 +620,23 @@ button, a {
    RESPONSIVE DESIGN / MEDIA QUERIES
    ---------------------------------------------------- */
 @media (max-width: 968px) {
+	.hero-grid {
+		grid-template-columns: 1fr;
+		gap: 48px;
+		text-align: center;
+	}
+
+	.hero-left {
+		align-items: center;
+		text-align: center;
+	}
+
+	.hero-description {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
 	.about-grid {
 		grid-template-columns: 1fr;
 		gap: 32px;

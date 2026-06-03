@@ -577,6 +577,11 @@ button, a {
 		gap: 24px;
 		margin: 0;
 	}
+
+	.social-icons-row a svg {
+		width: 19px;
+		height: 19px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

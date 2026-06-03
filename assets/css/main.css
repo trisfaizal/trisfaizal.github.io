@@ -165,7 +165,7 @@ button, a {
 	color: var(--accent);
 }
 
-.nav-toggle {
+.menu-toggle {
 	display: none;
 }
 
@@ -524,17 +524,90 @@ button, a {
 	}
 
 	.navbar {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		padding: 0;
+		position: relative;
+	}
+
+	.menu-toggle {
+		display: flex;
+		align-items: center;
 		justify-content: center;
-		gap: 16px;
-		flex-direction: column;
-		height: auto;
-		padding: 16px 0;
+		background: none;
+		border: none;
+		padding: 8px;
+		cursor: pointer;
+		color: var(--muted);
+		border-radius: 8px;
+		transition: all 0.15s ease;
+	}
+
+	.menu-toggle:hover {
+		color: var(--text);
+		background: var(--bg-soft);
+	}
+
+	.menu-icon {
+		width: 20px;
+		height: 20px;
+		stroke-width: 2.2;
 	}
 
 	.nav-links {
-		gap: 16px;
-		flex-wrap: wrap;
-		justify-content: center;
+		display: none;
+		position: absolute;
+		top: calc(100% + 4px);
+		right: 0;
+		background: #ffffff;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		box-shadow: 
+			0 12px 28px rgba(0, 0, 0, 0.06),
+			0 4px 12px rgba(0, 0, 0, 0.02);
+		padding: 8px 6px;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 2px;
+		width: 160px;
+		z-index: 100;
+		transform-origin: top right;
+	}
+
+	.navbar.is-active .nav-links {
+		display: flex;
+		animation: menu-slide-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	.nav-links a {
+		display: block;
+		width: 100%;
+		padding: 8px 12px;
+		font-size: 0.88rem;
+		border-radius: 6px;
+		box-sizing: border-box;
+	}
+
+	.nav-links a:hover {
+		background: var(--bg-soft);
+	}
+
+	.nav-links a[aria-current="page"] {
+		color: var(--accent);
+		background: rgba(0, 184, 107, 0.05);
+	}
+
+	@keyframes menu-slide-in {
+		from {
+			opacity: 0;
+			transform: scale(0.96) translateY(-4px);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
 	}
 
 	.hero {

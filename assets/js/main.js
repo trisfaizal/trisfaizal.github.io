@@ -119,25 +119,25 @@ const runTypewriter = async () => {
 runTypewriter();
 
 // Mobile Menu Toggle logic
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
 
-if (mobileMenuButton && mobileNav) {
+if (mobileMenuToggle && mobileNav) {
 	const closeMenu = () => {
-		mobileMenuButton.setAttribute('aria-expanded', 'false');
-		mobileNav.classList.remove('is-active');
+		mobileMenuToggle.setAttribute('aria-expanded', 'false');
+		mobileNav.classList.remove('is-open');
 	};
 
-	mobileMenuButton.addEventListener('click', (event) => {
+	mobileMenuToggle.addEventListener('click', (event) => {
 		event.stopPropagation();
-		const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-		mobileMenuButton.setAttribute('aria-expanded', !expanded);
-		mobileNav.classList.toggle('is-active');
+		const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+		mobileMenuToggle.setAttribute('aria-expanded', !expanded);
+		mobileNav.classList.toggle('is-open');
 	});
 
 	// Close menu if clicking outside
 	document.addEventListener('click', (event) => {
-		if (!mobileNav.contains(event.target)) {
+		if (!mobileNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
 			closeMenu();
 		}
 	});

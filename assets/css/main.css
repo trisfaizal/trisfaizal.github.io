@@ -383,7 +383,8 @@ button, a {
 
 .social-heading {
 	font-family: var(--font-mono);
-	font-size: 0.72rem;
+	font-size: 13px;
+	font-weight: 600;
 	color: var(--muted);
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
@@ -570,7 +571,7 @@ button, a {
 	}
 
 	.social-icons-row {
-		gap: 20px;
+		gap: 24px;
 		margin: 0;
 	}
 }

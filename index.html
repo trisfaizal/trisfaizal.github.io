@@ -28,6 +28,14 @@
 	<link rel="icon"
 		href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fafaf9' stroke='%23e4e4e3' stroke-width='2'/%3E%3Cpath d='M23 31h54M23 50h35M23 69h54' stroke='%2300b86b' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<script>
+		// Run immediately before page rendering to prevent flash of theme
+		(function() {
+			const savedTheme = localStorage.getItem('theme');
+			const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			document.documentElement.setAttribute('data-theme', theme);
+		})();
+	</script>
 	<script src="assets/js/main.js" defer></script>
 </head>
 
@@ -43,6 +51,7 @@
 				<a href="./" aria-current="page">Home</a>
 				<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
 				<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
+				<button class="theme-toggle" aria-label="Toggle theme" id="desktop-theme-toggle"></button>
 			</div>
 
 			<!-- Mobile Navigation Toggle Button -->
@@ -61,6 +70,7 @@
 				<a href="./" aria-current="page">Home</a>
 				<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
 				<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
+				<button class="theme-toggle" aria-label="Toggle theme" id="mobile-theme-toggle"></button>
 			</div>
 		</nav>
 	</header>

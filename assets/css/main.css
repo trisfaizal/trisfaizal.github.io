@@ -382,7 +382,8 @@ button, a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	margin: 90px auto 70px auto; /* 90px space below hero, 70px above footer */
+	margin-top: 90px;
+	margin-bottom: 70px;
 }
 
 .social-heading {
@@ -393,7 +394,7 @@ button, a {
 	text-transform: uppercase;
 	letter-spacing: 0.18em;
 	text-align: center;
-	margin: 0 0 20px 0; /* 20px spacing between heading and social icons */
+	margin-bottom: 20px;
 }
 
 .social-icons-row {
@@ -402,6 +403,7 @@ button, a {
 	align-items: center;
 	gap: 28px;
 	margin: 0;
+	margin-bottom: 0;
 	width: 100%;
 }
 
@@ -512,9 +514,6 @@ button, a {
 	}
 	.terminal-container {
 		margin-top: 44px; /* CTA -> 44px -> Terminal (compact to avoid overflow) */
-	}
-	.social-section {
-		margin: 190px auto 120px auto; /* 190px space below hero, 120px above footer */
 	}
 }
 

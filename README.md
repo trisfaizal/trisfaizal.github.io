@@ -1,12 +1,6 @@
 # TRISF
 
-Premium minimalist landing page for TRISF, built as a lightweight static website for GitHub Pages.
-
-## Stack
-
-- Pure HTML, CSS, and JavaScript
-- GitHub Pages deployment via GitHub Actions
-- Custom domain: `trisf.my.id`
+A minimal, personal space on the web.
 
 ## Structure
 
@@ -26,21 +20,16 @@ Premium minimalist landing page for TRISF, built as a lightweight static website
 └── README.md
 ```
 
-## Deployment
+## About
 
-The site deploys automatically on every push to `main`.
+TRISF is a personal website that serves as a home for projects, notes, and ideas.
 
-GitHub repository setting:
+Built with simplicity in mind, focusing on clarity, usability, and thoughtful design.
 
-`Settings` -> `Pages` -> `Build and deployment` -> `Source` -> `GitHub Actions`
+Always learning. Always building.
 
-Workflow:
+## License
 
-1. Checkout repository
-2. Configure GitHub Pages
-3. Upload static site artifact
-4. Deploy to GitHub Pages
+The source code is available under the MIT License.
 
-## Development
-
-Open `index.html` directly in a browser, or serve the repository root with any static file server.
+Content, articles, images, and personal materials remain the property of their respective owners unless stated otherwise.

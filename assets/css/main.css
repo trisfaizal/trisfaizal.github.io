@@ -41,6 +41,7 @@ body {
 	/* Layout container */
 	display: flex;
 	flex-direction: column;
+	min-height: 100dvh; /* ensure body always fills the viewport */
 }
 
 /* Atmospheric background grid pattern, almost invisible */
@@ -178,9 +179,16 @@ button, a {
 
 /* Main content */
 #main {
+	flex: 1; /* grow to fill remaining viewport height */
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	/*
+	 * justify-content: space-between pushes the social section to the bottom
+	 * of #main, so extra viewport space (on tall screens) distributes
+	 * BETWEEN hero and social — not between social and footer.
+	 * This keeps icons → footer at exactly the explicit margin-bottom value.
+	 */
+	justify-content: space-between;
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
@@ -499,8 +507,7 @@ button, a {
 	}
 
 	.social-icons-row {
-		/* Icons ↓ 90–120px ↓ Footer, scales with viewport height */
-		margin-bottom: clamp(90px, 9vh, 120px);
+		margin-bottom: 80px; /* Icons ↓ 80px ↓ Footer */
 	}
 }
 
@@ -541,8 +548,8 @@ button, a {
 	}
 
 	.social-icons-row {
-		/* Icons ↓ ~64px ↓ Footer, clearly separated on tablet */
-		margin-bottom: clamp(52px, 6vh, 72px);
+		/* Icons ↓ 60–80px ↓ Footer on tablet */
+		margin-bottom: clamp(60px, 6vh, 80px);
 	}
 
 	.terminal-container {
@@ -567,6 +574,13 @@ button, a {
 
 	html {
 		scroll-padding-top: var(--nav-height-mobile);
+	}
+
+	/* On mobile, hero is very tall and overflows #main on small screens.
+	 * Reset to flex-start so content flows top-to-bottom without
+	 * justify-content: space-between forcing a negative/broken gap. */
+	#main {
+		justify-content: flex-start;
 	}
 
 	.desktop-nav {
@@ -701,8 +715,8 @@ button, a {
 
 	.social-icons-row {
 		gap: 24px;
-		/* Icons ↓ 40–48px ↓ Footer — enough to not feel attached */
-		margin-bottom: clamp(40px, 5vh, 48px);
+		/* Icons ↓ 40–56px ↓ Footer on mobile */
+		margin-bottom: clamp(40px, 5vh, 56px);
 	}
 
 	.social-icons-row a svg {

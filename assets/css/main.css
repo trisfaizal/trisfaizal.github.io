@@ -537,7 +537,7 @@ button, a {
 
 @media (max-width: 1023px) and (min-width: 768px) {
 	.hero {
-		margin-top: 190px;    /* Navbar ↓ 190px ↓ Hero */
+		margin-top: 150px;    /* Navbar ↓ 150px ↓ Hero */
 		margin-bottom: 90px; /* Hero ↓ 90px ↓ LET'S CONNECT */
 	}
 

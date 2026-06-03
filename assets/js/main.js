@@ -119,21 +119,33 @@ const runTypewriter = async () => {
 runTypewriter();
 
 // Mobile Menu Toggle logic
-const menuToggle = document.querySelector('.menu-toggle');
-const navbar = document.querySelector('.navbar');
+const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mobileNav = document.querySelector('.mobile-nav');
 
-if (menuToggle && navbar) {
-	menuToggle.addEventListener('click', (event) => {
+if (mobileMenuButton && mobileNav) {
+	const closeMenu = () => {
+		mobileMenuButton.setAttribute('aria-expanded', 'false');
+		mobileNav.classList.remove('is-active');
+	};
+
+	mobileMenuButton.addEventListener('click', (event) => {
 		event.stopPropagation();
-		const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-		menuToggle.setAttribute('aria-expanded', !expanded);
-		navbar.classList.toggle('is-active');
+		const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+		mobileMenuButton.setAttribute('aria-expanded', !expanded);
+		mobileNav.classList.toggle('is-active');
 	});
 
+	// Close menu if clicking outside
 	document.addEventListener('click', (event) => {
-		if (!navbar.contains(event.target)) {
-			menuToggle.setAttribute('aria-expanded', 'false');
-			navbar.classList.remove('is-active');
+		if (!mobileNav.contains(event.target)) {
+			closeMenu();
 		}
+	});
+
+	// Close menu when selecting a menu item
+	mobileNav.querySelectorAll('a').forEach((link) => {
+		link.addEventListener('click', () => {
+			closeMenu();
+		});
 	});
 }

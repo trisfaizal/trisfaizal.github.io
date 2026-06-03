@@ -42,7 +42,7 @@ body {
 	min-height: 100dvh;
 }
 
-/* Subtle background grid pattern inspired by Linear/Vercel */
+/* Atmospheric background grid pattern, almost invisible */
 body::before {
 	position: fixed;
 	inset: 0;
@@ -50,8 +50,8 @@ body::before {
 	pointer-events: none;
 	content: "";
 	background-image:
-		linear-gradient(rgba(17, 17, 17, 0.012) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(17, 17, 17, 0.012) 1px, transparent 1px);
+		linear-gradient(rgba(17, 17, 17, 0.005) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(17, 17, 17, 0.005) 1px, transparent 1px);
 	background-size: 64px 64px;
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
 	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 95%);
@@ -68,7 +68,7 @@ button, a {
 }
 
 ::selection {
-	background: rgba(0, 184, 107, 0.15);
+	background: rgba(0, 184, 107, 0.12);
 	color: var(--text);
 }
 
@@ -127,6 +127,14 @@ button, a {
 	font-weight: 700;
 	letter-spacing: -0.01em;
 	color: var(--text);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.brand-dot {
+	color: var(--accent);
+	font-size: 0.65rem;
 }
 
 .brand:hover {
@@ -169,7 +177,7 @@ button, a {
 
 /* Hero Section */
 .hero {
-	padding: 48px 0;
+	padding: 56px 0 20px 0;
 }
 
 .hero-shell {
@@ -214,20 +222,20 @@ button, a {
 	justify-content: center;
 	background: var(--text);
 	color: var(--bg);
-	font-size: 0.9rem;
+	font-size: 0.88rem;
 	font-weight: 500;
-	padding: 12px 24px;
-	border-radius: 8px;
+	padding: 10px 20px;
+	border-radius: 6px;
 	border: 1px solid var(--text);
-	box-shadow: 0 4px 12px rgba(17, 17, 17, 0.05);
+	box-shadow: 0 2px 8px rgba(17, 17, 17, 0.04);
 	cursor: pointer;
 }
 
 .cta-button:hover {
-	background: #27272a;
-	border-color: #27272a;
+	background: var(--bg);
+	color: var(--text);
+	box-shadow: 0 4px 16px rgba(17, 17, 17, 0.08);
 	transform: translateY(-1px);
-	box-shadow: 0 6px 16px rgba(17, 17, 17, 0.1);
 }
 
 /* Right Column - Terminal */
@@ -239,14 +247,14 @@ button, a {
 
 .terminal-window {
 	width: 100%;
-	max-width: 480px;
+	max-width: 540px;
 	background: rgba(255, 255, 255, 0.65);
 	backdrop-filter: blur(20px);
 	-webkit-backdrop-filter: blur(20px);
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 20px 40px rgba(0, 0, 0, 0.04), 
+		0 30px 60px rgba(0, 0, 0, 0.06), 
 		0 1px 3px rgba(0, 0, 0, 0.02),
 		inset 0 1px 0 rgba(255, 255, 255, 0.8);
 	overflow: hidden;
@@ -273,7 +281,7 @@ button, a {
 .terminal-dot.green { background: #28c840; }
 
 .terminal-body {
-	padding: 24px;
+	padding: 32px;
 	font-family: var(--font-mono);
 	font-size: 0.85rem;
 	line-height: 1.6;
@@ -302,7 +310,7 @@ button, a {
 }
 
 .prompt-dir {
-	color: #2563eb; /* Blue accent */
+	color: #2563eb;
 	font-weight: 500;
 }
 
@@ -340,8 +348,8 @@ button, a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 16px;
-	margin: 40px 0;
+	gap: 28px;
+	margin: 16px 0 32px 0;
 	width: 100%;
 }
 
@@ -366,18 +374,12 @@ button, a {
 	transition: stroke 0.2s ease;
 }
 
-.social-separator {
-	color: rgba(17, 17, 17, 0.15);
-	font-size: 0.8rem;
-	user-select: none;
-}
-
 /* Site Footer */
 .site-footer {
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 24px;
+	padding: 16px 24px 24px 24px;
 	border-top: 1px solid var(--line);
 }
 
@@ -385,9 +387,10 @@ button, a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	font-size: 0.78rem;
+	font-size: 0.72rem;
 	color: var(--muted);
 	font-weight: 400;
+	width: 100%;
 }
 
 .footer-inner a {
@@ -410,7 +413,7 @@ button, a {
 	gap: 6px;
 	color: var(--accent);
 	font-family: var(--font-mono);
-	font-size: 0.75rem;
+	font-size: 0.72rem;
 	font-weight: 400;
 }
 
@@ -461,13 +464,13 @@ button, a {
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 20px 40px rgba(0, 0, 0, 0.04),
+		0 30px 60px rgba(0, 0, 0, 0.06),
 		inset 0 1px 0 rgba(255, 255, 255, 0.8);
 	overflow: hidden;
 }
 
 .terminal-card-body {
-	padding: 24px;
+	padding: 32px;
 }
 
 .terminal-command {
@@ -636,19 +639,12 @@ button, a {
 	}
 
 	.terminal-body {
-		padding: 16px;
+		padding: 24px;
 		font-size: 0.8rem;
 	}
 
 	.social-icons-row {
-		flex-wrap: wrap;
-		gap: 12px 8px;
-	}
-
-	.footer-inner {
-		flex-direction: column;
-		gap: 12px;
-		text-align: center;
+		gap: 20px;
 	}
 
 	.identity-grid {

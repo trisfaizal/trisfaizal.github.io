@@ -181,13 +181,22 @@ button, a {
 	padding: 0 24px;
 }
 
+/* Hero Group Container */
+.hero-group {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 80px; /* Space between Navbar and Hero Group (80-100px target) */
+}
+
 /* Hero Section */
 .hero {
 	width: 100%;
 	max-width: 760px; /* Restrict hero text width */
 	text-align: center;
 	padding: 0;
-	margin-top: 24px;
+	margin: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -367,7 +376,7 @@ button, a {
 	justify-content: center;
 	align-items: center;
 	gap: 28px;
-	margin: 56px 0; /* 48-64px spacing above and below */
+	margin: 32px 0 48px 0; /* Terminal -> 32px -> Social Icons -> 48px -> Footer */
 	width: 100%;
 }
 

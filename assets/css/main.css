@@ -480,7 +480,21 @@ button, a {
 	transform: translateY(0);
 }
 
+/* Desktop Spacing Refinements (>= 1024px) */
+@media (min-width: 1024px) {
+	.hero {
+		margin-bottom: 140px;
+	}
 
+	.social-section {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.social-icons-row {
+		margin-bottom: 70px;
+	}
+}
 
 /* ----------------------------------------------------
    RESPONSIVE DESIGN / MEDIA QUERIES

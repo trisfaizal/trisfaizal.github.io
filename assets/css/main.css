@@ -755,10 +755,14 @@ button, a {
 	}
 
 	.hero-description {
-		font-size: 0.9rem;
-		max-width: 300px;
+		font-size: clamp(0.75rem, 3.8vw, 0.9rem);
+		max-width: 100%;
 		line-height: 1.5;
 		margin: 0 auto 24px auto;
+	}
+
+	.subtitle-first-line {
+		white-space: nowrap;
 	}
 
 	.hero-right {

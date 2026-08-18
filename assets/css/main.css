@@ -247,7 +247,7 @@ button, a {
 	background-color: var(--bg-soft);
 }
 
-.mobile-nav,
+.mobile-bottom-nav,
 .mobile-menu-toggle {
 	display: none !important;
 }
@@ -677,7 +677,7 @@ button, a {
 		display: none !important;
 	}
 
-	.mobile-nav {
+	.mobile-bottom-nav {
 		display: flex !important;
 		position: fixed;
 		bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
@@ -696,13 +696,13 @@ button, a {
 		z-index: 1000;
 	}
 
-	html[data-theme="dark"] .mobile-nav {
+	html[data-theme="dark"] .mobile-bottom-nav {
 		background: var(--surface);
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 	}
 
-	.mobile-nav a,
-	.mobile-nav .theme-toggle {
+	.mobile-bottom-nav a,
+	.mobile-bottom-nav .theme-toggle {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -718,22 +718,22 @@ button, a {
 		cursor: pointer;
 	}
 
-	.mobile-nav .nav-icon {
+	.mobile-bottom-nav .nav-icon {
 		width: 22px;
 		height: 22px;
 		stroke-width: 2;
 	}
 
-	.mobile-nav a:hover,
-	.mobile-nav .theme-toggle:hover {
+	.mobile-bottom-nav a:hover,
+	.mobile-bottom-nav .theme-toggle:hover {
 		color: var(--text);
 	}
 
-	.mobile-nav a[aria-current="page"] {
+	.mobile-bottom-nav a[aria-current="page"] {
 		color: var(--accent);
 	}
 
-	.mobile-nav a[aria-current="page"] .nav-icon {
+	.mobile-bottom-nav a[aria-current="page"] .nav-icon {
 		stroke-width: 2.2;
 	}
 	

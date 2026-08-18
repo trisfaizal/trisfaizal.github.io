@@ -636,12 +636,25 @@ button, a {
 		background-size: 48px 48px;
 	}
 
+	.site-header {
+		width: auto;
+		margin: 12px 12px 0;
+		top: 12px;
+		border-radius: 16px;
+		border: 1px solid var(--line);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+	}
+
+	html[data-theme="dark"] .site-header {
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+	}
+
 	.navbar {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		height: var(--nav-height-mobile);
-		padding: 0;
+		height: 54px;
+		padding: 0 16px;
 		position: relative; /* keeps dropdown anchored to navbar bottom */
 	}
 
@@ -762,22 +775,27 @@ button, a {
 	}
 
 	.hero {
-		margin-top: 40px;    /* Mobile: Navbar ↓ 40px ↓ Hero */
+		margin-top: 24px;    /* Mobile: Navbar ↓ 24px ↓ Hero */
 		margin-bottom: 0;
 	}
 
 	.hero-headline {
-		font-size: 2.2rem;
-		line-height: 1.15;
+		font-size: clamp(2rem, 8vw, 2.25rem);
+		line-height: 1.1;
+		padding: 0 8px;
+		margin-bottom: 16px;
 	}
 
 	.hero-description {
+		font-size: 1.05rem;
 		max-width: 320px; /* Mobile: max-width: 320px */
-		line-height: 1.7; /* Mobile: line-height: 1.7 */
+		line-height: 1.6; /* Mobile: line-height: 1.6 */
+		margin-bottom: 28px;
 	}
 
-	.terminal-container {
-		margin-top: 40px; /* CTA -> 40px -> Terminal */
+	.hero-right {
+		margin-top: 36px; /* CTA -> 36px -> Terminal */
+		width: 100%;
 	}
 
 	.terminal-window {

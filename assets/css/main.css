@@ -747,21 +747,22 @@ button, a {
 	}
 
 	.hero-headline {
-		font-size: clamp(2rem, 8vw, 2.25rem);
-		line-height: 1.1;
-		padding: 0 8px;
-		margin-bottom: 16px;
+		font-size: clamp(1.5rem, 7vw, 1.75rem);
+		line-height: 1.15;
+		max-width: 320px;
+		margin: 0 auto 12px auto;
+		padding: 0;
 	}
 
 	.hero-description {
-		font-size: 1.05rem;
-		max-width: 320px; /* Mobile: max-width: 320px */
-		line-height: 1.6; /* Mobile: line-height: 1.6 */
-		margin-bottom: 28px;
+		font-size: 0.9rem;
+		max-width: 300px;
+		line-height: 1.5;
+		margin: 0 auto 24px auto;
 	}
 
 	.hero-right {
-		margin-top: 36px; /* CTA -> 36px -> Terminal */
+		margin-top: 40px; /* CTA -> 40px -> Terminal */
 		width: 100%;
 	}
 

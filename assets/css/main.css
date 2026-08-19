@@ -640,7 +640,7 @@ button, a {
 		width: auto;
 		margin: 12px 12px 0;
 		top: 12px;
-		border-radius: 16px;
+		border-radius: 20px;
 		border: 1px solid var(--line);
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 	}
@@ -687,9 +687,9 @@ button, a {
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		border: 1px solid var(--line);
-		border-radius: 20px;
+		border-radius: 24px;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-		padding: 8px 12px;
+		padding: 6px 12px;
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
@@ -707,11 +707,12 @@ button, a {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 4px 0;
-		font-size: 0.65rem;
+		padding: 6px 0;
+		min-height: 44px;
+		font-size: 0.6rem;
 		font-weight: 500;
 		color: var(--muted);
-		gap: 6px;
+		gap: 4px;
 		background: none;
 		border: none;
 		flex: 1;
@@ -719,8 +720,8 @@ button, a {
 	}
 
 	.mobile-bottom-nav .nav-icon {
-		width: 22px;
-		height: 22px;
+		width: 20px;
+		height: 20px;
 		stroke-width: 2;
 	}
 
@@ -747,11 +748,12 @@ button, a {
 	}
 
 	.hero-headline {
-		font-size: clamp(1.5rem, 7vw, 1.75rem);
+		font-size: clamp(1.35rem, 7.5vw, 1.75rem);
 		line-height: 1.15;
-		max-width: 320px;
+		max-width: 100%;
 		margin: 0 auto 12px auto;
 		padding: 0;
+		letter-spacing: -0.01em;
 	}
 
 	.hero-description {
@@ -761,7 +763,7 @@ button, a {
 		margin: 0 auto 24px auto;
 	}
 
-	.subtitle-first-line {
+	.nowrap {
 		white-space: nowrap;
 	}
 

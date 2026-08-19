@@ -769,7 +769,7 @@ button, a {
 	}
 
 	.hero-right {
-		margin-top: 64px; /* CTA -> 64px -> Terminal */
+		margin-top: 0; /* Let grid gap: 48px handle the CTA -> Terminal spacing */
 		width: 100%;
 	}
 

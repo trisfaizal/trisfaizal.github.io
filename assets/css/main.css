@@ -640,7 +640,7 @@ button, a {
 		width: auto;
 		margin: 12px 12px 0;
 		top: 12px;
-		border-radius: 20px;
+		border-radius: 28px;
 		border: 1px solid var(--line);
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 	}
@@ -683,13 +683,14 @@ button, a {
 		bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
 		left: 12px;
 		right: 12px;
+		height: 64px;
 		background: var(--bg);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		border: 1px solid var(--line);
-		border-radius: 24px;
+		border-radius: 28px;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-		padding: 6px 12px;
+		padding: 0 12px;
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
@@ -707,12 +708,12 @@ button, a {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 6px 0;
-		min-height: 44px;
+		padding: 0;
+		height: 100%;
 		font-size: 0.6rem;
 		font-weight: 500;
 		color: var(--muted);
-		gap: 4px;
+		gap: 2px;
 		background: none;
 		border: none;
 		flex: 1;
@@ -720,8 +721,8 @@ button, a {
 	}
 
 	.mobile-bottom-nav .nav-icon {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 		stroke-width: 2;
 	}
 
@@ -739,11 +740,11 @@ button, a {
 	}
 	
 	.site-footer {
-		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 90px);
+		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px);
 	}
 
 	.hero {
-		margin-top: 24px;    /* Mobile: Navbar ↓ 24px ↓ Hero */
+		margin-top: 36px;    /* Mobile: Navbar ↓ 36px ↓ Hero */
 		margin-bottom: 0;
 	}
 
@@ -751,7 +752,7 @@ button, a {
 		font-size: clamp(1.35rem, 7.5vw, 1.75rem);
 		line-height: 1.15;
 		max-width: 100%;
-		margin: 0 auto 12px auto;
+		margin: 0 auto 16px auto;
 		padding: 0;
 		letter-spacing: -0.01em;
 	}
@@ -760,7 +761,7 @@ button, a {
 		font-size: clamp(0.75rem, 3.8vw, 0.9rem);
 		max-width: 100%;
 		line-height: 1.5;
-		margin: 0 auto 24px auto;
+		margin: 0 auto 32px auto;
 	}
 
 	.nowrap {
@@ -768,7 +769,7 @@ button, a {
 	}
 
 	.hero-right {
-		margin-top: 40px; /* CTA -> 40px -> Terminal */
+		margin-top: 64px; /* CTA -> 64px -> Terminal */
 		width: 100%;
 	}
 
@@ -787,18 +788,17 @@ button, a {
 	}
 
 	.social-section {
-		margin-top: 50px;    /* Hero ↓ 50px ↓ LET'S CONNECT */
+		margin-top: 48px;    /* Hero ↓ 48px ↓ LET'S CONNECT */
 		margin-bottom: 0;
 	}
 
 	.social-heading {
-		margin-bottom: 16px; /* Mobile: LET'S CONNECT ↓ 16px ↓ Icons */
+		margin-bottom: 20px; /* Mobile: LET'S CONNECT ↓ 20px ↓ Icons */
 	}
 
 	.social-icons-row {
 		gap: 24px;
-		/* Icons ↓ 40–56px ↓ Footer on mobile */
-		margin-bottom: clamp(40px, 5vh, 56px);
+		margin-bottom: 24px;
 	}
 
 	.social-icons-row a svg {

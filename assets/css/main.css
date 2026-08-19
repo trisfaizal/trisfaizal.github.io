@@ -739,7 +739,7 @@ html[data-theme="dark"] .brand-logo {
 	}
 
 	.hero {
-		margin-top: 36px;    /* Mobile: Navbar ↓ 36px ↓ Hero */
+		margin-top: 64px;    /* Mobile: Navbar ↓ 64px ↓ Hero */
 		margin-bottom: 0;
 	}
 

@@ -9,6 +9,7 @@
 	--accent-soft: #00c16a;
 	--line: #e5e7eb;
 	--line-bright: rgba(0, 184, 107, 0.25);
+	--light-source: rgba(255, 255, 255, 0.9);
 	
 	--selection-bg: rgba(0, 184, 107, 0.12);
 	--accent-bg: rgba(0, 184, 107, 0.05);
@@ -40,6 +41,7 @@ html[data-theme="dark"] {
 	--accent-soft: #10b981;
 	--line: #2b3240; /* Border */
 	--line-bright: rgba(0, 207, 118, 0.25);
+	--light-source: rgba(255, 255, 255, 0.025);
 	
 	--selection-bg: rgba(0, 207, 118, 0.15);
 	--accent-bg: rgba(0, 207, 118, 0.08);
@@ -74,11 +76,13 @@ html {
 body {
 	min-width: 320px;
 	margin: 0;
-	background-color: var(--bg);
-	color: var(--text);
 	font-family: var(--font-sans);
 	font-size: 16px;
-	line-height: 1.6;
+	background-color: var(--bg);
+	background-image: radial-gradient(circle at 50% 0%, var(--light-source) 0%, transparent 90%);
+	background-attachment: fixed;
+	color: var(--text);
+	line-height: 1.5;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
@@ -481,14 +485,39 @@ button, a {
 	width: 100%;
 }
 
-.focus-item {
+.focus-entry {
 	display: flex;
 	flex-direction: column;
-	padding: 24px;
-	border: 1px solid var(--line);
-	border-radius: 8px;
-	background: var(--surface);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+	gap: 12px;
+}
+
+.focus-header {
+	display: flex;
+	align-items: baseline;
+	gap: 16px;
+}
+
+.focus-number {
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--accent);
+	opacity: 0.8;
+}
+
+.focus-entry:not(:first-child) {
+	padding-top: 32px;
+	position: relative;
+}
+
+.focus-entry:not(:first-child)::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 48px;
+	height: 1px;
+	background: var(--line);
 }
 
 .focus-title {
@@ -620,6 +649,13 @@ button, a {
 		gap: 32px;
 	}
 
+	.focus-entry:not(:first-child) {
+		padding-top: 0;
+	}
+	.focus-entry:not(:first-child)::before {
+		display: none;
+	}
+
 	.social-section {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -731,9 +767,9 @@ button, a {
 		left: 16px;
 		right: 16px;
 		height: 60px;
-		background: var(--bg);
+		background: var(--surface);
 		border: 1px solid var(--line);
-		border-radius: 18px;
+		border-radius: 999px;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 		padding: 0;
 		flex-direction: row;
@@ -743,7 +779,7 @@ button, a {
 	}
 
 	html[data-theme="dark"] .mobile-bottom-nav {
-		background: var(--bg);
+		background: var(--surface);
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
@@ -837,8 +873,9 @@ button, a {
 		margin-bottom: 0;
 	}
 
-	.focus-item {
-		padding: 20px;
+	.focus-grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
 	}
 
 	.social-section {

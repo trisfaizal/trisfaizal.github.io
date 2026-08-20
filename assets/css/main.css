@@ -646,32 +646,48 @@ button, a {
 	text-align: center;
 }
 
-.connect-header {
+/* Section Headings (Shared) */
+.section-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 32px;
+	width: 100%;
+}
+
+.section-header-title {
 	display: flex;
 	align-items: center;
-	gap: 12px;
-	margin-bottom: 16px;
+	gap: 8px;
 }
 
-.connect-marker {
-	color: var(--accent);
-	font-size: 1.2rem;
-}
-
-.connect-title {
+.section-marker {
 	font-family: var(--font-mono);
-	font-size: 0.85rem;
-	font-weight: 600;
 	color: var(--accent);
+	font-size: 1.125rem; /* ~18px mobile */
+}
+
+.section-heading {
+	font-family: var(--font-mono);
+	font-size: 1.125rem; /* ~18px mobile */
+	font-weight: 600;
+	color: var(--text);
+	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	margin: 0;
 }
 
-.connect-desc {
+.section-desc {
 	font-size: 0.95rem;
-	color: var(--text);
-	max-width: 400px;
-	margin: 0 0 40px 0;
+	color: var(--muted);
+	margin: 12px 0 0 0;
+}
+@media (min-width: 1024px) {
+	.section-marker,
+	.section-heading {
+		font-size: 1.25rem; /* ~20px */
+	}
 }
 
 .connect-links {
@@ -793,42 +809,7 @@ button, a {
 	}
 }
 
-.focus-section-header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	margin-bottom: 32px;
-}
 
-.focus-header-title {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-}
-
-.focus-marker {
-	font-family: var(--font-mono);
-	color: var(--accent);
-	opacity: 0.6;
-	font-size: 0.8rem;
-}
-
-.focus-heading {
-	font-family: var(--font-mono);
-	font-size: 0.85rem;
-	font-weight: 600;
-	color: var(--text);
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	margin: 0;
-}
-
-.focus-section-desc {
-	font-size: 0.95rem;
-	color: var(--muted);
-	margin: 12px 0 0 0;
-}
 
 /* ----------------------------------------------------
    RESPONSIVE DESIGN / MEDIA QUERIES

@@ -135,25 +135,11 @@ const setTheme = (theme) => {
 	localStorage.setItem('theme', theme);
 	
 	themeToggleButtons.forEach(button => {
-		const isMobile = button.id === 'mobile-theme-toggle';
-		
-		const iconMobile = theme === 'dark' ? `
-			<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon sun-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-		` : `
-			<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon moon-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-		`;
-
-		const iconDesktop = theme === 'dark' ? `
+		button.innerHTML = theme === 'dark' ? `
 			<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
 		` : `
 			<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 		`;
-		
-		if (isMobile) {
-			button.innerHTML = `${iconMobile} <span class="nav-label">${theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>`;
-		} else {
-			button.innerHTML = iconDesktop;
-		}
 	});
 };
 
@@ -168,3 +154,23 @@ themeToggleButtons.forEach(button => {
 		setTheme(newTheme);
 	});
 });
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const primaryMenu = document.getElementById('primary-menu');
+
+if (mobileMenuToggle && primaryMenu) {
+	mobileMenuToggle.addEventListener('click', () => {
+		const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+		mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+		primaryMenu.classList.toggle('is-open');
+	});
+	
+	// Close menu when clicking a link
+	primaryMenu.addEventListener('click', (e) => {
+		if (e.target.tagName.toLowerCase() === 'a') {
+			mobileMenuToggle.setAttribute('aria-expanded', 'false');
+			primaryMenu.classList.remove('is-open');
+		}
+	});
+}

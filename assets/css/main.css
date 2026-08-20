@@ -74,13 +74,13 @@ html {
 }
 
 body {
+	position: relative;
 	min-width: 320px;
 	margin: 0;
 	font-family: var(--font-sans);
 	font-size: 16px;
 	background-color: var(--bg);
 	background-image: radial-gradient(circle at 50% 0%, var(--light-source) 0%, transparent 90%);
-	background-attachment: fixed;
 	color: var(--text);
 	line-height: 1.5;
 	text-rendering: optimizeLegibility;
@@ -93,9 +93,9 @@ body {
 	min-height: 100dvh; /* ensure body always fills the viewport */
 }
 
-/* Atmospheric background grid pattern, almost invisible */
+/* Atmospheric background grid pattern */
 body::before {
-	position: fixed;
+	position: absolute;
 	inset: 0;
 	z-index: -1;
 	pointer-events: none;
@@ -104,8 +104,30 @@ body::before {
 		linear-gradient(var(--grid-line) 1px, transparent 1px),
 		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 	background-size: 64px 64px;
-	-webkit-mask-image: radial-gradient(at top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
-	mask-image: radial-gradient(at top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 600px, rgba(0, 0, 0, 0.05) 1200px, transparent 1600px);
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 600px, rgba(0, 0, 0, 0.05) 1200px, transparent 1600px);
+}
+
+/* Subtle Technical Markers */
+.tech-marker {
+	position: absolute;
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	color: var(--muted);
+	opacity: 0.35;
+	pointer-events: none;
+	user-select: none;
+	z-index: -1;
+}
+
+html[data-theme="dark"] .tech-marker {
+	opacity: 0.25;
+}
+
+@media (max-width: 767px) {
+	.tech-marker {
+		display: none;
+	}
 }
 
 a {
@@ -285,6 +307,7 @@ button, a {
 
 .hero-shell {
 	width: 100%;
+	position: relative;
 }
 
 /* Two-column layout grid: 55% left, 45% right */

@@ -55,7 +55,6 @@ html[data-theme="dark"] {
 /* Smooth transitions for theme switching */
 body,
 .site-header,
-.mobile-nav,
 .terminal-window,
 .terminal-header,
 .terminal-body,
@@ -247,12 +246,15 @@ button, a {
 	background-color: var(--bg-soft);
 }
 
-.mobile-bottom-nav,
-.mobile-menu-toggle {
+.mobile-bottom-nav {
 	display: none !important;
 }
 
 /* Main content */
+#main:focus {
+	outline: none;
+}
+
 #main {
 	flex: 1; /* grow to fill remaining viewport height */
 	display: flex;
@@ -462,6 +464,48 @@ button, a {
 	50% { opacity: 0; }
 }
 
+/* Focus Section */
+.focus-section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.focus-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 24px;
+	width: 100%;
+}
+
+.focus-item {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: var(--surface);
+}
+
+.focus-title {
+	font-family: var(--font-sans);
+	font-size: 1.125rem;
+	font-weight: 500;
+	color: var(--text);
+	margin-top: 0;
+	margin-bottom: 12px;
+}
+
+.focus-desc {
+	font-size: 0.95rem;
+	color: var(--muted);
+	line-height: 1.6;
+	margin: 0;
+}
+
 /* Social Section & Eyebrow Heading */
 .social-section {
 	width: 100%;
@@ -548,16 +592,6 @@ button, a {
 	font-weight: 400;
 }
 
-.status-line {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	color: var(--accent);
-	font-family: var(--font-mono);
-	font-size: 0.72rem;
-	font-weight: 400;
-}
-
 /* Reveal transition classes */
 .reveal {
 	opacity: 0;
@@ -573,7 +607,16 @@ button, a {
 /* Desktop Spacing Refinements (>= 1024px) */
 @media (min-width: 1024px) {
 	.hero {
-		margin-bottom: 120px; /* Hero ↓ 120px ↓ LET'S CONNECT */
+		margin-bottom: 120px; /* Hero ↓ 120px ↓ Focus */
+	}
+
+	.focus-section {
+		margin-bottom: 120px; /* Focus ↓ 120px ↓ LET'S CONNECT */
+	}
+
+	.focus-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
 	}
 
 	.social-section {
@@ -613,7 +656,11 @@ button, a {
 @media (max-width: 1023px) and (min-width: 768px) {
 	.hero {
 		margin-top: 240px;    /* Navbar ↓ 240px ↓ Hero */
-		margin-bottom: 100px; /* Hero ↓ 100px ↓ LET'S CONNECT */
+		margin-bottom: 100px; /* Hero ↓ 100px ↓ Focus */
+	}
+
+	.focus-section {
+		margin-bottom: 100px; /* Focus ↓ 100px ↓ LET'S CONNECT */
 	}
 
 	.social-section {
@@ -638,9 +685,10 @@ button, a {
 
 	.site-header {
 		width: auto;
+		height: 54px;
 		margin: 12px 12px 0;
 		top: 12px;
-		border-radius: 28px;
+		border-radius: 30px;
 		border: 1px solid var(--line);
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 	}
@@ -655,7 +703,6 @@ button, a {
 		align-items: center;
 		height: 54px;
 		padding: 0 16px;
-		position: relative; /* keeps dropdown anchored to navbar bottom */
 	}
 
 	html {
@@ -667,28 +714,26 @@ button, a {
 	 * justify-content: space-between forcing a negative/broken gap. */
 	#main {
 		justify-content: flex-start;
+		padding: 0 16px;
 	}
 
 	.desktop-nav {
 		display: none !important;
 	}
 
-	.mobile-menu-toggle {
-		display: none !important;
-	}
 
 	.mobile-bottom-nav {
 		display: flex !important;
 		position: fixed;
-		bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+		bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
 		left: 12px;
 		right: 12px;
-		height: 64px;
+		height: 58px;
 		background: var(--bg);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		border: 1px solid var(--line);
-		border-radius: 28px;
+		border-radius: 20px;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 		padding: 0 12px;
 		flex-direction: row;
@@ -710,10 +755,10 @@ button, a {
 		justify-content: center;
 		padding: 0;
 		height: 100%;
-		font-size: 0.6rem;
+		font-size: 10px;
 		font-weight: 500;
 		color: var(--muted);
-		gap: 2px;
+		gap: 3px;
 		background: none;
 		border: none;
 		flex: 1;
@@ -740,11 +785,11 @@ button, a {
 	}
 	
 	.site-footer {
-		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px);
+		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 88px);
 	}
 
 	.hero {
-		margin-top: 64px;    /* Mobile: Navbar ↓ 64px ↓ Hero */
+		margin-top: 96px;    /* Mobile: Navbar ↓ 96px ↓ Hero */
 		margin-bottom: 0;
 	}
 
@@ -758,7 +803,7 @@ button, a {
 	}
 
 	.hero-description {
-		font-size: clamp(0.75rem, 3.8vw, 0.9rem);
+		font-size: clamp(0.7rem, 3.5vw, 0.9rem);
 		max-width: 100%;
 		line-height: 1.5;
 		margin: 0 auto 32px auto;
@@ -787,8 +832,17 @@ button, a {
 		min-height: auto; /* Content-based height */
 	}
 
+	.focus-section {
+		margin-top: 48px;    /* Hero ↓ 48px ↓ Focus */
+		margin-bottom: 0;
+	}
+
+	.focus-item {
+		padding: 24px;
+	}
+
 	.social-section {
-		margin-top: 48px;    /* Hero ↓ 48px ↓ LET'S CONNECT */
+		margin-top: 48px;    /* Focus ↓ 48px ↓ LET'S CONNECT */
 		margin-bottom: 0;
 	}
 

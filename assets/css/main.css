@@ -80,7 +80,6 @@ body {
 	font-family: var(--font-sans);
 	font-size: 16px;
 	background-color: var(--bg);
-	background-image: radial-gradient(circle at 50% 0%, var(--light-source) 0%, transparent 90%);
 	color: var(--text);
 	line-height: 1.5;
 	text-rendering: optimizeLegibility;
@@ -97,15 +96,29 @@ body {
 body::before {
 	position: absolute;
 	inset: 0;
-	z-index: -1;
+	z-index: -2;
 	pointer-events: none;
 	content: "";
 	background-image:
 		linear-gradient(var(--grid-line) 1px, transparent 1px),
 		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 	background-size: 64px 64px;
-	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 600px, rgba(0, 0, 0, 0.05) 1200px, transparent 1600px);
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 600px, rgba(0, 0, 0, 0.05) 1200px, transparent 1600px);
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 400px, rgba(0, 0, 0, 0.05) 1000px, transparent 1500px);
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 400px, rgba(0, 0, 0, 0.05) 1000px, transparent 1500px);
+}
+
+/* Ambient light layer */
+body::after {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	content: "";
+	background-image: 
+		radial-gradient(circle at 15% 10%, var(--light-source) 0%, transparent 40%),
+		radial-gradient(circle at 85% 45%, var(--light-source) 0%, transparent 50%),
+		radial-gradient(circle at 50% 80%, var(--light-source) 0%, transparent 60%);
+	opacity: 0.85;
 }
 
 /* Subtle Technical Markers */
@@ -658,6 +671,9 @@ button, a {
 
 /* Desktop Spacing Refinements (>= 1024px) */
 @media (min-width: 1024px) {
+	.hero-right {
+		transform: translateY(32px); /* Controlled asymmetry */
+	}
 
 	.focus-section {
 		margin-bottom: 120px; /* Focus ↓ 120px ↓ LET'S CONNECT */
@@ -683,6 +699,24 @@ button, a {
 	.social-icons-row {
 		margin-bottom: 80px; /* Icons ↓ 80px ↓ Footer */
 	}
+}
+
+.focus-section-header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 64px;
+}
+
+.focus-section-header .section-marker {
+	font-family: var(--font-mono);
+	color: var(--accent);
+	opacity: 0.6;
+	font-size: 0.9rem;
+}
+
+.focus-section-header .social-heading {
+	margin-bottom: 0;
 }
 
 /* ----------------------------------------------------

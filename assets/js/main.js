@@ -166,11 +166,20 @@ if (mobileMenuToggle && primaryMenu) {
 		primaryMenu.classList.toggle('is-open');
 	});
 	
-	// Close menu when clicking a link
+		// Close menu when clicking a link
 	primaryMenu.addEventListener('click', (e) => {
 		if (e.target.tagName.toLowerCase() === 'a') {
 			mobileMenuToggle.setAttribute('aria-expanded', 'false');
 			primaryMenu.classList.remove('is-open');
+		}
+	});
+
+	// Close menu on Escape
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && primaryMenu.classList.contains('is-open')) {
+			mobileMenuToggle.setAttribute('aria-expanded', 'false');
+			primaryMenu.classList.remove('is-open');
+			mobileMenuToggle.focus();
 		}
 	});
 }

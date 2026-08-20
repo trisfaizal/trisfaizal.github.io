@@ -458,7 +458,8 @@ button, a {
 .terminal-window {
 	width: 100%;
 	max-width: 580px; /* Desktop: 560-620px width range */
-	min-height: 340px; /* Desktop: 320-360px height range */
+	min-height: 240px; /* Desktop height constraint */
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	position: relative;

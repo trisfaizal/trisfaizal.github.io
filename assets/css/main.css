@@ -236,24 +236,24 @@ button, a {
 	opacity: 0.8;
 }
 
-.desktop-nav {
+.main-nav {
 	display: flex;
 	align-items: center;
 	gap: 32px;
 }
 
-.desktop-nav a {
+.main-nav a {
 	color: var(--muted);
 	font-size: 0.88rem;
 	font-weight: 500;
 	position: relative;
 }
 
-.desktop-nav a:hover {
+.main-nav a:hover {
 	color: var(--text);
 }
 
-.desktop-nav a[aria-current="page"] {
+.main-nav a[aria-current="page"] {
 	color: var(--accent);
 }
 
@@ -275,20 +275,28 @@ button, a {
 	outline-offset: 2px;
 }
 
-.desktop-nav .theme-toggle {
+.main-nav .theme-toggle {
 	width: 36px;
 	height: 36px;
 	border-radius: 8px;
 }
 
-.desktop-nav .theme-toggle:hover {
+.main-nav .theme-toggle:hover {
 	color: var(--text);
 	background-color: var(--bg-soft);
 }
 
-.mobile-bottom-nav {
-	display: none !important;
+.mobile-menu-toggle {
+	display: none;
+	background: none;
+	border: none;
+	color: var(--text);
+	cursor: pointer;
+	padding: 8px;
+	margin-right: -8px;
 }
+
+
 
 /* Main content */
 #main:focus {
@@ -856,73 +864,8 @@ button, a {
 		padding: 0 16px;
 	}
 
-	.desktop-nav {
-		display: none !important;
-	}
-
-
-	.mobile-bottom-nav {
-		display: flex !important;
-		position: fixed;
-		bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
-		left: 16px;
-		right: 16px;
-		height: 60px;
-		background: var(--surface);
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-		padding: 0;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		z-index: 1000;
-	}
-
-	html[data-theme="dark"] .mobile-bottom-nav {
-		background: var(--surface);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-	}
-
-	.mobile-bottom-nav a,
-	.mobile-bottom-nav .theme-toggle {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		height: 100%;
-		font-size: 11px;
-		font-weight: 500;
-		color: var(--muted);
-		gap: 2px;
-		background: none;
-		border: none;
-		flex: 1;
-		cursor: pointer;
-	}
-
-	.mobile-bottom-nav .nav-icon {
-		width: 20px;
-		height: 20px;
-		stroke-width: 2;
-	}
-
-	.mobile-bottom-nav a:hover,
-	.mobile-bottom-nav .theme-toggle:hover {
-		color: var(--text);
-	}
-
-	.mobile-bottom-nav a[aria-current="page"] {
-		color: var(--accent);
-	}
-
-	.mobile-bottom-nav a[aria-current="page"] .nav-icon {
-		stroke-width: 2.2;
-	}
-	
 	.site-footer {
-		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 84px);
+		padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
 	}
 
 	.hero {

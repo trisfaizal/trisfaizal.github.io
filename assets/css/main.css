@@ -9,7 +9,8 @@
 	--accent-soft: #00c16a;
 	--line: #e5e7eb;
 	--line-bright: rgba(0, 184, 107, 0.25);
-	--light-source: rgba(255, 255, 255, 0.9);
+	--ambient-hero: rgba(0, 184, 107, 0.05); /* very subtle green */
+	--ambient-mid: rgba(17, 17, 17, 0.025); /* extremely subtle neutral */
 	
 	--selection-bg: rgba(0, 184, 107, 0.12);
 	--accent-bg: rgba(0, 184, 107, 0.05);
@@ -41,7 +42,8 @@ html[data-theme="dark"] {
 	--accent-soft: #10b981;
 	--line: #2b3240; /* Border */
 	--line-bright: rgba(0, 207, 118, 0.25);
-	--light-source: rgba(255, 255, 255, 0.025);
+	--ambient-hero: rgba(0, 207, 118, 0.04); /* subtle green */
+	--ambient-mid: rgba(255, 255, 255, 0.02); /* subtle neutral */
 	
 	--selection-bg: rgba(0, 207, 118, 0.15);
 	--accent-bg: rgba(0, 207, 118, 0.08);
@@ -103,8 +105,8 @@ body::before {
 		linear-gradient(var(--grid-line) 1px, transparent 1px),
 		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 	background-size: 64px 64px;
-	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 400px, rgba(0, 0, 0, 0.05) 1000px, transparent 1500px);
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 400px, rgba(0, 0, 0, 0.05) 1000px, transparent 1500px);
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 400px, rgba(0, 0, 0, 0.03) 1000px, transparent 1500px);
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 400px, rgba(0, 0, 0, 0.03) 1000px, transparent 1500px);
 }
 
 /* Ambient light layer */
@@ -115,10 +117,9 @@ body::after {
 	pointer-events: none;
 	content: "";
 	background-image: 
-		radial-gradient(circle at 15% 10%, var(--light-source) 0%, transparent 40%),
-		radial-gradient(circle at 85% 45%, var(--light-source) 0%, transparent 50%),
-		radial-gradient(circle at 50% 80%, var(--light-source) 0%, transparent 60%);
-	opacity: 0.85;
+		radial-gradient(circle at 30% 10%, var(--ambient-hero) 0%, transparent 45%),
+		radial-gradient(circle at 70% 60%, var(--ambient-mid) 0%, transparent 40%);
+	opacity: 1;
 }
 
 /* Subtle Technical Markers */
@@ -768,6 +769,11 @@ button, a {
 
 /* Mobile Spacing & Height Fix (<768px) */
 @media (max-width: 767px) {
+	/* Simplify atmosphere on mobile */
+	body::after {
+		background-image: radial-gradient(circle at 50% 10%, var(--ambient-hero) 0%, transparent 50%);
+	}
+
 	body::before {
 		background-size: 48px 48px;
 	}

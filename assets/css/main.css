@@ -105,20 +105,18 @@ body::before {
 		linear-gradient(var(--grid-line) 1px, transparent 1px),
 		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
 	background-size: 64px 64px;
-	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 400px, rgba(0, 0, 0, 0.03) 1000px, transparent 1500px);
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 400px, rgba(0, 0, 0, 0.03) 1000px, transparent 1500px);
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 40%, transparent 80%);
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 40%, transparent 80%);
 }
 
-/* Ambient light layer */
+/* Global Hero ambient field */
 body::after {
 	position: absolute;
 	inset: 0;
 	z-index: -1;
 	pointer-events: none;
 	content: "";
-	background-image: 
-		radial-gradient(circle at 30% 10%, var(--ambient-hero) 0%, transparent 45%),
-		radial-gradient(circle at 70% 60%, var(--ambient-mid) 0%, transparent 40%);
+	background-image: radial-gradient(ellipse at 50% 0%, var(--ambient-hero) 0%, transparent 70%);
 	opacity: 1;
 }
 
@@ -403,17 +401,29 @@ button, a {
 	min-height: 340px; /* Desktop: 320-360px height range */
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	z-index: 1;
 	background: var(--terminal-bg);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--terminal-border);
 	border-radius: var(--radius);
 	box-shadow: 
-		0 40px 80px var(--shadow-color), 
-		0 2px 6px rgba(0, 0, 0, 0.01),
-		inset 0 1px 0 var(--inset-shadow);
+		inset 0 1px 0 0 var(--inset-shadow),
+		0 24px 64px -12px var(--shadow-color);
 	overflow: hidden;
 	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Terminal Spotlight */
+.terminal-window::before {
+	content: "";
+	position: absolute;
+	inset: -150%;
+	z-index: -1;
+	background-image: radial-gradient(circle at 50% 50%, var(--ambient-mid) 0%, transparent 50%);
+	pointer-events: none;
+	border-radius: 50%;
 }
 
 .terminal-window:hover {
@@ -519,7 +529,18 @@ button, a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 	margin-top: clamp(80px, 10vw, 120px); /* Authoritative HERO ↓ FOCUS spacing */
+}
+
+/* Focus Ambient Transition Field */
+.focus-section::before {
+	content: "";
+	position: absolute;
+	inset: -50% -20%;
+	z-index: -1;
+	background-image: radial-gradient(ellipse at 50% 50%, var(--ambient-mid) 0%, transparent 60%);
+	pointer-events: none;
 }
 
 .focus-grid {
@@ -841,11 +862,20 @@ button, a {
 @media (max-width: 767px) {
 	/* Simplify atmosphere on mobile */
 	body::after {
-		background-image: radial-gradient(circle at 50% 10%, var(--ambient-hero) 0%, transparent 50%);
+		background-image: radial-gradient(ellipse at 50% 0%, var(--ambient-hero) 0%, transparent 60%);
+		opacity: 0.7;
 	}
 
 	body::before {
 		background-size: 48px 48px;
+	}
+
+	.terminal-window::before {
+		opacity: 0.5;
+	}
+	
+	.focus-section::before {
+		opacity: 0.5;
 	}
 
 	.site-header {

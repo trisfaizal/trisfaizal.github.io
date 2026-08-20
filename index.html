@@ -48,17 +48,19 @@
 		<nav class="navbar" aria-label="Primary navigation">
 			<a class="brand" href="./" aria-label="TRISF home">TRISF <span class="brand-dot" aria-hidden="true">●</span></a>
 
-			<button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-			</button>
+			<div class="nav-controls">
+				<button class="theme-toggle" aria-label="Toggle theme" id="theme-toggle-btn"></button>
+				<button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+				</button>
+			</div>
 
 			<!-- Main Navigation -->
 			<div class="main-nav" id="primary-menu">
 				<a href="./" aria-current="page">Home</a>
 				<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
 				<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
-				<button class="theme-toggle" aria-label="Toggle theme" id="theme-toggle-btn"></button>
 			</div>
 		</nav>
 	</header>

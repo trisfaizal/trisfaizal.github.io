@@ -205,11 +205,11 @@ button, a {
 .navbar {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	height: var(--nav-height);
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 24px;
+	gap: 32px;
 }
 
 .brand {
@@ -238,6 +238,7 @@ button, a {
 	display: flex;
 	align-items: center;
 	gap: 32px;
+	margin-left: auto;
 }
 
 .main-nav a {
@@ -273,15 +274,21 @@ button, a {
 	outline-offset: 2px;
 }
 
-.main-nav .theme-toggle {
+.theme-toggle {
 	width: 36px;
 	height: 36px;
 	border-radius: 8px;
 }
 
-.main-nav .theme-toggle:hover {
+.theme-toggle:hover {
 	color: var(--text);
 	background-color: var(--bg-soft);
+}
+
+.nav-controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .mobile-menu-toggle {
@@ -916,7 +923,7 @@ button, a {
 		transform: translateY(0);
 	}
 
-	.main-nav a, .main-nav .theme-toggle {
+	.main-nav a {
 		width: 100%;
 		padding: 14px 16px;
 		font-size: 1rem;
@@ -924,7 +931,7 @@ button, a {
 		border-radius: 12px;
 	}
 
-	.main-nav a:hover, .main-nav .theme-toggle:hover {
+	.main-nav a:hover {
 		background-color: var(--bg-soft);
 	}
 
@@ -933,19 +940,11 @@ button, a {
 		background-color: var(--accent-bg);
 	}
 
-	.main-nav .theme-toggle {
-		height: auto;
-		margin-top: 8px;
-		border-top: 1px solid var(--line);
-		border-radius: 0 0 12px 12px;
-	}
-
 	.navbar {
-		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
 		height: 54px;
 		padding: 0 16px;
+		gap: 16px;
 	}
 
 	html {

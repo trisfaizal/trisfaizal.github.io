@@ -192,10 +192,10 @@ if (siteHeader) {
 
 	const updateHeaderProgress = () => {
 		const scrollY = window.scrollY;
-		let progress = Math.min(Math.max(scrollY / 80, 0), 1);
+		let progress = Math.min(Math.max((scrollY - 24) / 56, 0), 1);
 		
 		if (isReducedMotion) {
-			progress = scrollY > 60 ? 1 : 0;
+			progress = scrollY > 80 ? 1 : 0;
 		}
 
 		siteHeader.style.setProperty('--header-progress', progress.toFixed(3));
@@ -213,47 +213,3 @@ if (siteHeader) {
 	updateHeaderProgress();
 }
 
-
-// Mobile Scroll Direction Navbar Morph
-if (siteHeader && window.matchMedia('(max-width: 767px)').matches) {
-	let tickingMobile = false;
-	let lastScrollY = window.scrollY;
-	let currentMorph = 0; // 0 = expanded, 1 = compact
-	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-	const updateMobileHeader = () => {
-		const currentScrollY = window.scrollY;
-		
-		if (currentScrollY <= 10) {
-			currentMorph = 0;
-			document.documentElement.style.setProperty('--mobile-nav-morph', '0');
-		} else {
-			// 10px dead zone to prevent jitter
-			if (Math.abs(currentScrollY - lastScrollY) > 10) {
-				if (currentScrollY > lastScrollY) {
-					// Scrolling down -> compact
-					currentMorph = 1;
-				} else {
-					// Scrolling up -> expanded
-					currentMorph = 0;
-				}
-				
-				if (!isReducedMotion) {
-					document.documentElement.style.setProperty('--mobile-nav-morph', currentMorph.toString());
-				}
-				lastScrollY = currentScrollY;
-			}
-		}
-		tickingMobile = false;
-	};
-
-	window.addEventListener('scroll', () => {
-		if (!tickingMobile && !isReducedMotion) {
-			window.requestAnimationFrame(updateMobileHeader);
-			tickingMobile = true;
-		}
-	}, { passive: true });
-	
-	// Initial evaluation
-	updateMobileHeader();
-}

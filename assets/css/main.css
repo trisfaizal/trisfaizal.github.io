@@ -88,6 +88,7 @@ body,
 html {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
+	overflow-x: hidden;
 	scroll-behavior: smooth;
 	scroll-padding-top: var(--nav-height); /* prevent anchor links hiding under sticky header */
 }

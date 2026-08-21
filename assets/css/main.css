@@ -88,7 +88,7 @@ body,
 html {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
-	overflow-x: hidden;
+	overflow-x: clip;
 	scroll-behavior: smooth;
 	scroll-padding-top: var(--nav-height); /* prevent anchor links hiding under sticky header */
 }
@@ -104,7 +104,7 @@ body {
 	line-height: 1.5;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
+	overflow-x: clip;
 	
 	/* Layout container */
 	display: flex;

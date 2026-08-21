@@ -1214,14 +1214,19 @@ button, a {
 		opacity: 0.5;
 	}
 
-	.site-header {
+		.site-header {
 		width: auto;
-		height: 54px;
-		margin: 12px 12px 0;
-		top: 12px;
+		height: calc(54px - (var(--mobile-nav-morph, 0) * 6px));
+		margin: calc(12px - (var(--mobile-nav-morph, 0) * 4px)) calc(12px + (var(--mobile-nav-morph, 0) * 12px)) 0;
+		padding: 0 calc(16px - (var(--mobile-nav-morph, 0) * 4px));
+		top: calc(12px - (var(--mobile-nav-morph, 0) * 4px));
 		border-radius: 999px;
 		border: 1px solid var(--line);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 calc(8px + (var(--mobile-nav-morph, 0) * 8px)) calc(24px + (var(--mobile-nav-morph, 0) * 12px)) rgba(0, 0, 0, calc(0.05 + (var(--mobile-nav-morph, 0) * 0.1)));
+		backdrop-filter: blur(calc(12px + (var(--mobile-nav-morph, 0) * 8px)));
+		-webkit-backdrop-filter: blur(calc(12px + (var(--mobile-nav-morph, 0) * 8px)));
+		background: color-mix(in srgb, var(--surface) calc(85% + (var(--mobile-nav-morph, 0) * 10%)), transparent);
+		transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
 	html[data-theme="dark"] .site-header {

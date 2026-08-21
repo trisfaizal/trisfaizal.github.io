@@ -112,6 +112,12 @@ body {
 	min-height: 100dvh; /* ensure body always fills the viewport */
 }
 
+.hero,
+.focus-section,
+.connect-section {
+	scroll-margin-top: 100px;
+}
+
 /* Atmospheric background grid pattern */
 body::before {
 	position: absolute;
@@ -227,14 +233,21 @@ button, a {
 		background-color: transparent !important;
 		border-bottom: none !important;
 		
-		/* Geometry Interpolation */
+		/* Geometry & Blur Interpolation */
 		top: calc(16px * var(--header-progress));
 		width: calc(100% - (48px * var(--header-progress)));
 		max-width: calc((100% * (1 - var(--header-progress))) + (720px * var(--header-progress)));
 		border-radius: calc(999px * var(--header-progress));
+		backdrop-filter: blur(calc(12px * var(--header-progress)));
+		-webkit-backdrop-filter: blur(calc(12px * var(--header-progress)));
 		
 		/* Driven by JS scroll, native CSS transitions must be disabled */
 		transition: none !important;
+	}
+
+	.site-header .navbar {
+		height: calc(var(--nav-height) - (12px * var(--header-progress)));
+		padding: 0 calc(24px - (8px * var(--header-progress)));
 	}
 
 	/* Base Header Background */

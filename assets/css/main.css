@@ -997,62 +997,6 @@ button, a {
 	}
 }
 
-/* INDEX SECTION EXPERIMENT */
-.index-section {
-	max-width: var(--max-width);
-	margin: 0 auto;
-	padding: 80px 24px;
-	display: flex;
-	flex-direction: column;
-	gap: 40px;
-}
-
-.index-title {
-	font-size: 14px;
-	font-family: var(--font-mono);
-	color: var(--accent);
-	letter-spacing: 0.1em;
-	font-weight: 500;
-	margin: 0;
-}
-
-.index-list {
-	display: flex;
-	flex-direction: column;
-}
-
-.index-item {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 24px 0;
-	color: var(--text);
-}
-
-.index-item-content {
-	display: flex;
-	align-items: center;
-	gap: 32px;
-}
-
-.index-num {
-	font-family: var(--font-mono);
-	font-size: 14px;
-	color: var(--muted);
-}
-
-.index-label {
-	font-size: 1.5rem;
-	font-weight: 500;
-	letter-spacing: -0.02em;
-}
-
-.index-divider {
-	height: 1px;
-	background-color: var(--line);
-	width: 100%;
-}
-
 /* Mobile Spacing & Height Fix (<768px) */
 @media (max-width: 767px) {
 	/* Simplify atmosphere on mobile */
@@ -1071,23 +1015,6 @@ button, a {
 	
 	.focus-section::before {
 		opacity: 0.5;
-	}
-
-	.index-section {
-		padding: 60px 24px;
-		gap: 32px;
-	}
-	
-	.index-item {
-		padding: 16px 0;
-	}
-	
-	.index-item-content {
-		gap: 16px;
-	}
-	
-	.index-label {
-		font-size: 1.1rem;
 	}
 
 	.site-header {

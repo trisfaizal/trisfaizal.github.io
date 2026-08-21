@@ -792,6 +792,106 @@ button, a {
 	margin-bottom: clamp(40px, 8vw, 60px);
 }
 
+/* Approach Section */
+.approach-section {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 24px;
+	margin-bottom: clamp(64px, 8vw, 88px);
+}
+
+.approach-section .section-header {
+	align-items: flex-start;
+	text-align: left;
+	margin-bottom: 48px;
+}
+
+.approach-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+	position: relative;
+	width: 100%;
+}
+
+.approach-line {
+	position: absolute;
+	top: 7px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: var(--line);
+	z-index: 1;
+}
+
+.approach-stage {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	position: relative;
+	z-index: 2;
+}
+
+.approach-marker {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: var(--surface);
+	border: 2px solid var(--line);
+	transition: border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-content {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.approach-title {
+	font-family: var(--font-mono);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text);
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-number {
+	color: var(--muted);
+	font-weight: 400;
+	transition: color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-desc {
+	font-size: 0.95rem;
+	color: var(--muted);
+	line-height: 1.6;
+	margin: 0;
+	opacity: 0.8;
+	transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Approach Interaction */
+.approach-stage:hover .approach-marker {
+	border-color: var(--accent);
+	background-color: var(--accent-bg, transparent); /* fallback if not defined */
+}
+
+.approach-stage:hover .approach-title {
+	color: var(--text);
+}
+.approach-stage:hover .approach-number {
+	color: var(--accent);
+}
+.approach-stage:hover .approach-desc {
+	opacity: 1;
+	color: var(--text);
+}
+
 /* Section Headings (Shared) */
 .section-header {
 	display: flex;
@@ -1025,7 +1125,7 @@ button, a {
 	align-items: center;
 	position: relative;
 	margin-top: clamp(56px, 8vw, 72px);
-	margin-bottom: clamp(72px, 10vw, 96px);
+	margin-bottom: clamp(64px, 8vw, 88px);
 }
 
 .about-container {
@@ -1080,6 +1180,35 @@ button, a {
 	.terminal-window::before {
 		opacity: 0.5;
 	}
+
+.approach-grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.approach-line {
+		top: 0;
+		bottom: 0;
+		left: 6.5px;
+		width: 1px;
+		height: auto;
+		right: auto;
+	}
+
+	.approach-stage {
+		flex-direction: row;
+		gap: 20px;
+	}
+
+	.approach-marker {
+		flex-shrink: 0;
+		margin-top: 4px;
+	}
+
+	.approach-section .section-header {
+		margin-bottom: 32px;
+	}
+
 
 	.focus-section::before {
 		opacity: 0.5;

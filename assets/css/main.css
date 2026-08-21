@@ -788,7 +788,8 @@ button, a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	text-align: center;
+	padding: 0 24px;
+	margin-bottom: clamp(40px, 8vw, 60px);
 }
 
 /* Section Headings (Shared) */
@@ -835,6 +836,20 @@ button, a {
 	}
 }
 
+.connect-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: clamp(24px, 4vw, 32px);
+	padding: clamp(32px, 6vw, 56px);
+	width: 100%;
+	max-width: 820px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 24px var(--shadow-color);
+}
+
 .connect-links {
 	display: flex;
 	flex-direction: column;
@@ -844,7 +859,21 @@ button, a {
 }
 
 @media (min-width: 768px) {
-	.connect-links {
+	.connect-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: clamp(24px, 4vw, 32px);
+	padding: clamp(32px, 6vw, 56px);
+	width: 100%;
+	max-width: 820px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 24px var(--shadow-color);
+}
+
+.connect-links {
 		flex-direction: row;
 		justify-content: center;
 		gap: 40px;
@@ -947,9 +976,6 @@ button, a {
 		gap: 24px;
 	}
 
-	.connect-section {
-		margin-bottom: 80px;
-	}
 }
 
 
@@ -985,9 +1011,6 @@ button, a {
 
 
 
-	.connect-section {
-		margin-bottom: 70px;
-	}
 
 	.terminal-container {
 		margin-top: 44px;
@@ -1002,34 +1025,43 @@ button, a {
 	align-items: center;
 	position: relative;
 	margin-top: clamp(56px, 8vw, 72px);
-	margin-bottom: clamp(72px, 10vw, 88px);
+	margin-bottom: clamp(72px, 10vw, 96px);
 }
 
-.about-card {
-	background: var(--surface);
-	border: 1px solid var(--line);
-	border-radius: clamp(28px, 4vw, 32px);
-	padding: clamp(32px, 6vw, 64px);
-	width: 100%;
-	max-width: 960px;
-	margin: 0;
+.about-container {
 	display: flex;
 	flex-direction: column;
+	gap: 24px;
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 24px;
 }
 
-.about-card .section-header {
-	align-items: flex-start;
-	text-align: left;
-	margin-bottom: 32px;
+@media (min-width: 768px) {
+	.about-container {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 40px;
+	}
+	
+	.about-container .section-header {
+		flex: 0 0 280px;
+		margin-bottom: 0;
+	}
+	
+	.about-content {
+		flex: 1;
+		max-width: 680px;
+	}
 }
 
 .about-content {
-	max-width: 800px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
 	text-align: left;
-	padding: 0;
 }
 
 .about-headline {
@@ -1045,7 +1077,6 @@ button, a {
 	font-size: clamp(1rem, 1.25vw, 1.125rem);
 	color: var(--muted);
 	line-height: 1.6;
-	max-width: 600px;
 	margin: 0;
 }
 
@@ -1212,12 +1243,23 @@ button, a {
 		margin-bottom: 20px;
 	}
 
-	.connect-section {
-		margin-top: 40px;    /* Focus ↓ 40px ↓ LET'S CONNECT */
-		margin-bottom: 24px;
-	}
 
-	.connect-links {
+
+	.connect-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: clamp(24px, 4vw, 32px);
+	padding: clamp(32px, 6vw, 56px);
+	width: 100%;
+	max-width: 820px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 24px var(--shadow-color);
+}
+
+.connect-links {
 		flex-direction: row;
 		justify-content: center;
 		gap: 24px;

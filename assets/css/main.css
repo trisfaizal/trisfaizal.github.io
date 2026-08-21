@@ -940,10 +940,7 @@ button, a {
 		transform: translateY(32px); /* Controlled asymmetry */
 	}
 
-	.focus-section,
-	.about-section {
-		margin-bottom: 120px; /* Focus/About ↓ 120px ↓ LET'S CONNECT */
-	}
+
 
 	.focus-grid {
 		grid-template-columns: repeat(3, 1fr);
@@ -986,10 +983,7 @@ button, a {
 		margin-top: 240px;    /* Navbar ↓ 240px ↓ Hero */
 	}
 
-	.focus-section,
-	.about-section {
-		margin-bottom: 100px; /* Focus/About ↓ 100px ↓ LET'S CONNECT */
-	}
+
 
 	.connect-section {
 		margin-bottom: 70px;
@@ -1007,7 +1001,26 @@ button, a {
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	margin-top: clamp(80px, 10vw, 120px);
+	margin-top: clamp(56px, 8vw, 72px);
+	margin-bottom: clamp(72px, 10vw, 88px);
+}
+
+.about-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: clamp(28px, 4vw, 32px);
+	padding: clamp(32px, 6vw, 64px);
+	width: 100%;
+	max-width: 960px;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.about-card .section-header {
+	align-items: flex-start;
+	text-align: left;
+	margin-bottom: 32px;
 }
 
 .about-content {
@@ -1015,8 +1028,8 @@ button, a {
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
-	text-align: center;
-	padding: 0 24px;
+	text-align: left;
+	padding: 0;
 }
 
 .about-headline {
@@ -1033,7 +1046,7 @@ button, a {
 	color: var(--muted);
 	line-height: 1.6;
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 0;
 }
 
 /* Mobile Spacing & Height Fix (<768px) */
@@ -1051,24 +1064,9 @@ button, a {
 	.terminal-window::before {
 		opacity: 0.5;
 	}
-	
+
 	.focus-section::before {
 		opacity: 0.5;
-	}
-
-	.about-section,
-	.about-section .section-header {
-		align-items: flex-start;
-		text-align: left;
-	}
-
-	.about-content {
-		text-align: left;
-		gap: 16px;
-	}
-
-	.about-desc {
-		margin: 0;
 	}
 
 	.site-header {
@@ -1197,10 +1195,7 @@ button, a {
 		min-height: auto; /* Content-based height */
 	}
 
-	.focus-section,
-	.about-section {
-		margin-bottom: 0;
-	}
+
 
 	.focus-grid {
 		grid-template-columns: 1fr;

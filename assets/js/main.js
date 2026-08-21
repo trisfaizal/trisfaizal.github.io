@@ -184,14 +184,31 @@ if (mobileMenuToggle && primaryMenu) {
 	});
 }
 
-// Desktop Scroll Navbar
+// Desktop Progressive Morphing Navbar
 const siteHeader = document.querySelector('.site-header');
 if (siteHeader) {
+	let ticking = false;
+	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	const updateHeaderProgress = () => {
+		const scrollY = window.scrollY;
+		let progress = Math.min(Math.max(scrollY / 80, 0), 1);
+		
+		if (isReducedMotion) {
+			progress = scrollY > 60 ? 1 : 0;
+		}
+
+		siteHeader.style.setProperty('--header-progress', progress.toFixed(3));
+		ticking = false;
+	};
+
 	window.addEventListener('scroll', () => {
-		if (window.scrollY > 60) {
-			siteHeader.classList.add('is-scrolled');
-		} else {
-			siteHeader.classList.remove('is-scrolled');
+		if (!ticking) {
+			window.requestAnimationFrame(updateHeaderProgress);
+			ticking = true;
 		}
 	}, { passive: true });
+
+	// Initial evaluation
+	updateHeaderProgress();
 }

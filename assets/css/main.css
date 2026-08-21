@@ -220,6 +220,28 @@ button, a {
 	-webkit-backdrop-filter: blur(12px);
 }
 
+@media (min-width: 768px) {
+	.site-header {
+		margin: 0 auto;
+		transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+					width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+					max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+					border-radius 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+					background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+					box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.site-header.is-scrolled {
+		top: 16px;
+		width: calc(100% - 48px);
+		max-width: 720px;
+		border-radius: 999px;
+		background-color: var(--surface);
+		border: 1px solid var(--line);
+		box-shadow: 0 16px 40px var(--shadow-color);
+	}
+}
+
 .navbar {
 	display: flex;
 	align-items: center;

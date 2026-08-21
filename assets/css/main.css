@@ -1058,7 +1058,7 @@ button, a {
 		font-size: clamp(0.7rem, 3.5vw, 0.9rem);
 		max-width: 100%;
 		line-height: 1.5;
-		margin: 0 auto 32px auto;
+		margin: 0 auto 24px auto;
 	}
 
 	.nowrap {
@@ -1098,8 +1098,13 @@ button, a {
 		height: auto;
 		min-height: min-content;
 	}
+
+	.section-header {
+		margin-bottom: 20px;
+	}
+
 	.connect-section {
-		margin-top: 48px;    /* Focus ↓ 48px ↓ LET'S CONNECT */
+		margin-top: 40px;    /* Focus ↓ 40px ↓ LET'S CONNECT */
 		margin-bottom: 24px;
 	}
 

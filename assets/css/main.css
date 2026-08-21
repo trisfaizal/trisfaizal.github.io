@@ -1019,6 +1019,25 @@ button, a {
 	transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+
+/* Optical Centering for Connect Section */
+.connect-section .section-header-title {
+	position: relative;
+	display: inline-flex;
+	justify-content: center;
+}
+
+.connect-section .section-marker {
+	position: absolute;
+	right: 100%;
+	margin-right: 8px;
+}
+
+.connect-section .section-desc {
+	text-align: center;
+	margin: 0 auto;
+}
+
 /* Site Footer */
 .site-footer {
 	width: 100%;
@@ -1215,10 +1234,12 @@ button, a {
 		opacity: 0.5;
 	}
 
-		.site-header {
-		width: auto;
+			.site-header {
+		width: fit-content;
+		min-width: calc(100% - 24px - (var(--header-progress, 0) * 100vw));
+		max-width: calc(100% - 24px);
 		height: calc(54px - (var(--header-progress, 0) * 10px));
-		margin: calc(12px - (var(--header-progress, 0) * 4px)) calc(12px + (var(--header-progress, 0) * 12px)) 0;
+		margin: calc(12px - (var(--header-progress, 0) * 4px)) auto 0;
 		padding: 0 calc(16px - (var(--header-progress, 0) * 4px));
 		top: calc(12px - (var(--header-progress, 0) * 4px));
 		border-radius: 999px;
@@ -1279,11 +1300,11 @@ button, a {
 		background-color: var(--accent-bg);
 	}
 
-	.navbar {
+		.navbar {
 		justify-content: space-between;
-		height: 54px;
-		padding: 0 16px;
-		gap: 16px;
+		height: 100%;
+		padding: 0 calc(20px - (var(--header-progress, 0) * 4px));
+		gap: calc(24px - (var(--header-progress, 0) * 10px));
 	}
 
 	html {
@@ -1384,8 +1405,13 @@ button, a {
 		gap: 24px;
 	}
 
-	.connect-link {
-		padding: 12px;
+		.connect-link {
+		width: 48px;
+		height: 48px;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.connect-link-label,

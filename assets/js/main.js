@@ -183,3 +183,15 @@ if (mobileMenuToggle && primaryMenu) {
 		}
 	});
 }
+
+// Desktop Scroll Navbar
+const siteHeader = document.querySelector('.site-header');
+if (siteHeader) {
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 60) {
+			siteHeader.classList.add('is-scrolled');
+		} else {
+			siteHeader.classList.remove('is-scrolled');
+		}
+	}, { passive: true });
+}

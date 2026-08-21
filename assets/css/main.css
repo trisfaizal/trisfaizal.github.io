@@ -86,6 +86,8 @@ body,
 }
 
 html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 	scroll-behavior: smooth;
 	scroll-padding-top: var(--nav-height); /* prevent anchor links hiding under sticky header */
 }

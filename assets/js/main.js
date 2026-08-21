@@ -192,7 +192,8 @@ if (siteHeader) {
 
 	const updateHeaderProgress = () => {
 		const scrollY = window.scrollY;
-		let progress = Math.min(Math.max((scrollY - 24) / 56, 0), 1);
+		let rawProgress = Math.min(Math.max((scrollY - 24) / 56, 0), 1);
+		let progress = 1 - Math.pow(1 - rawProgress, 3);
 		
 		if (isReducedMotion) {
 			progress = scrollY > 80 ? 1 : 0;

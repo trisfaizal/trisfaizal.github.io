@@ -940,8 +940,9 @@ button, a {
 		transform: translateY(32px); /* Controlled asymmetry */
 	}
 
-	.focus-section {
-		margin-bottom: 120px; /* Focus ↓ 120px ↓ LET'S CONNECT */
+	.focus-section,
+	.about-section {
+		margin-bottom: 120px; /* Focus/About ↓ 120px ↓ LET'S CONNECT */
 	}
 
 	.focus-grid {
@@ -985,8 +986,9 @@ button, a {
 		margin-top: 240px;    /* Navbar ↓ 240px ↓ Hero */
 	}
 
-	.focus-section {
-		margin-bottom: 100px; /* Focus ↓ 100px ↓ LET'S CONNECT */
+	.focus-section,
+	.about-section {
+		margin-bottom: 100px; /* Focus/About ↓ 100px ↓ LET'S CONNECT */
 	}
 
 	.connect-section {
@@ -1195,7 +1197,8 @@ button, a {
 		min-height: auto; /* Content-based height */
 	}
 
-	.focus-section {
+	.focus-section,
+	.about-section {
 		margin-bottom: 0;
 	}
 

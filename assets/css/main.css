@@ -247,8 +247,9 @@ button, a {
 	}
 
 	.site-header .navbar {
-		height: calc(var(--nav-height) - (12px * var(--header-progress)));
-		padding: 0 calc(24px - (8px * var(--header-progress)));
+		height: calc(var(--nav-height) - (20px * var(--header-progress)));
+		padding: 0 calc(24px - (12px * var(--header-progress)));
+		gap: calc(32px - (12px * var(--header-progress)));
 	}
 
 	/* Base Header Background */
@@ -1216,7 +1217,7 @@ button, a {
 
 		.site-header {
 		width: auto;
-		height: calc(54px - (var(--header-progress, 0) * 6px));
+		height: calc(54px - (var(--header-progress, 0) * 10px));
 		margin: calc(12px - (var(--header-progress, 0) * 4px)) calc(12px + (var(--header-progress, 0) * 12px)) 0;
 		padding: 0 calc(16px - (var(--header-progress, 0) * 4px));
 		top: calc(12px - (var(--header-progress, 0) * 4px));

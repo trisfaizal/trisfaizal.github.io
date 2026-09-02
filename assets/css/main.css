@@ -1368,8 +1368,7 @@ html[data-theme="dark"] .terminal-window:hover {
 		radial-gradient(ellipse at 20% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
 		radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.04) 0%, transparent 60%),
 		radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.03) 0%, transparent 60%);
-	/* Add subtle depth/transition from hero */
-	box-shadow: inset 0 80px 80px -80px var(--bg);
+	/* No inset shadow to prevent creating an artificial bounding box */
 }
 
 html[data-theme="dark"] .about-background {
@@ -1393,8 +1392,7 @@ html[data-theme="dark"] .about-background {
 
 .about-glass-panel {
 	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
+	/* Removed max-width to allow it to fill the global .about-container */
 	background: rgba(255, 255, 255, 0.5);
 	border: 1px solid rgba(17, 17, 17, 0.1);
 	border-top: 1px solid rgba(255, 255, 255, 0.8); /* brighter top highlight */
@@ -1438,7 +1436,7 @@ html[data-theme="dark"] .about-glass-panel {
 	letter-spacing: -0.02em;
 	color: var(--text);
 	margin: 0;
-	max-width: 800px;
+	/* Removed artificial max-width so it strictly follows the grid column */
 }
 
 .about-right {
@@ -1451,14 +1449,14 @@ html[data-theme="dark"] .about-glass-panel {
 	color: var(--muted);
 	line-height: 1.7;
 	margin: 0;
-	max-width: 480px;
+	/* Removed artificial max-width to naturally fill the right column */
 }
 
 @media (min-width: 900px) {
 	.about-editorial {
 		display: grid;
-		grid-template-columns: 1.1fr 1fr;
-		gap: 80px;
+		grid-template-columns: 1.35fr 1fr;
+		gap: clamp(48px, 8vw, 120px);
 		align-items: flex-start;
 	}
 	

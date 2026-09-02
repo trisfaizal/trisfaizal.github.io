@@ -310,11 +310,15 @@ button, a {
 		background-color: transparent !important;
 		border-bottom: none !important;
 		
-		/* Geometry & Blur Interpolation */
+		/* Geometry & Interpolation */
 		top: calc(16px * var(--header-progress));
-		width: calc(100% - (48px * var(--header-progress)));
-		max-width: calc((100% * (1 - var(--header-progress))) + (720px * var(--header-progress)));
-		border-radius: calc(999px * var(--header-progress));
+		width: 100%;
+		max-width: var(--max-width);
+		
+		/* We don't scale the border-radius from square to pill, 
+		   but wait, if it was a pill originally, then we keep it as is. 
+		   Actually, global navbar has NO border-radius originally, so we round it smoothly */
+		border-radius: calc(24px * var(--header-progress));
 		backdrop-filter: blur(calc(12px * var(--header-progress)));
 		-webkit-backdrop-filter: blur(calc(12px * var(--header-progress)));
 		
@@ -323,9 +327,9 @@ button, a {
 	}
 
 	.site-header .navbar {
-		height: calc(var(--nav-height) - (20px * var(--header-progress)));
-		padding: 0 calc(24px - (12px * var(--header-progress)));
-		gap: calc(32px - (12px * var(--header-progress)));
+		height: var(--nav-height);
+		padding: 0 24px;
+		gap: 32px;
 	}
 
 	/* Base Header Background */
@@ -1416,12 +1420,12 @@ button, a {
 
 			.site-header {
 		width: fit-content;
-		min-width: calc(100% - 24px - (var(--header-progress, 0) * 100vw));
+		min-width: calc(100% - 24px);
 		max-width: calc(100% - 24px);
-		height: calc(54px - (var(--header-progress, 0) * 10px));
-		margin: calc(12px - (var(--header-progress, 0) * 4px)) auto 0;
-		padding: 0 calc(16px - (var(--header-progress, 0) * 4px));
-		top: calc(12px - (var(--header-progress, 0) * 4px));
+		height: 54px;
+		margin: 12px auto 0;
+		padding: 0 16px;
+		top: 12px;
 		border-radius: 999px;
 		border: 1px solid var(--line);
 		box-shadow: 0 calc(8px + (var(--header-progress, 0) * 8px)) calc(24px + (var(--header-progress, 0) * 12px)) rgba(0, 0, 0, calc(0.05 + (var(--header-progress, 0) * 0.1)));
@@ -1483,8 +1487,8 @@ button, a {
 		.navbar {
 		justify-content: space-between;
 		height: 100%;
-		padding: 0 calc(20px - (var(--header-progress, 0) * 4px));
-		gap: calc(24px - (var(--header-progress, 0) * 10px));
+		padding: 0 20px;
+		gap: 24px;
 	}
 
 	html {

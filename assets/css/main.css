@@ -936,6 +936,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 24px;
+	margin-top: clamp(56px, 10vw, 110px);
 	margin-bottom: clamp(64px, 8vw, 88px);
 }
 

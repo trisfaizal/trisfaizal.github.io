@@ -1075,6 +1075,11 @@ html[data-theme="dark"] .terminal-window:hover {
 	}
 }
 
+.connect-section {
+	width: 100%;
+	margin-bottom: clamp(64px, 8vw + 32px, 140px);
+}
+
 .connect-card {
 	background: var(--surface);
 	border: 1px solid var(--line);

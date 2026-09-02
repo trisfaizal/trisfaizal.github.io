@@ -134,15 +134,38 @@ body::before {
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 40%, transparent 80%);
 }
 
-/* Global Hero ambient field */
-body::after {
-	position: absolute;
+/* Interactive Ambient Background System */
+.ambient-background {
+	position: fixed;
 	inset: 0;
 	z-index: -1;
 	pointer-events: none;
+	overflow: hidden;
+	/* No explicit background color here, it sits on top of body's var(--bg) */
+}
+
+/* Primary subtle glow */
+.ambient-background::before {
 	content: "";
-	background-image: radial-gradient(ellipse at 50% 0%, var(--ambient-hero) 0%, transparent 70%);
-	opacity: 1;
+	position: absolute;
+	inset: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle at 50% 50%, var(--ambient-hero), transparent 45%);
+	transform: translate3d(var(--bg-x, 0px), var(--bg-y, 0px), 0);
+	will-change: transform;
+}
+
+/* Secondary neutral glow */
+.ambient-background::after {
+	content: "";
+	position: absolute;
+	inset: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle at 50% 50%, var(--ambient-mid), transparent 60%);
+	transform: translate3d(calc(var(--bg-x, 0px) * -0.5), calc(var(--bg-y, 0px) * 0.8), 0);
+	will-change: transform;
 }
 
 /* Subtle Technical Markers */

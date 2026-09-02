@@ -1389,6 +1389,16 @@ html[data-theme="dark"] .terminal-window:hover {
 	backdrop-filter: blur(24px);
 	-webkit-backdrop-filter: blur(24px);
 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+	transition: transform 280ms ease, border-color 280ms ease, background-color 280ms ease, box-shadow 280ms ease;
+}
+
+@media (hover: hover) {
+	.about-glass-panel:hover {
+		transform: translateY(-2px);
+		background: rgba(255, 255, 255, 0.6);
+		border-color: rgba(16, 185, 129, 0.2);
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 40px rgba(16, 185, 129, 0.05) inset;
+	}
 }
 
 html[data-theme="dark"] .about-glass-panel {
@@ -1396,6 +1406,14 @@ html[data-theme="dark"] .about-glass-panel {
 	border: 1px solid rgba(255, 255, 255, 0.15); /* highly visible border */
 	border-top: 1px solid rgba(255, 255, 255, 0.25);
 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (hover: hover) {
+	html[data-theme="dark"] .about-glass-panel:hover {
+		background: rgba(20, 28, 45, 0.55);
+		border-color: rgba(255, 255, 255, 0.25);
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(16, 185, 129, 0.1) inset, 0 0 60px rgba(16, 185, 129, 0.05);
+	}
 }
 
 .about-editorial {

@@ -1180,7 +1180,7 @@ html[data-theme="dark"] .terminal-window:hover {
 
 .connect-section .section-desc {
 	text-align: center;
-	margin: 0 auto;
+	margin: 12px auto 0 auto; /* Add vertical spacing while maintaining center alignment */
 }
 
 /* Site Footer */

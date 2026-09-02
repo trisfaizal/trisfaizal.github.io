@@ -315,7 +315,7 @@ button, a {
 		/* Geometry & Interpolation */
 		top: calc(16px * var(--header-progress));
 		width: calc(100% - (48px * var(--header-progress)));
-		max-width: calc(100% - ((100% - 960px) * var(--header-progress)));
+		max-width: calc(100% - ((100% - var(--max-width)) * var(--header-progress)));
 		
 		/* We don't scale the border-radius from square to pill, 
 		   but wait, if it was a pill originally, then we keep it as is. 

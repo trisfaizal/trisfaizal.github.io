@@ -1389,15 +1389,20 @@ html[data-theme="dark"] .terminal-window:hover {
 	backdrop-filter: blur(24px);
 	-webkit-backdrop-filter: blur(24px);
 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-	transition: transform 280ms ease, border-color 280ms ease, background-color 280ms ease, box-shadow 280ms ease;
+	transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-glass-panel:focus-visible {
+	outline: 2px solid rgba(16, 185, 129, 0.5);
+	outline-offset: 4px;
 }
 
 @media (hover: hover) {
 	.about-glass-panel:hover {
 		transform: translateY(-2px);
-		background: rgba(255, 255, 255, 0.6);
-		border-color: rgba(16, 185, 129, 0.2);
-		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 40px rgba(16, 185, 129, 0.05) inset;
+		background-color: rgba(255, 255, 255, 0.7);
+		border-color: rgba(16, 185, 129, 0.3);
+		box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15), 0 0 20px 0 rgba(16, 185, 129, 0.05);
 	}
 }
 
@@ -1410,9 +1415,9 @@ html[data-theme="dark"] .about-glass-panel {
 
 @media (hover: hover) {
 	html[data-theme="dark"] .about-glass-panel:hover {
-		background: rgba(20, 28, 45, 0.55);
-		border-color: rgba(255, 255, 255, 0.25);
-		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(16, 185, 129, 0.1) inset, 0 0 60px rgba(16, 185, 129, 0.05);
+		background-color: rgba(16, 185, 129, 0.03); /* Subtle green tint matching focus-card */
+		border-color: rgba(16, 185, 129, 0.3);
+		box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15), 0 0 20px 0 rgba(16, 185, 129, 0.05);
 	}
 }
 

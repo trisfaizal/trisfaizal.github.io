@@ -607,7 +607,7 @@ button, a {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	transform: translateY(-40px); /* Shift terminal slightly up for better visual balance with headline */
+	transform: translateY(-70px); /* Shift terminal slightly up for better visual balance with headline */
 }
 
 .terminal-window {

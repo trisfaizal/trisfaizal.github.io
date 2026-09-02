@@ -1364,15 +1364,19 @@ html[data-theme="dark"] .terminal-window:hover {
 	inset: 0;
 	z-index: -2;
 	pointer-events: none;
-	background: radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 60%),
-				radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
+	background: 
+		radial-gradient(ellipse at 20% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
+		radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.04) 0%, transparent 60%),
+		radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.03) 0%, transparent 60%);
 	/* Add subtle depth/transition from hero */
 	box-shadow: inset 0 80px 80px -80px var(--bg);
 }
 
 html[data-theme="dark"] .about-background {
-	background: radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 60%),
-				radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+	background: 
+		radial-gradient(ellipse at 20% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 70%),
+		radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
+		radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.04) 0%, transparent 60%);
 }
 
 .about-container {
@@ -1387,6 +1391,25 @@ html[data-theme="dark"] .about-background {
 	z-index: 1;
 }
 
+.about-glass-panel {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.4);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-top: 1px solid rgba(255, 255, 255, 0.5); /* slightly brighter top highlight */
+	border-radius: 24px;
+	padding: clamp(32px, 5vw, 64px);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="dark"] .about-glass-panel {
+	background: rgba(17, 24, 39, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
 .about-editorial {
 	display: flex;
 	flex-direction: column;
@@ -1397,7 +1420,7 @@ html[data-theme="dark"] .about-background {
 .about-header {
 	align-items: flex-start;
 	text-align: left;
-	margin-bottom: 24px;
+	margin-bottom: 40px;
 }
 
 .about-left {
@@ -1442,9 +1465,7 @@ html[data-theme="dark"] .about-background {
 	}
 	
 	.about-right {
-		/* Push the description down to align with the first line of the headline. 
-		   Height of .section-header is roughly line-height + margin-bottom (24px) */
-		padding-top: 48px; 
+		padding-top: 0; 
 	}
 }
 

@@ -612,7 +612,7 @@ button, a {
 .terminal-window {
 	width: 100%;
 	max-width: 580px; /* Desktop: 560-620px width range */
-	min-height: 240px; /* Desktop height constraint */
+	min-height: 200px; /* Desktop height constraint */
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -687,7 +687,7 @@ html[data-theme="dark"] .terminal-window:hover {
 .terminal-dot.green { background: #28c840; }
 
 .terminal-body {
-	padding: 32px;
+	padding: 24px 32px;
 	font-family: var(--font-mono);
 	font-size: 0.95rem;
 	line-height: 1.6;

@@ -121,8 +121,9 @@ body {
 
 /* Atmospheric background grid pattern */
 body::before {
-	position: absolute;
+	position: fixed;
 	inset: 0;
+	height: 100vh;
 	z-index: -2;
 	pointer-events: none;
 	content: "";
@@ -1364,28 +1365,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	margin: 0;
 }
 
-.about-background {
-	position: absolute;
-	top: -200px;
-	bottom: -200px;
-	left: 50%;
-	width: 100vw;
-	transform: translateX(-50%);
-	z-index: -2;
-	pointer-events: none;
-	background: 
-		radial-gradient(ellipse at 20% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
-		radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.04) 0%, transparent 60%),
-		radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.03) 0%, transparent 60%);
-	/* No inset shadow to prevent creating an artificial bounding box */
-}
 
-html[data-theme="dark"] .about-background {
-	background: 
-		radial-gradient(ellipse at 20% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 70%),
-		radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
-		radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.04) 0%, transparent 60%);
-}
 
 .about-container {
 	display: flex;

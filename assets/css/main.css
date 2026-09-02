@@ -607,6 +607,7 @@ button, a {
 	display: flex;
 	justify-content: center;
 	width: 100%;
+	transform: translateY(-28px); /* Shift terminal slightly up for better visual balance with headline */
 }
 
 .terminal-window {
@@ -1645,6 +1646,7 @@ html[data-theme="dark"] .about-glass-panel {
 	.hero-right {
 		margin-top: 0; /* Let grid gap: 48px handle the CTA -> Terminal spacing */
 		width: 100%;
+		transform: none; /* Reset desktop vertical offset on mobile */
 	}
 
 	.terminal-window {

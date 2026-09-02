@@ -214,3 +214,74 @@ if (siteHeader) {
 	updateHeaderProgress();
 }
 
+
+// Interactive Ambient Background System
+const ambientBg = document.querySelector('.ambient-background');
+if (ambientBg) {
+	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+	
+	if (!isReducedMotion) {
+		let currentX = 0;
+		let currentY = 0;
+		let targetX = 0;
+		let targetY = 0;
+		let currentScroll = window.scrollY;
+		let targetScroll = window.scrollY;
+		let bgTicking = false;
+
+		// Only bind pointermove on non-touch devices
+		if (!isTouchDevice) {
+			window.addEventListener('pointermove', (e) => {
+				// Normalize to -1 to 1
+				targetX = (e.clientX / window.innerWidth) * 2 - 1;
+				targetY = (e.clientY / window.innerHeight) * 2 - 1;
+				
+				if (!bgTicking) {
+					bgTicking = true;
+					window.requestAnimationFrame(updateAmbient);
+				}
+			}, { passive: true });
+		}
+
+		window.addEventListener('scroll', () => {
+			targetScroll = window.scrollY;
+			if (!bgTicking) {
+				bgTicking = true;
+				window.requestAnimationFrame(updateAmbient);
+			}
+		}, { passive: true });
+
+		const updateAmbient = () => {
+			// Lerp coordinates (5% each frame for smooth subtle trailing)
+			currentX += (targetX - currentX) * 0.05;
+			currentY += (targetY - currentY) * 0.05;
+			
+			// Lerp scroll
+			currentScroll += (targetScroll - currentScroll) * 0.1;
+
+			// Map normalized values to subtle pixel shifts (max 100px)
+			// Apply a slight upward parallax based on scroll
+			const moveX = currentX * 100;
+			const moveY = (currentY * 100) - (currentScroll * 0.15);
+
+			ambientBg.style.setProperty('--bg-x', `${moveX.toFixed(2)}px`);
+			ambientBg.style.setProperty('--bg-y', `${moveY.toFixed(2)}px`);
+
+			// Continue looping if we haven't reached the target
+			const distanceX = Math.abs(targetX - currentX);
+			const distanceY = Math.abs(targetY - currentY);
+			const distanceScroll = Math.abs(targetScroll - currentScroll);
+
+			if (distanceX > 0.001 || distanceY > 0.001 || distanceScroll > 0.5) {
+				window.requestAnimationFrame(updateAmbient);
+			} else {
+				bgTicking = false;
+			}
+		};
+
+		// Initial render
+		bgTicking = true;
+		updateAmbient();
+	}
+}

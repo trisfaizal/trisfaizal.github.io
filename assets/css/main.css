@@ -136,12 +136,12 @@ body::before {
 
 /* Interactive Ambient Background System */
 .ambient-background {
-	position: fixed;
+	position: absolute;
 	inset: 0;
+	height: 120vh;
 	z-index: -1;
 	pointer-events: none;
 	overflow: hidden;
-	/* No explicit background color here, it sits on top of body's var(--bg) */
 }
 
 .ambient-parallax {
@@ -763,31 +763,62 @@ button, a {
 	transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.focus-card:hover,
 .focus-card:active,
 .focus-card:focus-visible {
 	border-color: rgba(0, 184, 107, 0.2);
 	background-color: var(--accent-bg);
-	box-shadow: 0 8px 32px var(--shadow-hover-color);
 }
 
 @media (hover: hover) {
 	.focus-card:hover {
-		transform: translateY(-2px);
+		transform: translateY(-4px);
 	}
 }
 
-.focus-card:hover .focus-icon-box,
-.focus-card:active .focus-icon-box,
+/* Blue Glow (Digital) */
+.focus-card[data-glow="blue"]:hover {
+	border-color: rgba(79, 70, 229, 0.3);
+	background-color: rgba(79, 70, 229, 0.03);
+	box-shadow: 0 12px 40px -10px rgba(79, 70, 229, 0.15), 0 0 20px 0 rgba(79, 70, 229, 0.05);
+}
+.focus-card[data-glow="blue"]:hover .focus-icon-box,
 .focus-card:focus-visible .focus-icon-box {
-	border-color: var(--accent);
-	color: var(--accent);
+	border-color: #6366f1;
+	color: #6366f1;
+}
+.focus-card[data-glow="blue"]:hover .focus-accent-line,
+.focus-card:focus-visible .focus-accent-line {
+	background: #6366f1;
+	opacity: 1;
 }
 
-.focus-card:hover .focus-accent-line,
-.focus-card:active .focus-accent-line,
-.focus-card:focus-visible .focus-accent-line {
-	background: var(--accent);
+/* Green Glow (Software) */
+.focus-card[data-glow="green"]:hover {
+	border-color: rgba(16, 185, 129, 0.3);
+	background-color: rgba(16, 185, 129, 0.03);
+	box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15), 0 0 20px 0 rgba(16, 185, 129, 0.05);
+}
+.focus-card[data-glow="green"]:hover .focus-icon-box {
+	border-color: #10b981;
+	color: #10b981;
+}
+.focus-card[data-glow="green"]:hover .focus-accent-line {
+	background: #10b981;
+	opacity: 1;
+}
+
+/* Orange Glow (Infrastructure) */
+.focus-card[data-glow="orange"]:hover {
+	border-color: rgba(249, 115, 22, 0.3);
+	background-color: rgba(249, 115, 22, 0.03);
+	box-shadow: 0 12px 40px -10px rgba(249, 115, 22, 0.15), 0 0 20px 0 rgba(249, 115, 22, 0.05);
+}
+.focus-card[data-glow="orange"]:hover .focus-icon-box {
+	border-color: #f97316;
+	color: #f97316;
+}
+.focus-card[data-glow="orange"]:hover .focus-accent-line {
+	background: #f97316;
 	opacity: 1;
 }
 
@@ -1116,35 +1147,108 @@ button, a {
 
 /* Site Footer */
 .site-footer {
+	position: relative;
 	width: 100%;
-	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 16px 24px 24px 24px;
+	padding: 120px 24px 32px 24px;
 	border-top: 1px solid var(--line);
+	overflow: hidden;
+	background: var(--bg);
+}
+
+.footer-ambient {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.blob-footer {
+	top: 50%;
+	left: 50%;
+	width: 80vw;
+	height: 80vw;
+	max-width: 800px;
+	max-height: 800px;
+	transform: translate(-50%, -50%);
+	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+	filter: blur(120px);
+	opacity: 0.08;
+}
+
+.footer-bg-text {
+	position: absolute;
+	bottom: -4%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: var(--font-serif);
+	font-weight: 700;
+	font-size: 28vw;
+	line-height: 0.8;
+	color: var(--text);
+	opacity: 0.03;
+	z-index: 1;
+	pointer-events: none;
+	user-select: none;
+	white-space: nowrap;
 }
 
 .footer-inner {
+	position: relative;
+	z-index: 2;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 24px;
+}
+
+.footer-heading {
+	font-family: var(--font-serif);
+	font-size: 2.5rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--text);
+	margin: 0;
+}
+
+.footer-bottom {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	font-size: 0.72rem;
+	font-size: 0.8rem;
 	color: var(--muted);
-	font-weight: 400;
+	padding-top: 32px;
+	border-top: 1px solid var(--line);
 	width: 100%;
 }
 
-.footer-inner a {
+.footer-links {
+	display: flex;
+	gap: 24px;
+}
+
+.footer-bottom p {
+	margin: 0;
+}
+
+.footer-bottom a {
 	color: var(--muted);
 	font-weight: 400;
+	transition: color 0.2s ease;
 }
 
-.footer-inner a:hover {
+.footer-bottom a:hover {
 	color: var(--text);
-}
-
-.footer-inner p {
-	margin: 0;
-	font-weight: 400;
 }
 
 /* Reveal transition classes */

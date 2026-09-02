@@ -156,93 +156,67 @@ body::before {
 .blob {
 	position: absolute;
 	border-radius: 50%;
-	filter: blur(60px);
+	filter: blur(45px);
 	will-change: transform;
 	pointer-events: none;
-	opacity: 0.2;
 }
 
-.blob-1 {
-	top: 10%;
+.blob-large {
+	top: 15%;
+	right: 5%;
+	width: 320px;
+	height: 320px;
+	background: radial-gradient(circle, var(--accent) 0%, transparent 80%);
+	animation: float-large 35s ease-in-out infinite alternate;
+	opacity: 0.18;
+}
+
+.blob-medium {
+	bottom: 25%;
 	left: 10%;
-	width: 350px;
-	height: 350px;
-	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-	animation: float1 22s ease-in-out infinite alternate;
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(circle, var(--accent-soft) 0%, transparent 80%);
+	animation: float-medium 28s ease-in-out infinite alternate-reverse;
+	opacity: 0.22;
 }
 
-.blob-2 {
-	top: 45%;
-	right: -5%;
-	width: 420px;
-	height: 420px;
-	background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
-	animation: float2 28s ease-in-out infinite alternate-reverse;
-	opacity: 0.15;
+.blob-small {
+	top: 40%;
+	left: 20%;
+	width: 100px;
+	height: 100px;
+	background: radial-gradient(circle, var(--accent) 0%, transparent 80%);
+	animation: float-small 22s ease-in-out infinite alternate;
+	opacity: 0.28;
 }
 
-.blob-3 {
-	bottom: 15%;
-	left: 15%;
-	width: 250px;
-	height: 250px;
-	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-	animation: float3 19s ease-in-out infinite alternate;
-}
-
-.blob-4 {
-	top: 60%;
-	left: 45%;
-	width: 180px;
-	height: 180px;
-	background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
-	animation: float4 25s ease-in-out infinite alternate-reverse;
-	opacity: 0.25;
-}
-
-.blob-5 {
-	top: 20%;
-	right: 15%;
-	width: 300px;
-	height: 300px;
-	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-	animation: float5 29s ease-in-out infinite alternate;
-	opacity: 0.12;
-}
-
-@keyframes float1 {
+@keyframes float-large {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(80px, -40px, 0) scale(1.1); }
-	66% { transform: translate3d(-50px, 60px, 0) scale(0.9); }
-	100% { transform: translate3d(30px, -20px, 0) scale(1.05); }
+	33% { transform: translate3d(-15vw, 20vh, 0) scale(1.05); }
+	66% { transform: translate3d(-5vw, -10vh, 0) scale(0.95); }
+	100% { transform: translate3d(-20vw, 5vh, 0) scale(1); }
 }
 
-@keyframes float2 {
+@keyframes float-medium {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(-90px, -70px, 0) scale(0.95); }
-	66% { transform: translate3d(60px, -110px, 0) scale(1.05); }
-	100% { transform: translate3d(-30px, 40px, 0) scale(1); }
+	33% { transform: translate3d(10vw, -15vh, 0) scale(0.95); }
+	66% { transform: translate3d(-5vw, -5vh, 0) scale(1.05); }
+	100% { transform: translate3d(15vw, 10vh, 0) scale(1); }
 }
 
-@keyframes float3 {
+@keyframes float-small {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(70px, -100px, 0) scale(1.1); }
-	66% { transform: translate3d(-60px, 40px, 0) scale(0.9); }
-	100% { transform: translate3d(20px, 70px, 0) scale(1); }
+	33% { transform: translate3d(5vw, 10vh, 0) scale(1.1); }
+	66% { transform: translate3d(-8vw, -5vh, 0) scale(0.9); }
+	100% { transform: translate3d(10vw, -15vh, 0) scale(1); }
 }
 
-@keyframes float4 {
-	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(-50px, 70px, 0) scale(0.9); }
-	66% { transform: translate3d(90px, -40px, 0) scale(1.1); }
-	100% { transform: translate3d(-40px, -90px, 0) scale(1); }
-}
-
-@keyframes float5 {
-	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(120px, -30px, 0) scale(1.05); }
-	66% { transform: translate3d(-70px, -100px, 0) scale(0.95); }
-	100% { transform: translate3d(20px, 40px, 0) scale(1); }
+/* Background Mobile optimizations */
+@media (max-width: 768px) {
+	.blob-large { width: 220px; height: 220px; right: -5%; }
+	.blob-medium { width: 150px; height: 150px; left: -5%; bottom: 15%; }
+	.blob-small { width: 80px; height: 80px; left: 10%; top: 30%; }
 }
 
 /* Subtle Technical Markers */

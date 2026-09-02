@@ -514,7 +514,7 @@ button, a {
 .hero {
 	position: relative;
 	width: 100%;
-	padding: 0;
+	padding: 0 0 120px 0; /* Shifts the center of gravity upward by 60px */
 	min-height: calc(100svh - var(--nav-height));
 	display: flex;
 	flex-direction: column;

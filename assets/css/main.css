@@ -156,81 +156,93 @@ body::before {
 .blob {
 	position: absolute;
 	border-radius: 50%;
-	filter: blur(80px);
+	filter: blur(60px);
 	will-change: transform;
 	pointer-events: none;
+	opacity: 0.2;
 }
 
 .blob-1 {
-	top: -10%;
-	left: -10%;
-	width: 60vw;
-	height: 60vw;
-	max-width: 800px;
-	max-height: 800px;
-	background: radial-gradient(circle, var(--ambient-hero) 0%, transparent 70%);
-	animation: float1 28s ease-in-out infinite alternate;
+	top: 10%;
+	left: 10%;
+	width: 350px;
+	height: 350px;
+	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+	animation: float1 22s ease-in-out infinite alternate;
 }
 
 .blob-2 {
-	bottom: -20%;
-	right: -10%;
-	width: 70vw;
-	height: 70vw;
-	max-width: 900px;
-	max-height: 900px;
-	background: radial-gradient(circle, var(--ambient-mid) 0%, transparent 70%);
-	animation: float2 34s ease-in-out infinite alternate-reverse;
+	top: 45%;
+	right: -5%;
+	width: 420px;
+	height: 420px;
+	background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+	animation: float2 28s ease-in-out infinite alternate-reverse;
+	opacity: 0.15;
 }
 
 .blob-3 {
-	top: 30%;
-	right: 10%;
-	width: 45vw;
-	height: 45vw;
-	max-width: 600px;
-	max-height: 600px;
-	background: radial-gradient(circle, var(--ambient-hero) 0%, transparent 70%);
-	animation: float3 22s ease-in-out infinite alternate;
+	bottom: 15%;
+	left: 15%;
+	width: 250px;
+	height: 250px;
+	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+	animation: float3 19s ease-in-out infinite alternate;
 }
 
 .blob-4 {
-	bottom: 20%;
-	left: 5%;
-	width: 50vw;
-	height: 50vw;
-	max-width: 700px;
-	max-height: 700px;
-	background: radial-gradient(circle, var(--ambient-mid) 0%, transparent 70%);
-	animation: float4 26s ease-in-out infinite alternate-reverse;
+	top: 60%;
+	left: 45%;
+	width: 180px;
+	height: 180px;
+	background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+	animation: float4 25s ease-in-out infinite alternate-reverse;
+	opacity: 0.25;
+}
+
+.blob-5 {
+	top: 20%;
+	right: 15%;
+	width: 300px;
+	height: 300px;
+	background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+	animation: float5 29s ease-in-out infinite alternate;
+	opacity: 0.12;
 }
 
 @keyframes float1 {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(8vw, 5vh, 0) scale(1.05); }
-	66% { transform: translate3d(-4vw, 8vh, 0) scale(0.95); }
-	100% { transform: translate3d(4vw, -2vh, 0) scale(1.02); }
+	33% { transform: translate3d(80px, -40px, 0) scale(1.1); }
+	66% { transform: translate3d(-50px, 60px, 0) scale(0.9); }
+	100% { transform: translate3d(30px, -20px, 0) scale(1.05); }
 }
 
 @keyframes float2 {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(-8vw, -6vh, 0) scale(0.98); }
-	66% { transform: translate3d(5vw, -10vh, 0) scale(1.05); }
-	100% { transform: translate3d(-3vw, 4vh, 0) scale(1); }
+	33% { transform: translate3d(-90px, -70px, 0) scale(0.95); }
+	66% { transform: translate3d(60px, -110px, 0) scale(1.05); }
+	100% { transform: translate3d(-30px, 40px, 0) scale(1); }
 }
 
 @keyframes float3 {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(6vw, -8vh, 0) scale(1.05); }
-	66% { transform: translate3d(-6vw, 4vh, 0) scale(0.95); }
-	100% { transform: translate3d(2vw, 6vh, 0) scale(1); }
+	33% { transform: translate3d(70px, -100px, 0) scale(1.1); }
+	66% { transform: translate3d(-60px, 40px, 0) scale(0.9); }
+	100% { transform: translate3d(20px, 70px, 0) scale(1); }
 }
 
 @keyframes float4 {
 	0% { transform: translate3d(0, 0, 0) scale(1); }
-	33% { transform: translate3d(-5vw, 6vh, 0) scale(0.95); }
-	66% { transform: translate3d(8vw, -4vh, 0) scale(1.02); }
-	100% { transform: translate3d(-4vw, -8vh, 0) scale(1); }
+	33% { transform: translate3d(-50px, 70px, 0) scale(0.9); }
+	66% { transform: translate3d(90px, -40px, 0) scale(1.1); }
+	100% { transform: translate3d(-40px, -90px, 0) scale(1); }
+}
+
+@keyframes float5 {
+	0% { transform: translate3d(0, 0, 0) scale(1); }
+	33% { transform: translate3d(120px, -30px, 0) scale(1.05); }
+	66% { transform: translate3d(-70px, -100px, 0) scale(0.95); }
+	100% { transform: translate3d(20px, 40px, 0) scale(1); }
 }
 
 /* Subtle Technical Markers */

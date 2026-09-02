@@ -1374,7 +1374,6 @@ html[data-theme="dark"] .terminal-window:hover {
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 24px;
 	position: relative;
 	z-index: 1;
 }

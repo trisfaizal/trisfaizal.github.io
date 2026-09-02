@@ -312,8 +312,8 @@ button, a {
 		
 		/* Geometry & Interpolation */
 		top: calc(16px * var(--header-progress));
-		width: 100%;
-		max-width: var(--max-width);
+		width: calc(100% - (48px * var(--header-progress)));
+		max-width: 100%;
 		
 		/* We don't scale the border-radius from square to pill, 
 		   but wait, if it was a pill originally, then we keep it as is. 

@@ -1366,7 +1366,11 @@ html[data-theme="dark"] .terminal-window:hover {
 
 .about-background {
 	position: absolute;
-	inset: 0;
+	top: -200px;
+	bottom: -200px;
+	left: 50%;
+	width: 100vw;
+	transform: translateX(-50%);
 	z-index: -2;
 	pointer-events: none;
 	background: 

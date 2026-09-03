@@ -285,31 +285,3 @@ if (ambientBg) {
 		updateAmbient();
 	}
 }
-
-// Focus Cards Mobile Interaction
-const focusCards = document.querySelectorAll('.focus-card');
-if (focusCards.length > 0) {
-	focusCards.forEach(card => {
-		card.addEventListener('click', (e) => {
-			// Ignore if clicking a link inside
-			if (e.target.tagName.toLowerCase() === 'a') return;
-			
-			const isActive = card.classList.contains('is-active');
-			
-			// Reset all cards
-			focusCards.forEach(c => c.classList.remove('is-active'));
-			
-			// Toggle current card
-			if (!isActive) {
-				card.classList.add('is-active');
-			}
-		});
-	});
-	
-	// Close active card when clicking outside
-	document.addEventListener('click', (e) => {
-		if (!e.target.closest('.focus-card')) {
-			focusCards.forEach(c => c.classList.remove('is-active'));
-		}
-	});
-}

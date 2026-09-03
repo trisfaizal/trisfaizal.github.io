@@ -836,13 +836,13 @@ html[data-theme="light"] .focus-card::after {
 }
 
 .focus-card[data-glow="blue"]::before {
-	background-image: url('../images/focus_digital.png');
+	background-image: url('../images/focus_digital.avif');
 }
 .focus-card[data-glow="green"]::before {
-	background-image: url('../images/focus_software.png');
+	background-image: url('../images/focus_software.avif');
 }
 .focus-card[data-glow="orange"]::before {
-	background-image: url('../images/focus_infrastructure.png');
+	background-image: url('../images/focus_infrastructure.avif');
 }
 
 .focus-card:active,

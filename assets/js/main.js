@@ -285,3 +285,45 @@ if (ambientBg) {
 		updateAmbient();
 	}
 }
+
+// Focus Cards Interaction Logic
+const focusCards = document.querySelectorAll('.focus-card');
+if (focusCards.length > 0) {
+	const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+	
+	if (!isTouchDevice && !reducedMotion) {
+		// Desktop pointer tracking for micro-interaction
+		focusCards.forEach(card => {
+			card.addEventListener('pointermove', (e) => {
+				const rect = card.getBoundingClientRect();
+				const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+				const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+				
+				// Map to px (-8px to 8px max movement)
+				card.style.setProperty('--mouse-x', `${(x * 8).toFixed(2)}px`);
+				card.style.setProperty('--mouse-y', `${(y * 8).toFixed(2)}px`);
+			});
+			
+			card.addEventListener('pointerleave', () => {
+				card.style.setProperty('--mouse-x', '0px');
+				card.style.setProperty('--mouse-y', '0px');
+			});
+		});
+	} else {
+		// Mobile touch logic to toggle active state
+		focusCards.forEach(card => {
+			card.addEventListener('click', (e) => {
+				if (e.target.tagName.toLowerCase() === 'a') return;
+				const isActive = card.classList.contains('is-active');
+				focusCards.forEach(c => c.classList.remove('is-active'));
+				if (!isActive) card.classList.add('is-active');
+			});
+		});
+		
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.focus-card')) {
+				focusCards.forEach(c => c.classList.remove('is-active'));
+			}
+		});
+	}
+}

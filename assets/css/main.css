@@ -1473,9 +1473,20 @@ html[data-theme="dark"] .approach-step-item.is-active .approach-icon-circle {
 		border-color: rgba(16, 185, 129, 0.4);
 	}
 
+	.approach-step-item.is-active:hover .approach-icon-circle {
+		transform: scale(1.04);
+		border-color: var(--accent);
+		box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+	}
+
 	.approach-step-item:hover .approach-step-dot {
 		opacity: 0.95;
 		box-shadow: 0 0 5px var(--accent);
+	}
+
+	.approach-step-item.is-active:hover .approach-step-dot {
+		transform: scale(1.25);
+		box-shadow: 0 0 10px var(--accent);
 	}
 }
 
@@ -1640,8 +1651,22 @@ html[data-theme="dark"] .approach-icon-circle {
 	}
 
 	.approach-steps-grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 40px 32px;
+		grid-template-columns: 1fr;
+		gap: 44px;
+		padding-left: 24px;
+		border-left: 1px solid var(--line);
+		margin-left: 8px;
+		position: relative;
+	}
+
+	.approach-step-item {
+		position: relative;
+	}
+
+	.approach-step-dot {
+		position: absolute;
+		left: -28px;
+		top: 9px;
 	}
 
 	.approach-step-desc {
@@ -1650,6 +1675,22 @@ html[data-theme="dark"] .approach-icon-circle {
 
 	.approach-step-details {
 		padding-left: 54px; /* Matches 42px icon + 12px gap on tablet */
+	}
+}
+
+@media (max-width: 1024px) {
+	.approach-mobile-progress-line {
+		display: block;
+		position: absolute;
+		left: -1px;
+		top: 0;
+		width: 2px;
+		height: calc(var(--approach-progress, 0) * 100%);
+		background: var(--accent);
+		box-shadow: 0 0 8px var(--accent);
+		z-index: 2;
+		pointer-events: none;
+		transition: height 0.08s linear;
 	}
 }
 
@@ -1687,30 +1728,13 @@ html[data-theme="dark"] .approach-icon-circle {
 		height: 36px;
 	}
 
-	.approach-wave-svg {
-		display: none;
-	}
-
 	.approach-steps-grid {
-		grid-template-columns: 1fr;
-		gap: 40px;
 		padding-left: 20px;
-		border-left: 1px solid var(--line);
-		margin-left: 8px;
-	}
-
-	.approach-step-item {
-		position: relative;
-	}
-
-	.approach-step-header {
-		margin-bottom: 10px;
+		gap: 40px;
 	}
 
 	.approach-step-dot {
-		position: absolute;
 		left: -24px;
-		top: 9px;
 	}
 
 	.approach-step-body {
@@ -2128,21 +2152,25 @@ html.js-enabled .approach-step-item {
 	            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+html.js-enabled .approach-timeline-container.is-visible .approach-step-item[data-step="1"],
 html.js-enabled .approach-section.is-visible .approach-step-item[data-step="1"] {
 	opacity: 1;
 	transform: translateY(0);
 	transition-delay: 220ms;
 }
+html.js-enabled .approach-timeline-container.is-visible .approach-step-item[data-step="2"],
 html.js-enabled .approach-section.is-visible .approach-step-item[data-step="2"] {
 	opacity: 1;
 	transform: translateY(0);
 	transition-delay: 320ms;
 }
+html.js-enabled .approach-timeline-container.is-visible .approach-step-item[data-step="3"],
 html.js-enabled .approach-section.is-visible .approach-step-item[data-step="3"] {
 	opacity: 1;
 	transform: translateY(0);
 	transition-delay: 420ms;
 }
+html.js-enabled .approach-timeline-container.is-visible .approach-step-item[data-step="4"],
 html.js-enabled .approach-section.is-visible .approach-step-item[data-step="4"] {
 	opacity: 1;
 	transform: translateY(0);

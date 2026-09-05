@@ -12,6 +12,7 @@ if (year) {
 // Reveal on Scroll / Intersection Observer
 const revealItems = [...document.querySelectorAll('.reveal')];
 const focusGrid = document.querySelector('.focus-grid');
+const approachTimeline = document.querySelector('.approach-timeline-container');
 
 if ('IntersectionObserver' in window && !reducedMotion) {
 	const observer = new IntersectionObserver((entries) => {
@@ -37,10 +38,26 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
 		gridObserver.observe(focusGrid);
 	}
+
+	if (approachTimeline) {
+		const timelineObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					timelineObserver.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.15 });
+
+		timelineObserver.observe(approachTimeline);
+	}
 } else {
 	revealItems.forEach((item) => item.classList.add('is-visible'));
 	if (focusGrid) {
 		focusGrid.classList.add('is-visible');
+	}
+	if (approachTimeline) {
+		approachTimeline.classList.add('is-visible');
 	}
 }
 
@@ -396,7 +413,8 @@ if (!reducedMotion) {
 				approachSectionEl.style.setProperty('--approach-progress', progress.toFixed(3));
 
 				// Step Point Activations (Reversible on scroll up)
-				const thresholds = isMobile ? [0.06, 0.32, 0.60, 0.86] : [0.05, 0.33, 0.64, 0.88];
+				const isVerticalTimeline = vw <= 1024;
+				const thresholds = isVerticalTimeline ? [0.01, 0.27, 0.53, 0.79] : [0.05, 0.33, 0.64, 0.88];
 				approachStepItems.forEach((item, idx) => {
 					const targetThreshold = thresholds[idx] || (idx * 0.28);
 					if (progress >= targetThreshold) {

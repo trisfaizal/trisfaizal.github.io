@@ -2040,33 +2040,39 @@ html.js-enabled .reveal.is-visible {
 	transform: translateY(0);
 }
 
-/* Staggered entrance for Focus Section Cards */
+/* Staggered entrance choreography for Focus Section Cards */
 html.js-enabled .focus-card {
 	opacity: 0;
-	transform: translateY(18px);
-	transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+	transform: translate3d(0, calc(34px + var(--card-parallax-y, 0px)), 0);
+	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
 	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
 	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
 	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+@media (max-width: 767px) {
+	html.js-enabled .focus-card {
+		transform: translate3d(0, calc(24px + var(--card-parallax-y, 0px)), 0);
+	}
+}
+
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(1) {
 	opacity: 1;
-	transform: translateY(0);
+	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
 	transition-delay: 0ms;
 }
 
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(2) {
 	opacity: 1;
-	transform: translateY(0);
-	transition-delay: 90ms;
+	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
+	transition-delay: 120ms;
 }
 
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(3) {
 	opacity: 1;
-	transform: translateY(0);
-	transition-delay: 180ms;
+	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
+	transition-delay: 240ms;
 }
 
 /* Staggered entrance for Approach Section Elements */

@@ -763,6 +763,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	align-items: center;
 	position: relative;
 	margin-top: clamp(80px, 10vw, 120px); /* Authoritative HERO ↓ FOCUS spacing */
+	margin-bottom: clamp(70px, 9vw, 110px); /* Chapter breathing room before APPROACH */
 }
 
 /* Focus Ambient Transition Field */
@@ -813,7 +814,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	z-index: 3;
 }
 
-/* Layered Integrated Artwork (Hero Element) */
+/* Layered Integrated Artwork (Hero Element - Visually Intriguing in Idle State ~58%) */
 .focus-card::before {
 	content: '';
 	position: absolute;
@@ -822,8 +823,8 @@ html[data-theme="dark"] .terminal-window:hover {
 	background-size: cover;
 	background-position: right bottom;
 	background-repeat: no-repeat;
-	opacity: 0.48;
-	transform: scale(1.0) translate(0, 12px);
+	opacity: 0.58;
+	transform: scale(1.0) translate(0, 10px);
 	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
@@ -831,7 +832,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	pointer-events: none;
 }
 
-/* Localized Content Scrim (Protects Left Typography, Keeps Right/Lower Artwork Vivid) */
+/* Localized Content Scrim (Atmospheric & Feathered) */
 .focus-card::after {
 	content: '';
 	position: absolute;
@@ -845,7 +846,7 @@ html[data-theme="dark"] .terminal-window:hover {
 		rgba(10, 14, 13, 0.12) 80%,
 		transparent 100%
 	);
-	opacity: 0.75;
+	opacity: 0.65;
 	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
@@ -863,7 +864,7 @@ html[data-theme="light"] .focus-card::after {
 		rgba(250, 250, 247, 0.15) 80%,
 		transparent 100%
 	);
-	opacity: 0.82;
+	opacity: 0.72;
 }
 
 .focus-card[data-glow="blue"]::before {

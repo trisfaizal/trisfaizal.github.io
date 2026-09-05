@@ -778,7 +778,7 @@ html[data-theme="dark"] .terminal-window:hover {
 .focus-grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 20px;
+	gap: 24px;
 	width: 100%;
 }
 
@@ -786,19 +786,21 @@ html[data-theme="dark"] .terminal-window:hover {
 	background: var(--surface);
 	border: 1px solid var(--line);
 	border-radius: 26px;
-	padding: 32px 28px;
+	padding: 28px 26px;
 	display: flex;
 	flex-direction: column;
-	height: 480px;
-	gap: 14px;
+	justify-content: space-between;
+	height: 490px;
 	position: relative;
 	overflow: hidden;
-	box-shadow: 0 4px 24px var(--shadow-color);
-	transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            box-shadow 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            border-color 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+	box-shadow: 0 4px 20px var(--shadow-color);
+	transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+	            opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	outline: none;
+	cursor: pointer;
 }
 
 .focus-card:focus-visible {
@@ -811,37 +813,43 @@ html[data-theme="dark"] .terminal-window:hover {
 	z-index: 2;
 }
 
+/* Layered Integrated Artwork */
 .focus-card::before {
 	content: '';
 	position: absolute;
-	inset: 12px;
-	border-radius: 18px;
-	z-index: 0;
+	inset: 0;
+	z-index: 1;
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	opacity: 0.48;
-	transform: scale(1.0) translate(0, 10px);
-	clip-path: inset(45% 0 0 0 round 18px);
-	transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
-	            clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+	transform: scale(0.96) translate(0, 18px);
+	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0) 88%);
+	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0) 88%);
+	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+	            filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
 
+/* Smooth Gradient Overlay */
 .focus-card::after {
 	content: '';
 	position: absolute;
 	inset: 0;
 	z-index: 1;
-	background: linear-gradient(to top, rgba(15,15,18,0.92) 0%, rgba(15,15,18,0.5) 50%, rgba(15,15,18,0.1) 100%);
-	opacity: 0.85;
-	transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), background 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+	background: linear-gradient(to top, rgba(15,15,18,0.75) 0%, rgba(15,15,18,0.3) 40%, rgba(15,15,18,0.02) 100%);
+	opacity: 0.7;
+	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
 
+html[data-theme="light"] .focus-card::before {
+	mix-blend-mode: multiply;
+}
+
 html[data-theme="light"] .focus-card::after {
-	background: linear-gradient(to top, rgba(250,250,250,0.94) 0%, rgba(250,250,250,0.55) 50%, rgba(250,250,250,0.15) 100%);
+	background: linear-gradient(to top, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.45) 45%, rgba(255,255,255,0.05) 100%);
 }
 
 .focus-card[data-glow="blue"]::before {
@@ -854,6 +862,7 @@ html[data-theme="light"] .focus-card::after {
 	background-image: url('../images/focus_infrastructure.avif');
 }
 
+/* Active / Hover State Transformation */
 .focus-card:active,
 .focus-card.is-active {
 	transform: translateY(-6px);
@@ -861,113 +870,112 @@ html[data-theme="light"] .focus-card::after {
 .focus-card:active::before,
 .focus-card.is-active::before {
 	opacity: 0.95;
-	transform: scale(1.04) translate(0, 0);
-	clip-path: inset(20% 0 0 0 round 18px);
+	transform: scale(1.04) translate(0, -4px);
 }
 .focus-card:active::after,
 .focus-card.is-active::after {
-	opacity: 0.95;
+	opacity: 0.45;
 }
 
 @media (hover: hover) {
 	.focus-grid:has(.focus-card:hover) .focus-card:not(:hover) {
-		opacity: 0.65;
-		transform: scale(0.985);
+		opacity: 0.72;
+		transform: scale(0.99);
 	}
 
 	.focus-card:hover {
 		transform: translateY(-6px);
-		box-shadow: 0 20px 48px -12px var(--shadow-color);
+		box-shadow: 0 24px 52px -12px var(--shadow-color);
 	}
 	.focus-card:hover::before {
 		opacity: 0.95;
-		transform: scale(1.04) translate(var(--mouse-x, 0px), var(--mouse-y, 0px));
-		clip-path: inset(20% 0 0 0 round 18px);
+		transform: scale(1.05) translate(var(--mouse-x, 0px), calc(-6px + var(--mouse-y, 0px)));
 	}
 	.focus-card:hover::after {
-		opacity: 0.95;
+		opacity: 0.4;
 	}
 }
 
-/* Blue Glow (Digital) */
+/* Accent Color Variations & Rich Surface on Hover/Active */
+/* Digital (Blue/Cyan) */
 .focus-card[data-glow="blue"]:hover,
 .focus-card[data-glow="blue"].is-active {
-	border-color: rgba(99, 102, 241, 0.35);
+	border-color: rgba(99, 102, 241, 0.4);
+	background: radial-gradient(circle at 80% 90%, rgba(99, 102, 241, 0.12) 0%, var(--surface) 75%);
+}
+html[data-theme="dark"] .focus-card[data-glow="blue"]:hover,
+html[data-theme="dark"] .focus-card[data-glow="blue"].is-active {
+	background: linear-gradient(160deg, #111425 0%, #0d0f1a 100%);
 }
 .focus-card[data-glow="blue"]:hover .focus-icon-box,
 .focus-card[data-glow="blue"].is-active .focus-icon-box,
 .focus-card:focus-visible .focus-icon-box {
 	border-color: #6366f1;
 	color: #6366f1;
+	background: rgba(99, 102, 241, 0.1);
 }
-.focus-card[data-glow="blue"]:hover .focus-accent-line,
-.focus-card[data-glow="blue"].is-active .focus-accent-line,
-.focus-card:focus-visible .focus-accent-line {
+.focus-card[data-glow="blue"]:hover .focus-number-line,
+.focus-card[data-glow="blue"].is-active .focus-number-line {
 	background: #6366f1;
 	opacity: 1;
-	width: 36px;
+	width: 28px;
 }
 
-/* Green Glow (Software) */
+/* Software (Green) */
 .focus-card[data-glow="green"]:hover,
 .focus-card[data-glow="green"].is-active {
-	border-color: rgba(16, 185, 129, 0.35);
+	border-color: rgba(16, 185, 129, 0.4);
+	background: radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.12) 0%, var(--surface) 75%);
+}
+html[data-theme="dark"] .focus-card[data-glow="green"]:hover,
+html[data-theme="dark"] .focus-card[data-glow="green"].is-active {
+	background: linear-gradient(160deg, #0b1a15 0%, #08120e 100%);
 }
 .focus-card[data-glow="green"]:hover .focus-icon-box,
 .focus-card[data-glow="green"].is-active .focus-icon-box {
 	border-color: #10b981;
 	color: #10b981;
+	background: rgba(16, 185, 129, 0.1);
 }
-.focus-card[data-glow="green"]:hover .focus-accent-line,
-.focus-card[data-glow="green"].is-active .focus-accent-line {
+.focus-card[data-glow="green"]:hover .focus-number-line,
+.focus-card[data-glow="green"].is-active .focus-number-line {
 	background: #10b981;
 	opacity: 1;
-	width: 36px;
+	width: 28px;
 }
 
-/* Orange Glow (Infrastructure) */
+/* Infrastructure (Orange) */
 .focus-card[data-glow="orange"]:hover,
 .focus-card[data-glow="orange"].is-active {
-	border-color: rgba(249, 115, 22, 0.35);
+	border-color: rgba(249, 115, 22, 0.4);
+	background: radial-gradient(circle at 80% 90%, rgba(249, 115, 22, 0.12) 0%, var(--surface) 75%);
+}
+html[data-theme="dark"] .focus-card[data-glow="orange"]:hover,
+html[data-theme="dark"] .focus-card[data-glow="orange"].is-active {
+	background: linear-gradient(160deg, #1f140d 0%, #140d08 100%);
 }
 .focus-card[data-glow="orange"]:hover .focus-icon-box,
 .focus-card[data-glow="orange"].is-active .focus-icon-box {
 	border-color: #f97316;
 	color: #f97316;
+	background: rgba(249, 115, 22, 0.1);
 }
-.focus-card[data-glow="orange"]:hover .focus-accent-line,
-.focus-card[data-glow="orange"].is-active .focus-accent-line {
+.focus-card[data-glow="orange"]:hover .focus-number-line,
+.focus-card[data-glow="orange"].is-active .focus-number-line {
 	background: #f97316;
 	opacity: 1;
-	width: 36px;
+	width: 28px;
 }
 
-.focus-card:hover .focus-number,
-.focus-card:active .focus-number,
-.focus-card:focus-visible .focus-number {
-	opacity: 1;
-}
-
-.focus-card-header {
+/* Sub-components Styling */
+.focus-card-top {
 	display: flex;
-	align-items: center;
-	gap: 16px;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
 }
 
-.focus-icon-box {
-	width: 40px;
-	height: 40px;
-	border-radius: 12px;
-	background: transparent;
-	border: 1px solid var(--line);
-	color: var(--muted);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: color 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.focus-title-group {
+.focus-number-wrap {
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -975,38 +983,134 @@ html[data-theme="light"] .focus-card::after {
 
 .focus-number {
 	font-family: var(--font-mono);
-	font-size: 0.85rem;
+	font-size: 0.9rem;
 	font-weight: 600;
 	color: var(--accent);
-	opacity: 0.8;
-	transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+	opacity: 0.85;
+	transition: opacity 0.3s ease;
+}
+
+.focus-number-line {
+	width: 18px;
+	height: 2px;
+	background: var(--accent);
+	opacity: 0.4;
+	border-radius: 2px;
+	transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.focus-meta-top {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 2px;
+	font-family: var(--font-mono);
+	font-size: 0.62rem;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	opacity: 0.65;
+	text-align: right;
+	line-height: 1.3;
+	transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.focus-card:hover .focus-meta-top,
+.focus-card.is-active .focus-meta-top {
+	opacity: 0.9;
+}
+
+.focus-card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 10px;
+}
+
+.focus-icon-box {
+	width: 44px;
+	height: 44px;
+	border-radius: 14px;
+	background: transparent;
+	border: 1px solid var(--line);
+	color: var(--muted);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+	transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1), 
+	            border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+	            background 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .focus-title {
 	font-family: var(--font-sans);
-	font-size: 1rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
+	font-size: 1.65rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 	color: var(--text);
-	margin: 0;
-}
-
-.focus-accent-line {
-	width: 24px;
-	height: 2px;
-	background: var(--accent);
-	opacity: 0.5;
-	border-radius: 2px;
-	margin-top: -4px;
-	transition: background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+	margin: 0 0 10px 0;
+	transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .focus-desc {
-	font-size: 0.95rem;
+	font-size: 0.88rem;
 	color: var(--muted);
-	line-height: 1.6;
-	margin: 0;
+	line-height: 1.55;
+	margin: 0 0 16px 0;
+	max-width: 320px;
+	transition: color 0.3s ease;
+}
+
+.focus-card:hover .focus-desc,
+.focus-card.is-active .focus-desc {
+	color: var(--text);
+}
+
+.focus-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--font-sans);
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--text);
+	text-decoration: none;
+	transition: color 0.3s ease, gap 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.focus-link svg {
+	transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.focus-card:hover .focus-link svg,
+.focus-card.is-active .focus-link svg {
+	transform: translateX(4px);
+}
+
+.focus-card[data-glow="blue"]:hover .focus-link,
+.focus-card[data-glow="blue"].is-active .focus-link { color: #6366f1; }
+
+.focus-card[data-glow="green"]:hover .focus-link,
+.focus-card[data-glow="green"].is-active .focus-link { color: #10b981; }
+
+.focus-card[data-glow="orange"]:hover .focus-link,
+.focus-card[data-glow="orange"].is-active .focus-link { color: #f97316; }
+
+.focus-meta-bottom {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	opacity: 0.65;
+	transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.focus-card:hover .focus-meta-bottom,
+.focus-card.is-active .focus-meta-bottom {
+	opacity: 0.95;
 }
 
 /* Focus Cards Accessibility: Reduced Motion */
@@ -1777,13 +1881,12 @@ html[data-theme="dark"] .about-glass-panel {
 
 	.focus-grid {
 		grid-template-columns: 1fr;
-		gap: 20px;
+		gap: 24px;
 	}
 
 	.focus-card {
-		padding: 20px 24px;
-		height: auto;
-		min-height: min-content;
+		padding: 24px 22px;
+		height: 460px;
 	}
 
 	.section-header {

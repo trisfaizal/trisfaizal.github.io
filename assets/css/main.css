@@ -839,6 +839,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 4px 20px var(--shadow-color);
+	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
 	transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
 	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
 	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
@@ -876,7 +877,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	pointer-events: none;
 }
 
-/* Localized Content Scrim (Atmospheric & Feathered) */
+/* Localized Content Scrim (Atmospheric & Feathered - Layer 2 Depth) */
 .focus-card::after {
 	content: '';
 	position: absolute;
@@ -891,8 +892,12 @@ html[data-theme="dark"] .terminal-window:hover {
 		transparent 100%
 	);
 	opacity: 0.65;
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transform: translate3d(0, var(--scrim-parallax-y, 0px), 0);
+	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
+	will-change: transform;
 }
 
 html[data-theme="light"] .focus-card::before {
@@ -947,7 +952,7 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 /* Active / Hover State Transformation (Artwork is the Hero, Scrim Smoothly Transitions) */
 .focus-card:active,
 .focus-card.is-active {
-	transform: translateY(-5px);
+	transform: translate3d(0, calc(-5px + var(--card-parallax-y, 0px)), 0);
 }
 .focus-card:active::before,
 .focus-card.is-active::before {
@@ -962,11 +967,11 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 @media (hover: hover) {
 	.focus-grid:has(.focus-card:hover) .focus-card:not(:hover) {
 		opacity: 0.75;
-		transform: scale(0.995);
+		transform: scale(0.995) translate3d(0, var(--card-parallax-y, 0px), 0);
 	}
 
 	.focus-card:hover {
-		transform: translateY(-5px);
+		transform: translate3d(0, calc(-5px + var(--card-parallax-y, 0px)), 0);
 		box-shadow: 0 20px 48px -12px var(--shadow-color);
 	}
 	.focus-card:hover::before {

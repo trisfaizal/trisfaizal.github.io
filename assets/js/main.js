@@ -344,18 +344,25 @@ if (!reducedMotion) {
 		const vw = window.innerWidth;
 		const isMobile = vw < 768;
 
-		// 1. FOCUS Cards Artwork Parallax (Desktop: ~14-22px, Mobile: ~7-11px)
+		// 1. FOCUS Cards Layered Depth Parallax (Artwork Layer 3 > Scrim Layer 2 > Outer Card Layer 1)
 		if (focusSectionEl && focusCardEls.length > 0) {
 			const rect = focusSectionEl.getBoundingClientRect();
 			if (rect.bottom > 0 && rect.top < vh) {
 				const rawProgress = (vh - rect.top) / (rect.height + vh);
 				const centeredProgress = (Math.min(Math.max(rawProgress, 0), 1) - 0.5) * 2; // -1 to 1
 
-				const speeds = isMobile ? [-8, -11, -7] : [-16, -22, -14];
+				const artworkSpeeds = isMobile ? [-8, -11, -7] : [-16, -22, -14];
+				const scrimSpeeds = isMobile ? [-3, -4, -2.5] : [-6, -8, -5];
+				const cardSpeeds = isMobile ? [-2, -3, -1.5] : [-3.5, -5, -3];
+
 				focusCardEls.forEach((card, idx) => {
-					const speed = speeds[idx % speeds.length];
-					const offsetY = (centeredProgress * speed).toFixed(2);
-					card.style.setProperty('--artwork-parallax-y', `${offsetY}px`);
+					const artSpeed = artworkSpeeds[idx % artworkSpeeds.length];
+					const scrimSpeed = scrimSpeeds[idx % scrimSpeeds.length];
+					const cardSpeed = cardSpeeds[idx % cardSpeeds.length];
+
+					card.style.setProperty('--artwork-parallax-y', `${(centeredProgress * artSpeed).toFixed(2)}px`);
+					card.style.setProperty('--scrim-parallax-y', `${(centeredProgress * scrimSpeed).toFixed(2)}px`);
+					card.style.setProperty('--card-parallax-y', `${(centeredProgress * cardSpeed).toFixed(2)}px`);
 				});
 			}
 		}

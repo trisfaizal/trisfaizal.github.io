@@ -1204,18 +1204,18 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 24px;
-	margin-top: clamp(60px, 8vw, 100px);
-	margin-bottom: clamp(80px, 10vw, 140px);
+	margin-top: clamp(40px, 5vw, 70px);
+	margin-bottom: clamp(60px, 8vw, 100px);
 	display: flex;
 	flex-direction: column;
-	gap: clamp(48px, 6vw, 72px);
+	gap: clamp(36px, 4.5vw, 54px);
 }
 
 /* Narrative Introduction Header */
 .approach-intro {
 	display: grid;
-	grid-template-columns: minmax(320px, 1.2fr) minmax(320px, 1.5fr) minmax(120px, 0.5fr);
-	gap: clamp(32px, 5vw, 64px);
+	grid-template-columns: 44% 1fr auto;
+	gap: clamp(24px, 4vw, 48px);
 	align-items: flex-start;
 	width: 100%;
 }
@@ -1223,43 +1223,44 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 .approach-intro-left {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 14px;
 }
 
 .approach-hero-title {
 	font-family: var(--font-sans);
-	font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+	font-size: clamp(2.2rem, 3vw, 2.85rem);
 	font-weight: 700;
 	letter-spacing: -0.03em;
-	line-height: 1.1;
+	line-height: 1.04;
 	color: var(--text);
 	margin: 0;
 }
 
 .approach-intro-right {
-	padding-top: 38px;
+	padding-top: 32px;
 }
 
 .approach-intro-desc {
-	font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+	font-size: clamp(0.92rem, 1.1vw, 1.02rem);
 	color: var(--muted);
-	line-height: 1.65;
+	line-height: 1.6;
 	margin: 0;
-	max-width: 620px;
+	max-width: 580px;
 }
 
 .approach-intro-meta {
 	display: flex;
 	align-items: flex-start;
-	gap: 16px;
-	padding-top: 42px;
+	gap: 14px;
+	padding-top: 36px;
 }
 
 .approach-meta-line {
 	width: 1px;
-	height: 54px;
+	height: 48px;
 	background: var(--line);
 	flex-shrink: 0;
+	opacity: 0.6;
 }
 
 .approach-meta-tags {
@@ -1267,29 +1268,34 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 	flex-direction: column;
 	gap: 3px;
 	font-family: var(--font-mono);
-	font-size: 0.65rem;
+	font-size: 0.625rem;
 	letter-spacing: 0.1em;
 	color: var(--muted);
-	opacity: 0.65;
+	opacity: 0.55;
 }
 
 /* Organic Process Timeline */
 .approach-timeline-container {
 	position: relative;
 	width: 100%;
-	margin-top: 12px;
+	margin-top: 4px;
 }
 
 .approach-wave-svg {
 	position: absolute;
-	top: 14px;
+	top: 11px;
 	left: 0;
 	width: 100%;
-	height: 40px;
-	color: var(--accent);
-	opacity: 0.35;
+	height: 24px;
+	color: var(--line);
+	opacity: 0.65;
 	z-index: 1;
 	pointer-events: none;
+}
+
+html[data-theme="dark"] .approach-wave-svg {
+	color: var(--line);
+	opacity: 0.4;
 }
 
 .approach-wave-path {
@@ -1299,7 +1305,7 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 .approach-steps-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: clamp(20px, 3vw, 36px);
+	gap: clamp(16px, 2.5vw, 32px);
 	position: relative;
 	z-index: 2;
 	width: 100%;
@@ -1308,15 +1314,15 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 .approach-step-item {
 	display: flex;
 	flex-direction: column;
-	gap: 18px;
+	gap: 14px;
 	position: relative;
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .approach-step-header {
 	display: flex;
 	align-items: center;
-	height: 28px;
+	height: 24px;
 }
 
 .approach-step-num-wrap {
@@ -1327,31 +1333,31 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 
 .approach-step-num {
 	font-family: var(--font-mono);
-	font-size: 0.95rem;
+	font-size: 0.85rem;
 	font-weight: 600;
 	color: var(--accent);
 }
 
 .approach-step-dot {
-	width: 7px;
-	height: 7px;
+	width: 6px;
+	height: 6px;
 	border-radius: 50%;
 	background: var(--accent);
-	box-shadow: 0 0 8px var(--accent);
+	box-shadow: 0 0 6px var(--accent);
 }
 
 .approach-step-body {
 	display: flex;
 	align-items: flex-start;
-	gap: 14px;
+	gap: 12px;
 }
 
 .approach-icon-circle {
-	width: 48px;
-	height: 48px;
+	width: 42px;
+	height: 42px;
 	border-radius: 50%;
-	background: rgba(16, 185, 129, 0.12);
-	border: 1px solid rgba(16, 185, 129, 0.25);
+	background: rgba(16, 185, 129, 0.08);
+	border: 1px solid rgba(16, 185, 129, 0.2);
 	color: var(--accent);
 	display: flex;
 	align-items: center;
@@ -1363,8 +1369,8 @@ html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { 
 }
 
 html[data-theme="dark"] .approach-icon-circle {
-	background: rgba(16, 185, 129, 0.14);
-	border-color: rgba(16, 185, 129, 0.3);
+	background: rgba(16, 185, 129, 0.1);
+	border-color: rgba(16, 185, 129, 0.25);
 }
 
 .approach-step-text {
@@ -1375,15 +1381,15 @@ html[data-theme="dark"] .approach-icon-circle {
 
 .approach-step-title {
 	font-family: var(--font-sans);
-	font-size: 1.15rem;
-	font-weight: 700;
+	font-size: 1.05rem;
+	font-weight: 600;
 	color: var(--text);
 	margin: 0;
 	transition: color 0.3s ease;
 }
 
 .approach-step-desc {
-	font-size: 0.85rem;
+	font-size: 0.86rem;
 	color: var(--muted);
 	line-height: 1.5;
 	margin: 0;
@@ -1395,12 +1401,12 @@ html[data-theme="dark"] .approach-icon-circle {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 5px;
 	font-family: var(--font-mono);
 	font-size: 0.65rem;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.06em;
 	color: var(--muted);
-	opacity: 0.7;
+	opacity: 0.6;
 	padding-left: 2px;
 }
 
@@ -1412,8 +1418,8 @@ html[data-theme="dark"] .approach-icon-circle {
 /* Step Hover Micro-Interaction */
 @media (hover: hover) {
 	.approach-step-item:hover .approach-icon-circle {
-		transform: scale(1.08);
-		background: rgba(16, 185, 129, 0.22);
+		transform: scale(1.06);
+		background: rgba(16, 185, 129, 0.18);
 		border-color: var(--accent);
 	}
 
@@ -1422,7 +1428,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	}
 
 	.approach-step-item:hover .approach-step-details {
-		opacity: 0.95;
+		opacity: 0.9;
 	}
 }
 
@@ -1433,7 +1439,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	justify-content: space-between;
 	gap: 24px;
 	width: 100%;
-	padding-top: clamp(24px, 4vw, 48px);
+	padding-top: clamp(20px, 3vw, 36px);
 }
 
 .annotation-block {
@@ -1441,10 +1447,10 @@ html[data-theme="dark"] .approach-icon-circle {
 	flex-direction: column;
 	gap: 2px;
 	font-family: var(--font-mono);
-	font-size: 0.65rem;
+	font-size: 0.625rem;
 	letter-spacing: 0.08em;
 	color: var(--muted);
-	opacity: 0.6;
+	opacity: 0.55;
 }
 
 .annotation-right {
@@ -1455,7 +1461,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	flex-grow: 1;
 	height: 1px;
 	background: var(--line);
-	opacity: 0.6;
+	opacity: 0.4;
 }
 
 /* Section Headings (Shared) */

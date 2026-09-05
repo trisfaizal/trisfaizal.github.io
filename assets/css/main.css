@@ -1317,7 +1317,7 @@ html[data-theme="dark"] .approach-wave-svg {
 	.approach-mobile-progress-line {
 		display: block;
 		position: absolute;
-		left: -21px;
+		left: -1px;
 		top: 0;
 		width: 2px;
 		height: calc(var(--approach-progress, 0) * 100%);

@@ -341,15 +341,17 @@ if (!reducedMotion) {
 
 	const updateScrollChoreography = () => {
 		const vh = window.innerHeight;
+		const vw = window.innerWidth;
+		const isMobile = vw < 768;
 
-		// 1. FOCUS Cards Artwork Parallax
+		// 1. FOCUS Cards Artwork Parallax (Desktop: ~14-22px, Mobile: ~7-11px)
 		if (focusSectionEl && focusCardEls.length > 0) {
 			const rect = focusSectionEl.getBoundingClientRect();
 			if (rect.bottom > 0 && rect.top < vh) {
 				const rawProgress = (vh - rect.top) / (rect.height + vh);
 				const centeredProgress = (Math.min(Math.max(rawProgress, 0), 1) - 0.5) * 2; // -1 to 1
 
-				const speeds = [-16, -22, -14]; // Subtle differential upward parallax offsets (px)
+				const speeds = isMobile ? [-8, -11, -7] : [-16, -22, -14];
 				focusCardEls.forEach((card, idx) => {
 					const speed = speeds[idx % speeds.length];
 					const offsetY = (centeredProgress * speed).toFixed(2);
@@ -362,18 +364,17 @@ if (!reducedMotion) {
 		if (approachSectionEl) {
 			const rect = approachSectionEl.getBoundingClientRect();
 			if (rect.bottom > 0 && rect.top < vh) {
-				// Calculate progress ratio (0 to 1) as section passes through viewport center
-				const totalRange = rect.height + vh * 0.4;
-				const currentPos = vh * 0.7 - rect.top;
+				// Calculate progress ratio (0 to 1) as timeline passes through reading viewport range
+				const totalRange = rect.height + vh * 0.45;
+				const currentPos = vh * 0.72 - rect.top;
 				const progress = Math.min(Math.max(currentPos / totalRange, 0), 1);
 
 				approachSectionEl.style.setProperty('--approach-progress', progress.toFixed(3));
 
-				// Step Point Activations
-				// Thresholds: Step 1 (0.05), Step 2 (0.35), Step 3 (0.65), Step 4 (0.90)
-				const thresholds = [0.05, 0.35, 0.65, 0.90];
+				// Step Point Activations (Reversible on scroll up)
+				const thresholds = isMobile ? [0.06, 0.32, 0.60, 0.86] : [0.05, 0.33, 0.64, 0.88];
 				approachStepItems.forEach((item, idx) => {
-					const targetThreshold = thresholds[idx] || (idx * 0.3);
+					const targetThreshold = thresholds[idx] || (idx * 0.28);
 					if (progress >= targetThreshold) {
 						item.classList.add('is-active');
 					} else {
@@ -383,12 +384,12 @@ if (!reducedMotion) {
 			}
 		}
 
-		// 3. FOOTER Typography Parallax
+		// 3. FOOTER Typography Parallax (Max 24px)
 		if (siteFooterEl && footerBgTextEl) {
 			const rect = siteFooterEl.getBoundingClientRect();
 			if (rect.bottom > 0 && rect.top < vh) {
 				const progress = Math.min(Math.max((vh - rect.top) / (rect.height + vh), 0), 1);
-				const offsetY = ((0.5 - progress) * 32).toFixed(2);
+				const offsetY = ((0.5 - progress) * 24).toFixed(2);
 				footerBgTextEl.style.setProperty('--footer-parallax-y', `${offsetY}px`);
 			}
 		}

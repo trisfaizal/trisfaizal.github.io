@@ -1415,12 +1415,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	letter-spacing: 0.08em;
 	color: var(--muted);
 	opacity: 0.6;
-}
-
-@media (min-width: 1025px) {
-	.approach-step-details {
-		padding-left: 54px;
-	}
+	padding-left: 54px; /* Matches 42px icon + 12px gap on desktop/tablet */
 }
 
 .approach-step-details li {
@@ -1521,7 +1516,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	}
 
 	.approach-step-details {
-		padding-left: 0;
+		padding-left: 54px; /* Matches 42px icon + 12px gap on tablet */
 	}
 }
 
@@ -1565,7 +1560,7 @@ html[data-theme="dark"] .approach-icon-circle {
 
 	.approach-steps-grid {
 		grid-template-columns: 1fr;
-		gap: 36px;
+		gap: 40px;
 		padding-left: 20px;
 		border-left: 1px solid var(--line);
 		margin-left: 8px;
@@ -1600,7 +1595,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	}
 
 	.approach-step-details {
-		padding-left: 0;
+		padding-left: 50px; /* Matches 38px icon + 12px gap on mobile */
 	}
 
 	.approach-bottom-annotation {

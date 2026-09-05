@@ -934,7 +934,11 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 	}
 }
 
-/* Subtly Responding Neutral Surfaces */
+/* Category Accent Color Systems */
+
+/* 01 Digital (Blue / Indigo) */
+.focus-card[data-glow="blue"] .focus-number { color: #6366f1; }
+.focus-card[data-glow="blue"] .focus-number-line { background: #6366f1; }
 .focus-card[data-glow="blue"]:hover,
 .focus-card[data-glow="blue"].is-active {
 	border-color: rgba(99, 102, 241, 0.35);
@@ -956,18 +960,18 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 
 .focus-card[data-glow="green"]:hover,
 .focus-card[data-glow="green"].is-active {
-	border-color: rgba(16, 185, 129, 0.35);
-	background: radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.04) 0%, var(--surface) 65%);
+	border-color: rgba(139, 92, 246, 0.35);
+	background: radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.04) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="green"]:hover .focus-icon-box,
 .focus-card[data-glow="green"].is-active .focus-icon-box {
-	border-color: #10b981;
-	color: #10b981;
-	background: rgba(16, 185, 129, 0.08);
+	border-color: #8b5cf6;
+	color: #8b5cf6;
+	background: rgba(139, 92, 246, 0.08);
 }
 .focus-card[data-glow="green"]:hover .focus-number-line,
 .focus-card[data-glow="green"].is-active .focus-number-line {
-	background: #10b981;
+	background: #8b5cf6;
 	opacity: 1;
 	width: 28px;
 }
@@ -1008,19 +1012,27 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 	font-family: var(--font-mono);
 	font-size: 0.9rem;
 	font-weight: 600;
-	color: var(--accent);
 	opacity: 0.85;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .focus-number-line {
 	width: 18px;
 	height: 2px;
-	background: var(--accent);
-	opacity: 0.4;
+	opacity: 0.5;
 	border-radius: 2px;
 	transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, opacity 0.3s ease;
 }
+
+/* Category Accent Specificity */
+.focus-card[data-glow="blue"] .focus-number { color: #6366f1; }
+.focus-card[data-glow="blue"] .focus-number-line { background: #6366f1; }
+
+.focus-card[data-glow="green"] .focus-number { color: #8b5cf6; }
+.focus-card[data-glow="green"] .focus-number-line { background: #8b5cf6; }
+
+.focus-card[data-glow="orange"] .focus-number { color: #f59e0b; }
+.focus-card[data-glow="orange"] .focus-number-line { background: #f59e0b; }
 
 .focus-meta-top {
 	display: flex;
@@ -1129,10 +1141,12 @@ html[data-theme="light"] .focus-card.is-active .focus-desc {
 .focus-card[data-glow="blue"].is-active .focus-link { color: #6366f1; }
 
 .focus-card[data-glow="green"]:hover .focus-link,
-.focus-card[data-glow="green"].is-active .focus-link { color: #10b981; }
+.focus-card[data-glow="green"].is-active .focus-link { color: #8b5cf6; }
+html[data-theme="light"] .focus-card[data-glow="green"]:hover .focus-link,
+html[data-theme="light"] .focus-card[data-glow="green"].is-active .focus-link { color: #7c3aed; }
 
 .focus-card[data-glow="orange"]:hover .focus-link,
-.focus-card[data-glow="orange"].is-active .focus-link { color: #f97316; }
+.focus-card[data-glow="orange"].is-active .focus-link { color: #f59e0b; }
 
 .focus-meta-bottom {
 	display: flex;

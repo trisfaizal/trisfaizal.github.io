@@ -385,7 +385,7 @@ if (!reducedMotion) {
 				const rawProgress = (vh - rect.top) / (rect.height + vh);
 				const centeredProgress = (Math.min(Math.max(rawProgress, 0), 1) - 0.5) * 2; // -1 to 1
 
-				const artworkSpeeds = isMobile ? [-8, -11, -7] : [-16, -22, -14];
+				const artworkSpeeds = isMobile ? [-10, -11, -7] : [-20, -22, -14];
 				const scrimSpeeds = isMobile ? [-3, -4, -2.5] : [-6, -8, -5];
 				const cardSpeeds = isMobile ? [-2, -3, -1.5] : [-3.5, -5, -3];
 

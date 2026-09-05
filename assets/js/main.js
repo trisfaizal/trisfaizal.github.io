@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js-enabled');
+
 const typeTargets = [...document.querySelectorAll('[data-type-line]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const year = document.querySelector('[data-year]');
@@ -188,14 +190,13 @@ if (mobileMenuToggle && primaryMenu) {
 const siteHeader = document.querySelector('.site-header');
 if (siteHeader) {
 	let ticking = false;
-	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	const updateHeaderProgress = () => {
 		const scrollY = window.scrollY;
 		let rawProgress = Math.min(Math.max((scrollY - 24) / 56, 0), 1);
 		let progress = 1 - Math.pow(1 - rawProgress, 3);
 		
-		if (isReducedMotion) {
+		if (reducedMotion) {
 			progress = scrollY > 80 ? 1 : 0;
 		}
 
@@ -218,10 +219,9 @@ if (siteHeader) {
 // Interactive Ambient Background System
 const ambientBg = document.querySelector('.ambient-background');
 if (ambientBg) {
-	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 	
-	if (!isReducedMotion) {
+	if (!reducedMotion) {
 		let currentX = 0;
 		let currentY = 0;
 		let targetX = 0;
@@ -326,4 +326,83 @@ if (focusCards.length > 0) {
 			}
 		});
 	}
+}
+
+// Premium Scroll Choreography Engine
+if (!reducedMotion) {
+	const focusSectionEl = document.querySelector('.focus-section');
+	const focusCardEls = document.querySelectorAll('.focus-card');
+	const approachSectionEl = document.querySelector('.approach-section');
+	const approachStepItems = document.querySelectorAll('.approach-step-item');
+	const siteFooterEl = document.querySelector('.site-footer');
+	const footerBgTextEl = document.querySelector('.footer-bg-text');
+
+	let isChoreographyTicking = false;
+
+	const updateScrollChoreography = () => {
+		const vh = window.innerHeight;
+
+		// 1. FOCUS Cards Artwork Parallax
+		if (focusSectionEl && focusCardEls.length > 0) {
+			const rect = focusSectionEl.getBoundingClientRect();
+			if (rect.bottom > 0 && rect.top < vh) {
+				const rawProgress = (vh - rect.top) / (rect.height + vh);
+				const centeredProgress = (Math.min(Math.max(rawProgress, 0), 1) - 0.5) * 2; // -1 to 1
+
+				const speeds = [-16, -22, -14]; // Subtle differential upward parallax offsets (px)
+				focusCardEls.forEach((card, idx) => {
+					const speed = speeds[idx % speeds.length];
+					const offsetY = (centeredProgress * speed).toFixed(2);
+					card.style.setProperty('--artwork-parallax-y', `${offsetY}px`);
+				});
+			}
+		}
+
+		// 2. APPROACH Timeline Scroll Progress & Step Activation
+		if (approachSectionEl) {
+			const rect = approachSectionEl.getBoundingClientRect();
+			if (rect.bottom > 0 && rect.top < vh) {
+				// Calculate progress ratio (0 to 1) as section passes through viewport center
+				const totalRange = rect.height + vh * 0.4;
+				const currentPos = vh * 0.7 - rect.top;
+				const progress = Math.min(Math.max(currentPos / totalRange, 0), 1);
+
+				approachSectionEl.style.setProperty('--approach-progress', progress.toFixed(3));
+
+				// Step Point Activations
+				// Thresholds: Step 1 (0.05), Step 2 (0.35), Step 3 (0.65), Step 4 (0.90)
+				const thresholds = [0.05, 0.35, 0.65, 0.90];
+				approachStepItems.forEach((item, idx) => {
+					const targetThreshold = thresholds[idx] || (idx * 0.3);
+					if (progress >= targetThreshold) {
+						item.classList.add('is-active');
+					} else {
+						item.classList.remove('is-active');
+					}
+				});
+			}
+		}
+
+		// 3. FOOTER Typography Parallax
+		if (siteFooterEl && footerBgTextEl) {
+			const rect = siteFooterEl.getBoundingClientRect();
+			if (rect.bottom > 0 && rect.top < vh) {
+				const progress = Math.min(Math.max((vh - rect.top) / (rect.height + vh), 0), 1);
+				const offsetY = ((0.5 - progress) * 32).toFixed(2);
+				footerBgTextEl.style.setProperty('--footer-parallax-y', `${offsetY}px`);
+			}
+		}
+
+		isChoreographyTicking = false;
+	};
+
+	window.addEventListener('scroll', () => {
+		if (!isChoreographyTicking) {
+			isChoreographyTicking = true;
+			window.requestAnimationFrame(updateScrollChoreography);
+		}
+	}, { passive: true });
+
+	// Initial evaluation
+	updateScrollChoreography();
 }

@@ -824,7 +824,7 @@ html[data-theme="dark"] .terminal-window:hover {
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	opacity: 0.58;
-	transform: scale(1.0) translate(0, 10px);
+	transform: scale(1.0) translate3d(0, calc(10px + var(--artwork-parallax-y, 0px)), 0);
 	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
@@ -908,7 +908,7 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 .focus-card:active::before,
 .focus-card.is-active::before {
 	opacity: 0.95;
-	transform: scale(1.10) translate(0, -6px);
+	transform: scale(1.10) translate3d(0, calc(-6px + var(--artwork-parallax-y, 0px)), 0);
 }
 .focus-card:active::after,
 .focus-card.is-active::after {
@@ -927,7 +927,7 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 	}
 	.focus-card:hover::before {
 		opacity: 0.95;
-		transform: scale(1.10) translate(var(--mouse-x, 0px), calc(-8px + var(--mouse-y, 0px)));
+		transform: scale(1.10) translate3d(var(--mouse-x, 0px), calc(-8px + var(--mouse-y, 0px) + var(--artwork-parallax-y, 0px)), 0);
 	}
 	.focus-card:hover::after {
 		opacity: 0.85;
@@ -1299,7 +1299,34 @@ html[data-theme="dark"] .approach-wave-svg {
 }
 
 .approach-wave-path {
-	transition: stroke-dashoffset 1s ease;
+	transition: stroke-dashoffset 0.1s linear;
+}
+
+.approach-wave-progress {
+	opacity: 0.9;
+	stroke-dasharray: 1000;
+	stroke-dashoffset: calc(1000 * (1 - var(--approach-progress, 0)));
+	transition: stroke-dashoffset 0.08s linear;
+}
+
+.approach-mobile-progress-line {
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.approach-mobile-progress-line {
+		display: block;
+		position: absolute;
+		left: -21px;
+		top: 0;
+		width: 2px;
+		height: calc(var(--approach-progress, 0) * 100%);
+		background: var(--accent);
+		box-shadow: 0 0 8px var(--accent);
+		z-index: 2;
+		pointer-events: none;
+		transition: height 0.08s linear;
+	}
 }
 
 .approach-steps-grid {
@@ -1360,8 +1387,31 @@ html[data-theme="dark"] .approach-wave-svg {
 	width: 6px;
 	height: 6px;
 	border-radius: 50%;
+	background: var(--line);
+	opacity: 0.5;
+	box-shadow: none;
+	transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+	            background-color 0.3s ease,
+	            box-shadow 0.3s ease,
+	            opacity 0.3s ease;
+}
+
+.approach-step-item.is-active .approach-step-dot {
 	background: var(--accent);
-	box-shadow: 0 0 6px var(--accent);
+	opacity: 1;
+	transform: scale(1.15);
+	box-shadow: 0 0 8px var(--accent);
+}
+
+.approach-step-item.is-active .approach-icon-circle {
+	background: rgba(16, 185, 129, 0.16);
+	border-color: rgba(16, 185, 129, 0.45);
+	color: var(--accent);
+}
+
+html[data-theme="dark"] .approach-step-item.is-active .approach-icon-circle {
+	background: rgba(16, 185, 129, 0.22);
+	border-color: rgba(16, 185, 129, 0.55);
 }
 
 .approach-step-body {
@@ -1820,7 +1870,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	position: absolute;
 	bottom: -4%;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate3d(-50%, var(--footer-parallax-y, 0px), 0);
 	font-family: var(--font-serif);
 	font-weight: 700;
 	font-size: 28vw;
@@ -1831,6 +1881,7 @@ html[data-theme="dark"] .approach-icon-circle {
 	pointer-events: none;
 	user-select: none;
 	white-space: nowrap;
+	will-change: transform;
 }
 
 .footer-inner {
@@ -1890,16 +1941,117 @@ html[data-theme="dark"] .approach-icon-circle {
 	color: var(--text);
 }
 
-/* Reveal transition classes */
-.reveal {
+/* Reveal transition classes (Progressively enhanced with html.js-enabled) */
+html.js-enabled .reveal {
 	opacity: 0;
-	transform: translateY(12px);
-	transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+	transform: translateY(14px);
+	transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.reveal.is-visible {
+html.js-enabled .reveal.is-visible {
 	opacity: 1;
 	transform: translateY(0);
+}
+
+/* Staggered entrance for Focus Section Cards */
+html.js-enabled .focus-card {
+	opacity: 0;
+	transform: translateY(18px);
+	transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.js-enabled .focus-section.is-visible .focus-card:nth-child(1) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0ms;
+}
+
+html.js-enabled .focus-section.is-visible .focus-card:nth-child(2) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 90ms;
+}
+
+html.js-enabled .focus-section.is-visible .focus-card:nth-child(3) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 180ms;
+}
+
+/* Staggered entrance for Approach Section Elements */
+html.js-enabled .approach-intro-left,
+html.js-enabled .approach-intro-right,
+html.js-enabled .approach-intro-meta,
+html.js-enabled .approach-timeline-container,
+html.js-enabled .approach-bottom-annotation {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.js-enabled .approach-section.is-visible .approach-intro-left {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0ms;
+}
+
+html.js-enabled .approach-section.is-visible .approach-intro-right {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 80ms;
+}
+
+html.js-enabled .approach-section.is-visible .approach-intro-meta {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 140ms;
+}
+
+html.js-enabled .approach-section.is-visible .approach-timeline-container {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 200ms;
+}
+
+html.js-enabled .approach-section.is-visible .approach-bottom-annotation {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 350ms;
+}
+
+/* Staggered entrance for 4 Approach Process Items */
+html.js-enabled .approach-step-item {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.js-enabled .approach-section.is-visible .approach-step-item[data-step="1"] {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 220ms;
+}
+html.js-enabled .approach-section.is-visible .approach-step-item[data-step="2"] {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 320ms;
+}
+html.js-enabled .approach-section.is-visible .approach-step-item[data-step="3"] {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 420ms;
+}
+html.js-enabled .approach-section.is-visible .approach-step-item[data-step="4"] {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 520ms;
 }
 
 /* Desktop Spacing Refinements (>= 1024px) */
@@ -2301,8 +2453,29 @@ html[data-theme="dark"] .about-glass-panel {
 		transition-duration: 0.01ms !important;
 	}
 
-	.reveal {
-		opacity: 1;
-		transform: none;
+	.reveal,
+	html.js-enabled .reveal,
+	html.js-enabled .focus-card,
+	html.js-enabled .approach-intro-left,
+	html.js-enabled .approach-intro-right,
+	html.js-enabled .approach-intro-meta,
+	html.js-enabled .approach-timeline-container,
+	html.js-enabled .approach-bottom-annotation,
+	html.js-enabled .approach-step-item {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+
+	.footer-bg-text {
+		transform: translate3d(-50%, 0, 0) !important;
+	}
+
+	.approach-wave-progress {
+		stroke-dashoffset: 0 !important;
+	}
+
+	.approach-mobile-progress-line {
+		height: 100% !important;
 	}
 }

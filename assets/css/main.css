@@ -2068,11 +2068,11 @@ html.js-enabled .reveal.is-visible {
 html.js-enabled .focus-card {
 	opacity: 0;
 	transform: translate3d(0, calc(34px + var(--card-parallax-y, 0px)), 0);
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+	            box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+	            border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (max-width: 767px) {
@@ -2092,14 +2092,14 @@ html.js-enabled .focus-grid.is-visible .focus-card:nth-child(2),
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(2) {
 	opacity: 1;
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
-	transition-delay: 120ms;
+	transition-delay: 80ms;
 }
 
 html.js-enabled .focus-grid.is-visible .focus-card:nth-child(3),
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(3) {
 	opacity: 1;
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
-	transition-delay: 240ms;
+	transition-delay: 160ms;
 }
 
 /* Staggered entrance for Approach Section Elements */

@@ -2057,18 +2057,21 @@ html.js-enabled .focus-card {
 	}
 }
 
+html.js-enabled .focus-grid.is-visible .focus-card:nth-child(1),
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(1) {
 	opacity: 1;
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
 	transition-delay: 0ms;
 }
 
+html.js-enabled .focus-grid.is-visible .focus-card:nth-child(2),
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(2) {
 	opacity: 1;
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
 	transition-delay: 120ms;
 }
 
+html.js-enabled .focus-grid.is-visible .focus-card:nth-child(3),
 html.js-enabled .focus-section.is-visible .focus-card:nth-child(3) {
 	opacity: 1;
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);

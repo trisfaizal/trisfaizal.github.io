@@ -11,6 +11,7 @@ if (year) {
 
 // Reveal on Scroll / Intersection Observer
 const revealItems = [...document.querySelectorAll('.reveal')];
+const focusGrid = document.querySelector('.focus-grid');
 
 if ('IntersectionObserver' in window && !reducedMotion) {
 	const observer = new IntersectionObserver((entries) => {
@@ -23,8 +24,24 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 	}, { threshold: 0.1 });
 
 	revealItems.forEach((item) => observer.observe(item));
+
+	if (focusGrid) {
+		const gridObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					gridObserver.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.15 });
+
+		gridObserver.observe(focusGrid);
+	}
 } else {
 	revealItems.forEach((item) => item.classList.add('is-visible'));
+	if (focusGrid) {
+		focusGrid.classList.add('is-visible');
+	}
 }
 
 // Typing Terminal Animation

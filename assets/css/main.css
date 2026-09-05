@@ -813,22 +813,21 @@ html[data-theme="dark"] .terminal-window:hover {
 	z-index: 2;
 }
 
-/* Layered Integrated Artwork */
+/* Layered Integrated Artwork (Hero Element) */
 .focus-card::before {
 	content: '';
 	position: absolute;
 	inset: 0;
 	z-index: 1;
 	background-size: cover;
-	background-position: center bottom;
+	background-position: right bottom;
 	background-repeat: no-repeat;
-	opacity: 0.48;
-	transform: scale(0.96) translate(0, 18px);
-	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0) 88%);
-	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0) 88%);
+	opacity: 0.45;
+	transform: scale(1.0) translate(0, 14px);
+	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
+	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-	            filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
 
@@ -838,9 +837,9 @@ html[data-theme="dark"] .terminal-window:hover {
 	position: absolute;
 	inset: 0;
 	z-index: 1;
-	background: linear-gradient(to top, rgba(15,15,18,0.75) 0%, rgba(15,15,18,0.3) 40%, rgba(15,15,18,0.02) 100%);
-	opacity: 0.7;
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), background 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	background: linear-gradient(to top, rgba(15,15,18,0.7) 0%, rgba(15,15,18,0.25) 45%, rgba(15,15,18,0) 90%);
+	opacity: 0.6;
+	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
 
@@ -849,7 +848,7 @@ html[data-theme="light"] .focus-card::before {
 }
 
 html[data-theme="light"] .focus-card::after {
-	background: linear-gradient(to top, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.45) 45%, rgba(255,255,255,0.05) 100%);
+	background: linear-gradient(to top, rgba(250,250,250,0.82) 0%, rgba(250,250,250,0.35) 45%, rgba(250,250,250,0) 90%);
 }
 
 .focus-card[data-glow="blue"]::before {
@@ -862,57 +861,53 @@ html[data-theme="light"] .focus-card::after {
 	background-image: url('../images/focus_infrastructure.avif');
 }
 
-/* Active / Hover State Transformation */
+/* Active / Hover State Transformation (Artwork is the Hero) */
 .focus-card:active,
 .focus-card.is-active {
-	transform: translateY(-6px);
+	transform: translateY(-5px);
 }
 .focus-card:active::before,
 .focus-card.is-active::before {
-	opacity: 0.95;
-	transform: scale(1.04) translate(0, -4px);
+	opacity: 0.92;
+	transform: scale(1.09) translate(0, -6px);
 }
 .focus-card:active::after,
 .focus-card.is-active::after {
-	opacity: 0.45;
+	opacity: 0.35;
 }
 
 @media (hover: hover) {
 	.focus-grid:has(.focus-card:hover) .focus-card:not(:hover) {
-		opacity: 0.72;
-		transform: scale(0.99);
+		opacity: 0.75;
+		transform: scale(0.995);
 	}
 
 	.focus-card:hover {
-		transform: translateY(-6px);
-		box-shadow: 0 24px 52px -12px var(--shadow-color);
+		transform: translateY(-5px);
+		box-shadow: 0 20px 48px -12px var(--shadow-color);
 	}
 	.focus-card:hover::before {
-		opacity: 0.95;
-		transform: scale(1.05) translate(var(--mouse-x, 0px), calc(-6px + var(--mouse-y, 0px)));
+		opacity: 0.92;
+		transform: scale(1.10) translate(var(--mouse-x, 0px), calc(-8px + var(--mouse-y, 0px)));
 	}
 	.focus-card:hover::after {
-		opacity: 0.4;
+		opacity: 0.35;
 	}
 }
 
-/* Accent Color Variations & Rich Surface on Hover/Active */
-/* Digital (Blue/Cyan) */
+/* Subtly Responding Neutral Surfaces (Color comes from Artwork) */
+/* Digital (Cool Tint) */
 .focus-card[data-glow="blue"]:hover,
 .focus-card[data-glow="blue"].is-active {
-	border-color: rgba(99, 102, 241, 0.4);
-	background: radial-gradient(circle at 80% 90%, rgba(99, 102, 241, 0.12) 0%, var(--surface) 75%);
-}
-html[data-theme="dark"] .focus-card[data-glow="blue"]:hover,
-html[data-theme="dark"] .focus-card[data-glow="blue"].is-active {
-	background: linear-gradient(160deg, #111425 0%, #0d0f1a 100%);
+	border-color: rgba(99, 102, 241, 0.3);
+	background: radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="blue"]:hover .focus-icon-box,
 .focus-card[data-glow="blue"].is-active .focus-icon-box,
 .focus-card:focus-visible .focus-icon-box {
 	border-color: #6366f1;
 	color: #6366f1;
-	background: rgba(99, 102, 241, 0.1);
+	background: rgba(99, 102, 241, 0.08);
 }
 .focus-card[data-glow="blue"]:hover .focus-number-line,
 .focus-card[data-glow="blue"].is-active .focus-number-line {
@@ -921,21 +916,17 @@ html[data-theme="dark"] .focus-card[data-glow="blue"].is-active {
 	width: 28px;
 }
 
-/* Software (Green) */
+/* Software (Cyan/Green Tint) */
 .focus-card[data-glow="green"]:hover,
 .focus-card[data-glow="green"].is-active {
-	border-color: rgba(16, 185, 129, 0.4);
-	background: radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.12) 0%, var(--surface) 75%);
-}
-html[data-theme="dark"] .focus-card[data-glow="green"]:hover,
-html[data-theme="dark"] .focus-card[data-glow="green"].is-active {
-	background: linear-gradient(160deg, #0b1a15 0%, #08120e 100%);
+	border-color: rgba(16, 185, 129, 0.3);
+	background: radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="green"]:hover .focus-icon-box,
 .focus-card[data-glow="green"].is-active .focus-icon-box {
 	border-color: #10b981;
 	color: #10b981;
-	background: rgba(16, 185, 129, 0.1);
+	background: rgba(16, 185, 129, 0.08);
 }
 .focus-card[data-glow="green"]:hover .focus-number-line,
 .focus-card[data-glow="green"].is-active .focus-number-line {
@@ -944,21 +935,17 @@ html[data-theme="dark"] .focus-card[data-glow="green"].is-active {
 	width: 28px;
 }
 
-/* Infrastructure (Orange) */
+/* Infrastructure (Warm Tint) */
 .focus-card[data-glow="orange"]:hover,
 .focus-card[data-glow="orange"].is-active {
-	border-color: rgba(249, 115, 22, 0.4);
-	background: radial-gradient(circle at 80% 90%, rgba(249, 115, 22, 0.12) 0%, var(--surface) 75%);
-}
-html[data-theme="dark"] .focus-card[data-glow="orange"]:hover,
-html[data-theme="dark"] .focus-card[data-glow="orange"].is-active {
-	background: linear-gradient(160deg, #1f140d 0%, #140d08 100%);
+	border-color: rgba(249, 115, 22, 0.3);
+	background: radial-gradient(circle at 85% 85%, rgba(249, 115, 22, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="orange"]:hover .focus-icon-box,
 .focus-card[data-glow="orange"].is-active .focus-icon-box {
 	border-color: #f97316;
 	color: #f97316;
-	background: rgba(249, 115, 22, 0.1);
+	background: rgba(249, 115, 22, 0.08);
 }
 .focus-card[data-glow="orange"]:hover .focus-number-line,
 .focus-card[data-glow="orange"].is-active .focus-number-line {
@@ -1008,7 +995,7 @@ html[data-theme="dark"] .focus-card[data-glow="orange"].is-active {
 	font-size: 0.62rem;
 	letter-spacing: 0.08em;
 	color: var(--muted);
-	opacity: 0.65;
+	opacity: 0.6;
 	text-align: right;
 	line-height: 1.3;
 	transition: opacity 0.3s ease, color 0.3s ease;
@@ -1016,7 +1003,7 @@ html[data-theme="dark"] .focus-card[data-glow="orange"].is-active {
 
 .focus-card:hover .focus-meta-top,
 .focus-card.is-active .focus-meta-top {
-	opacity: 0.9;
+	opacity: 0.85;
 }
 
 .focus-card-body {
@@ -1048,16 +1035,16 @@ html[data-theme="dark"] .focus-card[data-glow="orange"].is-active {
 	font-weight: 700;
 	letter-spacing: -0.02em;
 	color: var(--text);
-	margin: 0 0 10px 0;
-	transition: color 0.3s ease, transform 0.3s ease;
+	margin: 0 0 12px 0;
+	transition: color 0.3s ease;
 }
 
 .focus-desc {
 	font-size: 0.88rem;
 	color: var(--muted);
 	line-height: 1.55;
-	margin: 0 0 16px 0;
-	max-width: 320px;
+	margin: 0 0 20px 0;
+	max-width: 310px;
 	transition: color 0.3s ease;
 }
 

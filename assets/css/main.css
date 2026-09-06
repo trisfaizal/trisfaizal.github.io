@@ -2809,6 +2809,227 @@ html[data-theme="dark"] .about-glass-panel {
 	}
 }
 
+/* ==========================================================================
+   Custom 404 Experience
+   ========================================================================== */
+.error-404-container {
+	min-height: calc(100vh - var(--nav-height) - 120px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 40px 24px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.error-404-wrapper {
+	display: grid;
+	grid-template-columns: 1.1fr 0.9fr;
+	gap: clamp(32px, 5vw, 64px);
+	align-items: center;
+	width: 100%;
+}
+
+.error-404-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.error-tech-tag {
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--accent);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.error-404-code {
+	font-family: var(--font-serif);
+	font-size: clamp(5rem, 11vw, 9.5rem);
+	font-weight: 700;
+	line-height: 0.9;
+	letter-spacing: -0.04em;
+	color: var(--text);
+	margin: 0;
+	text-shadow: 0 0 40px var(--ambient-hero);
+}
+
+.error-404-title {
+	font-family: var(--font-mono);
+	font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text);
+	margin: 0;
+}
+
+.error-404-desc {
+	font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+	color: var(--muted);
+	line-height: 1.6;
+	margin: 4px 0 16px 0;
+	max-width: 460px;
+}
+
+.error-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 28px;
+	font-weight: 600;
+	font-size: 0.92rem;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-arrow-left {
+	display: inline-block;
+	transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.error-cta:hover .cta-arrow-left {
+	transform: translateX(-4px);
+}
+
+/* Visual Section */
+.error-404-visual-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+.space-scene {
+	position: relative;
+	width: 100%;
+	max-width: 440px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.space-scene-svg {
+	width: 100%;
+	height: auto;
+	overflow: visible;
+	color: var(--text);
+}
+
+.floating-astronaut {
+	animation: astronautFloat 3.8s ease-in-out infinite;
+}
+
+@keyframes astronautFloat {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+.star-pulse-1 { animation: starPulse 2.5s ease-in-out infinite; }
+.star-pulse-2 { animation: starPulse 3.2s ease-in-out infinite 0.8s; }
+.star-pulse-3 { animation: starPulse 4.0s ease-in-out infinite 1.5s; }
+
+@keyframes starPulse {
+	0%, 100% { opacity: 0.3; }
+	50% { opacity: 0.85; }
+}
+
+/* Technical Status Card */
+.error-status-card {
+	margin-top: -12px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 14px 20px;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.08em;
+	box-shadow: 0 4px 20px var(--shadow-color);
+	z-index: 2;
+}
+
+.status-line {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.status-key {
+	color: var(--muted);
+	opacity: 0.7;
+	min-width: 75px;
+}
+
+.status-val {
+	font-weight: 600;
+	color: var(--text);
+}
+
+.text-red {
+	color: #ef4444 !important;
+}
+
+.text-accent {
+	color: var(--accent) !important;
+}
+
+/* Mobile 404 Layout (< 768px) */
+@media (max-width: 767px) {
+	.error-404-container {
+		min-height: auto;
+		padding: 32px 20px 48px 20px;
+	}
+
+	.error-404-wrapper {
+		grid-template-columns: 1fr;
+		gap: 36px;
+		text-align: left;
+	}
+
+	.error-404-content {
+		align-items: flex-start;
+	}
+
+	.error-404-code {
+		font-size: clamp(4.5rem, 20vw, 6.5rem);
+	}
+
+	.error-404-title {
+		font-size: 1.35rem;
+	}
+
+	.error-404-desc {
+		font-size: 0.95rem;
+		margin: 4px 0 16px 0;
+	}
+
+	.space-scene {
+		max-width: 280px;
+		margin: 0 auto;
+	}
+
+	.error-status-card {
+		padding: 10px 14px;
+		font-size: 0.65rem;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -2827,10 +3048,15 @@ html[data-theme="dark"] .about-glass-panel {
 	html.js-enabled .approach-intro-meta,
 	html.js-enabled .approach-timeline-container,
 	html.js-enabled .approach-bottom-annotation,
-	html.js-enabled .approach-step-item {
+	html.js-enabled .approach-step-item,
+	.floating-astronaut,
+	.star-pulse-1,
+	.star-pulse-2,
+	.star-pulse-3 {
 		opacity: 1 !important;
 		transform: none !important;
 		transition: none !important;
+		animation: none !important;
 	}
 
 	.footer-bg-text {

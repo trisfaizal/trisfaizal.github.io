@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>404 — Page Out of Orbit | TRISF PROJECT</title>
+	<meta name="description" content="404 Error: The requested page seems to have left the system." />
+	<meta name="theme-color" content="#fafaf9" />
+	<meta name="robots" content="noindex, follow" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap"
+		rel="stylesheet" />
+	<link rel="icon"
+		href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fafaf9' stroke='%23e4e4e3' stroke-width='2'/%3E%3Cpath d='M23 31h54M23 50h35M23 69h54' stroke='%2300b86b' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+	<link rel="stylesheet" href="/assets/css/main.css" />
+	<script>
+		// Run immediately before page rendering to prevent flash of theme
+		(function() {
+			const savedTheme = localStorage.getItem('theme');
+			const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			document.documentElement.setAttribute('data-theme', theme);
+		})();
+	</script>
+	<script src="/assets/js/main.js" defer></script>
+</head>
+
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<nav class="navbar" aria-label="Primary navigation">
+			<a class="brand" href="/" aria-label="TRISF home">TRISF <span class="brand-dot" aria-hidden="true">●</span></a>
+
+			<div class="nav-controls">
+				<button class="theme-toggle" aria-label="Toggle theme" id="theme-toggle-btn"></button>
+				<button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+				</button>
+			</div>
+
+			<!-- Main Navigation -->
+			<div class="main-nav" id="primary-menu">
+				<a href="/">Home</a>
+				<a href="/#about">About</a>
+				<a href="https://project.trisf.my.id/" target="_blank" rel="noopener noreferrer">Projects</a>
+				<a href="https://blog.trisf.my.id/" target="_blank" rel="noopener noreferrer">Blog</a>
+				<a href="/contact/">Contact</a>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main" class="error-404-container" tabindex="-1">
+		<div class="ambient-background" aria-hidden="true">
+			<div class="ambient-parallax">
+				<div class="blob blob-large"></div>
+				<div class="blob blob-medium"></div>
+				<div class="blob blob-small"></div>
+			</div>
+		</div>
+
+		<div class="error-404-wrapper reveal is-visible">
+			<!-- Left Content Column -->
+			<div class="error-404-content">
+				<div class="error-tech-tag">// 404 ERROR</div>
+				<h1 class="error-404-code">404</h1>
+				<h2 class="error-404-title">OUT OF ORBIT.</h2>
+				<p class="error-404-desc">This page seems to have left the system.</p>
+				<div class="error-404-actions">
+					<a href="/" class="cta-button error-cta">
+						<span class="cta-arrow-left" aria-hidden="true">←</span> Return to TRISF
+					</a>
+				</div>
+			</div>
+
+			<!-- Right Artwork & Status Column -->
+			<div class="error-404-visual-wrap" aria-hidden="true">
+				<div class="space-scene">
+					<!-- Celestial Orbit SVG Art -->
+					<svg class="space-scene-svg" viewBox="0 0 440 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<!-- Distant Stars & Cosmic Dust -->
+						<circle cx="45" cy="40" r="1.5" class="star star-pulse-1" fill="currentColor" opacity="0.4"/>
+						<circle cx="380" cy="55" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.3"/>
+						<circle cx="310" cy="290" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.5"/>
+						<circle cx="80" cy="310" r="1.2" class="star star-pulse-1" fill="currentColor" opacity="0.3"/>
+						<circle cx="220" cy="25" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.4"/>
+						<circle cx="410" cy="200" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.4"/>
+						
+						<!-- Distant Moon / Celestial Sphere -->
+						<circle cx="75" cy="95" r="15" class="celestial-body" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.25"/>
+						<circle cx="75" cy="95" r="15" fill="var(--accent)" opacity="0.08"/>
+						
+						<!-- Orbital Path Ellipses -->
+						<ellipse cx="220" cy="180" rx="190" ry="85" stroke="var(--line-bright)" stroke-width="1" stroke-dasharray="4 6" opacity="0.55" class="orbital-path-1" transform="rotate(-12 220 180)"/>
+						<ellipse cx="220" cy="180" rx="140" ry="60" stroke="currentColor" stroke-width="1" opacity="0.15" class="orbital-path-2" transform="rotate(8 220 180)"/>
+
+						<!-- Floating Astronaut Art -->
+						<g class="floating-astronaut">
+							<!-- Tether Cable -->
+							<path d="M 120 200 Q 170 230 225 155" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" fill="none" class="tether-line"/>
+							
+							<!-- Astronaut Figure (Centered at ~220, 110) -->
+							<g class="astronaut-body" transform="translate(210, 85)">
+								<!-- Jetpack / Backpack -->
+								<rect x="-8" y="10" width="22" height="34" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="1.8"/>
+								<rect x="-4" y="14" width="6" height="12" rx="2" fill="var(--accent)" opacity="0.3"/>
+								
+								<!-- Main Suit Body -->
+								<rect x="8" y="8" width="34" height="42" rx="10" fill="var(--surface)" stroke="currentColor" stroke-width="1.8"/>
+								<path d="M 16 22 H 34" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+								
+								<!-- Helmet & Visor -->
+								<circle cx="25" cy="-2" r="16" fill="var(--surface)" stroke="currentColor" stroke-width="1.8"/>
+								<!-- Glass Visor -->
+								<path d="M 16 -5 Q 25 -12 34 -5 Q 36 6 25 7 Q 14 6 16 -5 Z" fill="var(--accent)" opacity="0.25" stroke="var(--accent)" stroke-width="1.2"/>
+								<!-- Visor Glow Highlight -->
+								<path d="M 19 -4 Q 24 -8 29 -4" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+								<!-- Arms -->
+								<!-- Left Arm (Waving/Floating) -->
+								<path d="M 9 14 Q -2 4 4 -8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								<circle cx="4" cy="-8" r="4.5" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+								<!-- Right Arm -->
+								<path d="M 41 14 Q 52 24 45 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								<circle cx="45" cy="36" r="4.5" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+
+								<!-- Legs -->
+								<!-- Left Leg -->
+								<path d="M 18 48 Q 12 62 8 72" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								<rect x="3" y="70" width="10" height="7" rx="3" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+								<!-- Right Leg -->
+								<path d="M 32 48 Q 38 64 46 72" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								<rect x="42" y="70" width="10" height="7" rx="3" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+
+								<!-- Chest Badge / Signal Dot -->
+								<circle cx="25" cy="32" r="2.5" fill="var(--accent)"/>
+							</g>
+						</g>
+					</svg>
+
+					<!-- Technical Status Detail Box -->
+					<div class="error-status-card">
+						<div class="status-line"><span class="status-key">SIGNAL</span> <span class="status-val text-red">LOST</span></div>
+						<div class="status-line"><span class="status-key">LOCATION</span> <span class="status-val">UNKNOWN</span></div>
+						<div class="status-line"><span class="status-key">STATUS</span> <span class="status-val text-accent">OUT OF ORBIT</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-ambient" aria-hidden="true">
+			<div class="blob blob-footer"></div>
+		</div>
+		<div class="footer-bg-text" aria-hidden="true">TRISF</div>
+		<div class="footer-inner">
+			<div class="footer-bottom">
+				<p>TRISF PROJECT &copy; <span data-year></span></p>
+				<div class="footer-links">
+					<a href="https://t.me/trisf" target="_blank" rel="noopener noreferrer">Telegram</a>
+					<a href="https://instagram.com/trisfproject" target="_blank" rel="noopener noreferrer">Instagram</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

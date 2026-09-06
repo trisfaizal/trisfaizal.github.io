@@ -51,6 +51,23 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
 		timelineObserver.observe(approachTimeline);
 	}
+
+	// Hero Scroll Cue Observer (fades out cue when scrolling past Hero)
+	const heroEl = document.querySelector('.hero');
+	const heroScrollCue = document.querySelector('.hero-scroll-cue');
+	if (heroEl && heroScrollCue) {
+		const heroCueObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+					heroScrollCue.classList.remove('is-hidden');
+				} else {
+					heroScrollCue.classList.add('is-hidden');
+				}
+			});
+		}, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0] });
+
+		heroCueObserver.observe(heroEl);
+	}
 } else {
 	revealItems.forEach((item) => item.classList.add('is-visible'));
 	if (focusGrid) {

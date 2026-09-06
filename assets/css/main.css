@@ -542,6 +542,124 @@ button, a {
 	overflow: visible;
 }
 
+/* Hero Scroll-to-About Navigation Cue */
+.hero-scroll-cue {
+	position: absolute;
+	bottom: 24px;
+	left: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	color: var(--muted);
+	opacity: 0.72;
+	text-decoration: none;
+	z-index: 10;
+	cursor: pointer;
+	transform: translate3d(-50%, 0, 0);
+	animation: heroScrollFloat 2.5s ease-in-out infinite;
+	transition: color 0.22s cubic-bezier(0.22, 1, 0.36, 1), 
+	            opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+	            transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-scroll-cue.is-hidden {
+	opacity: 0 !important;
+	transform: translate3d(-50%, 6px, 0) !important;
+	pointer-events: none !important;
+	animation: none !important;
+}
+
+.scroll-cue-label {
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.scroll-cue-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.scroll-cue-wheel {
+	animation: scrollWheelPulse 1.8s ease-in-out infinite;
+}
+
+.scroll-cue-chevron {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+	.hero-scroll-cue:hover {
+		color: var(--accent);
+		opacity: 1;
+	}
+
+	.hero-scroll-cue:hover .scroll-cue-chevron {
+		transform: translateY(3px);
+	}
+}
+
+.hero-scroll-cue:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 4px;
+	border-radius: 6px;
+	color: var(--accent);
+	opacity: 1;
+}
+
+.hero-scroll-cue:active {
+	transform: translate3d(-50%, 2px, 0);
+}
+
+/* Float & Scroll Wheel Keyframes */
+@keyframes heroScrollFloat {
+	0%, 100% {
+		transform: translate3d(-50%, 0, 0);
+	}
+	50% {
+		transform: translate3d(-50%, -6px, 0);
+	}
+}
+
+@keyframes scrollWheelPulse {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	60% {
+		opacity: 0.2;
+		transform: translateY(4px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+	.hero-scroll-cue,
+	.scroll-cue-wheel {
+		animation: none !important;
+	}
+}
+
+/* Mobile Responsive Adjustment */
+@media (max-width: 767px) {
+	.hero-scroll-cue {
+		bottom: 16px;
+		transform: translate3d(-50%, 0, 0) scale(0.92);
+	}
+}
+
 .hero-shell {
 	width: 100%;
 	position: relative;

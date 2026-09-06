@@ -1837,8 +1837,10 @@ html[data-theme="dark"] .approach-icon-circle {
 
 /* Approach Responsive Layouts */
 
-/* Tablet Layout (768px - 1024px) */
-@media (max-width: 1024px) and (min-width: 768px) {
+/* Approach Responsive Layouts */
+
+/* Tablet & Mobile Layouts (<= 1024px) */
+@media (max-width: 1024px) {
 	.approach-section {
 		margin-top: clamp(80px, 9vw, 120px);
 		margin-bottom: clamp(160px, 18vw, 225px);
@@ -1864,20 +1866,24 @@ html[data-theme="dark"] .approach-icon-circle {
 	}
 
 	.approach-wave-svg {
-		display: none;
+		display: none !important;
 	}
 
 	.approach-steps-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr !important;
 		gap: 44px;
 		padding-left: 24px;
 		border-left: 1px solid var(--line);
 		margin-left: 8px;
 		position: relative;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.approach-step-item {
 		position: relative;
+		width: 100%;
+		min-width: 0;
 	}
 
 	.approach-step-dot {
@@ -1893,9 +1899,12 @@ html[data-theme="dark"] .approach-icon-circle {
 	.approach-step-details {
 		padding-left: 54px; /* Matches 42px icon + 12px gap on tablet */
 	}
-}
 
-@media (max-width: 1024px) {
+	.approach-step-details li {
+		white-space: normal;
+		word-break: break-word;
+	}
+
 	.approach-mobile-progress-line {
 		display: block;
 		position: absolute;
@@ -1948,14 +1957,21 @@ html[data-theme="dark"] .approach-icon-circle {
 	.approach-steps-grid {
 		padding-left: 20px;
 		gap: 40px;
+		margin-left: 0;
 	}
 
 	.approach-step-dot {
-		left: -24px;
+		left: -23px;
+		top: 9px;
 	}
 
 	.approach-step-body {
 		margin-bottom: 12px;
+		min-width: 0;
+	}
+
+	.approach-step-text {
+		min-width: 0;
 	}
 
 	.approach-icon-circle {

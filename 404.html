@@ -98,13 +98,13 @@
 						<ellipse cx="220" cy="160" rx="195" ry="80" stroke="var(--line-bright)" stroke-width="1" stroke-dasharray="4 6" opacity="0.5" class="orbital-path-1" transform="rotate(-10 220 160)"/>
 						<ellipse cx="220" cy="160" rx="135" ry="55" stroke="currentColor" stroke-width="1" opacity="0.14" class="orbital-path-2" transform="rotate(7 220 160)"/>
 
-						<!-- Floating Astronaut Art (Scaled down & positioned to right ~255, 60) -->
+						<!-- Floating Astronaut Art (Increased scale ~22% to scale 0.95 & centered in scene) -->
 						<g class="floating-astronaut">
 							<!-- Tether Cable -->
-							<path d="M 100 180 Q 160 210 235 135" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.45" fill="none" class="tether-line"/>
+							<path d="M 90 190 Q 150 220 220 145" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.45" fill="none" class="tether-line"/>
 							
 							<!-- Astronaut Figure -->
-							<g class="astronaut-body" transform="translate(255, 60) scale(0.78)">
+							<g class="astronaut-body" transform="translate(235, 52) scale(0.95)">
 								<!-- Jetpack / Backpack -->
 								<rect x="-8" y="10" width="22" height="34" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="1.8"/>
 								<rect x="-4" y="14" width="6" height="12" rx="2" fill="var(--accent)" opacity="0.3"/>
@@ -142,11 +142,11 @@
 						</g>
 					</svg>
 
-					<!-- Technical Status Detail Box (Associated directly with visual) -->
+					<!-- Technical Status Detail Box (Positioned close to lower orbit) -->
 					<div class="error-status-card">
-						<div class="status-line"><span class="status-key">SIGNAL</span> <span class="status-val text-red">LOST</span></div>
-						<div class="status-line"><span class="status-key">LOCATION</span> <span class="status-val">UNKNOWN</span></div>
-						<div class="status-line"><span class="status-key">STATUS</span> <span class="status-val text-accent">OUT OF ORBIT</span></div>
+						<div class="status-line"><span class="status-key">SIGNAL</span><span class="status-val text-red">LOST</span></div>
+						<div class="status-line"><span class="status-key">LOCATION</span><span class="status-val">UNKNOWN</span></div>
+						<div class="status-line"><span class="status-key">STATUS</span><span class="status-val text-accent">OUT OF ORBIT</span></div>
 					</div>
 				</div>
 			</div>

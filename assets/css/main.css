@@ -2813,22 +2813,22 @@ html[data-theme="dark"] .about-glass-panel {
    Custom 404 Experience (Hero-Style Composition Refinement)
    ========================================================================== */
 .error-404-container {
-	min-height: calc(100svh - var(--nav-height) - 80px);
+	min-height: calc(100svh - var(--nav-height) - 60px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 48px 24px 80px 24px;
+	padding: 40px 24px 96px 24px;
 	position: relative;
 	box-sizing: border-box;
 }
 
 .error-404-wrapper {
 	display: grid;
-	grid-template-columns: 1.15fr 0.85fr;
-	gap: clamp(36px, 5vw, 72px);
+	grid-template-columns: 1.1fr 0.9fr;
+	gap: clamp(32px, 4.5vw, 64px);
 	align-items: center;
 	width: 100%;
 }
@@ -2851,7 +2851,7 @@ html[data-theme="dark"] .about-glass-panel {
 
 .error-404-code {
 	font-family: var(--font-serif);
-	font-size: clamp(6.5rem, 15vw, 12.5rem);
+	font-size: clamp(5.5rem, 12.5vw, 10.5rem);
 	font-weight: 700;
 	line-height: 0.88;
 	letter-spacing: -0.05em;
@@ -2862,20 +2862,20 @@ html[data-theme="dark"] .about-glass-panel {
 
 .error-404-title {
 	font-family: var(--font-mono);
-	font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+	font-size: clamp(1.35rem, 2.2vw, 1.95rem);
 	font-weight: 700;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	color: var(--text);
-	margin: 4px 0 0 0;
+	margin: 2px 0 0 0;
 }
 
 .error-404-desc {
-	font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+	font-size: clamp(0.95rem, 1.05vw, 1.08rem);
 	color: var(--muted);
 	line-height: 1.6;
 	margin: 4px 0 20px 0;
-	max-width: 480px;
+	max-width: 460px;
 }
 
 .error-cta {
@@ -2903,7 +2903,7 @@ html[data-theme="dark"] .about-glass-panel {
 .error-404-visual-wrap {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
 	justify-content: center;
 	position: relative;
 	width: 100%;
@@ -2912,7 +2912,7 @@ html[data-theme="dark"] .about-glass-panel {
 .space-scene {
 	position: relative;
 	width: 100%;
-	max-width: 420px;
+	max-width: 480px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -2947,9 +2947,9 @@ html[data-theme="dark"] .about-glass-panel {
 	50% { opacity: 0.85; }
 }
 
-/* Technical Status Card - Associated close to visual */
+/* Technical Status Card - Associated tightly with orbital visual */
 .error-status-card {
-	margin-top: -8px;
+	margin-top: -24px;
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
@@ -2968,18 +2968,20 @@ html[data-theme="dark"] .about-glass-panel {
 .status-line {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	justify-content: space-between;
+	gap: 16px;
 }
 
 .status-key {
 	color: var(--muted);
 	opacity: 0.65;
-	min-width: 72px;
+	letter-spacing: 0.1em;
 }
 
 .status-val {
 	font-weight: 600;
 	color: var(--text);
+	text-align: right;
 }
 
 .text-red {
@@ -2994,12 +2996,12 @@ html[data-theme="dark"] .about-glass-panel {
 @media (max-width: 767px) {
 	.error-404-container {
 		min-height: auto;
-		padding: 36px 20px 60px 20px;
+		padding: 32px 20px 64px 20px;
 	}
 
 	.error-404-wrapper {
 		grid-template-columns: 1fr;
-		gap: 40px;
+		gap: 36px;
 		text-align: left;
 	}
 
@@ -3008,11 +3010,12 @@ html[data-theme="dark"] .about-glass-panel {
 	}
 
 	.error-404-code {
-		font-size: clamp(5.5rem, 24vw, 8rem);
+		font-size: clamp(5rem, 22vw, 7.5rem);
 	}
 
 	.error-404-title {
-		font-size: 1.3rem;
+		font-size: 1.25rem;
+		letter-spacing: 0.04em;
 	}
 
 	.error-404-desc {
@@ -3025,11 +3028,12 @@ html[data-theme="dark"] .about-glass-panel {
 	}
 
 	.space-scene {
-		max-width: 280px;
+		max-width: 320px;
 		margin: 0 auto;
 	}
 
 	.error-status-card {
+		margin-top: -16px;
 		padding: 10px 14px;
 		font-size: 0.65rem;
 	}

@@ -81,30 +81,30 @@
 			<div class="error-404-visual-wrap" aria-hidden="true">
 				<div class="space-scene">
 					<!-- Celestial Orbit SVG Art -->
-					<svg class="space-scene-svg" viewBox="0 0 440 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg class="space-scene-svg" viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<!-- Distant Stars & Cosmic Dust -->
-						<circle cx="45" cy="40" r="1.5" class="star star-pulse-1" fill="currentColor" opacity="0.4"/>
-						<circle cx="380" cy="55" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.3"/>
-						<circle cx="310" cy="290" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.5"/>
-						<circle cx="80" cy="310" r="1.2" class="star star-pulse-1" fill="currentColor" opacity="0.3"/>
-						<circle cx="220" cy="25" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.4"/>
-						<circle cx="410" cy="200" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.4"/>
+						<circle cx="35" cy="35" r="1.5" class="star star-pulse-1" fill="currentColor" opacity="0.35"/>
+						<circle cx="410" cy="45" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.3"/>
+						<circle cx="330" cy="270" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.45"/>
+						<circle cx="70" cy="285" r="1.2" class="star star-pulse-1" fill="currentColor" opacity="0.3"/>
+						<circle cx="210" cy="20" r="1" class="star star-pulse-2" fill="currentColor" opacity="0.35"/>
+						<circle cx="420" cy="180" r="1.5" class="star star-pulse-3" fill="currentColor" opacity="0.4"/>
 						
 						<!-- Distant Moon / Celestial Sphere -->
-						<circle cx="75" cy="95" r="15" class="celestial-body" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.25"/>
-						<circle cx="75" cy="95" r="15" fill="var(--accent)" opacity="0.08"/>
+						<circle cx="65" cy="80" r="13" class="celestial-body" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.22"/>
+						<circle cx="65" cy="80" r="13" fill="var(--accent)" opacity="0.07"/>
 						
 						<!-- Orbital Path Ellipses -->
-						<ellipse cx="220" cy="180" rx="190" ry="85" stroke="var(--line-bright)" stroke-width="1" stroke-dasharray="4 6" opacity="0.55" class="orbital-path-1" transform="rotate(-12 220 180)"/>
-						<ellipse cx="220" cy="180" rx="140" ry="60" stroke="currentColor" stroke-width="1" opacity="0.15" class="orbital-path-2" transform="rotate(8 220 180)"/>
+						<ellipse cx="220" cy="160" rx="195" ry="80" stroke="var(--line-bright)" stroke-width="1" stroke-dasharray="4 6" opacity="0.5" class="orbital-path-1" transform="rotate(-10 220 160)"/>
+						<ellipse cx="220" cy="160" rx="135" ry="55" stroke="currentColor" stroke-width="1" opacity="0.14" class="orbital-path-2" transform="rotate(7 220 160)"/>
 
-						<!-- Floating Astronaut Art -->
+						<!-- Floating Astronaut Art (Scaled down & positioned to right ~255, 60) -->
 						<g class="floating-astronaut">
 							<!-- Tether Cable -->
-							<path d="M 120 200 Q 170 230 225 155" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" fill="none" class="tether-line"/>
+							<path d="M 100 180 Q 160 210 235 135" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.45" fill="none" class="tether-line"/>
 							
-							<!-- Astronaut Figure (Centered at ~220, 110) -->
-							<g class="astronaut-body" transform="translate(210, 85)">
+							<!-- Astronaut Figure -->
+							<g class="astronaut-body" transform="translate(255, 60) scale(0.78)">
 								<!-- Jetpack / Backpack -->
 								<rect x="-8" y="10" width="22" height="34" rx="4" fill="var(--surface)" stroke="currentColor" stroke-width="1.8"/>
 								<rect x="-4" y="14" width="6" height="12" rx="2" fill="var(--accent)" opacity="0.3"/>
@@ -142,7 +142,7 @@
 						</g>
 					</svg>
 
-					<!-- Technical Status Detail Box -->
+					<!-- Technical Status Detail Box (Associated directly with visual) -->
 					<div class="error-status-card">
 						<div class="status-line"><span class="status-key">SIGNAL</span> <span class="status-val text-red">LOST</span></div>
 						<div class="status-line"><span class="status-key">LOCATION</span> <span class="status-val">UNKNOWN</span></div>

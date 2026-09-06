@@ -830,21 +830,22 @@ html[data-theme="dark"] .terminal-window:hover {
 .focus-card {
 	background: var(--surface);
 	border: 1px solid var(--line);
-	border-radius: 26px;
+	border-radius: clamp(22px, 2.5vw, 28px);
 	padding: 28px 26px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 490px;
+	min-height: 490px;
+	height: auto;
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 4px 20px var(--shadow-color);
 	transform: translate3d(0, var(--card-parallax-y, 0px), 0);
-	transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            border-color 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-	            opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            box-shadow 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            border-color 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+	            opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 	outline: none;
 	cursor: pointer;
 }
@@ -872,8 +873,8 @@ html[data-theme="dark"] .terminal-window:hover {
 	transform: scale(1.0) translate3d(0, calc(10px + var(--artwork-parallax-y, 0px)), 0);
 	mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
 	-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 88%);
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 }
 
@@ -893,9 +894,9 @@ html[data-theme="dark"] .terminal-window:hover {
 	);
 	opacity: 0.65;
 	transform: translate3d(0, var(--scrim-parallax-y, 0px), 0);
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-	            background 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-	            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), 
+	            background 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+	            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 	pointer-events: none;
 	will-change: transform;
 }
@@ -951,17 +952,20 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 
 /* Active / Hover State Transformation (Artwork is the Hero, Scrim Smoothly Transitions) */
 .focus-card:active,
-.focus-card.is-active {
-	transform: translate3d(0, calc(-5px + var(--card-parallax-y, 0px)), 0);
+.focus-card.is-active,
+.focus-card:focus-within {
+	transform: translate3d(0, calc(-4px + var(--card-parallax-y, 0px)), 0);
 }
 .focus-card:active::before,
-.focus-card.is-active::before {
-	opacity: 0.95;
-	transform: scale(1.10) translate3d(0, calc(-6px + var(--artwork-parallax-y, 0px)), 0);
+.focus-card.is-active::before,
+.focus-card:focus-within::before {
+	opacity: 0.92;
+	transform: scale(1.08) translate3d(0, calc(-6px + var(--artwork-parallax-y, 0px)), 0);
 }
 .focus-card:active::after,
-.focus-card.is-active::after {
-	opacity: 0.85;
+.focus-card.is-active::after,
+.focus-card:focus-within::after {
+	opacity: 0.88;
 }
 
 @media (hover: hover) {
@@ -972,14 +976,13 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 
 	.focus-card:hover {
 		transform: translate3d(0, calc(-5px + var(--card-parallax-y, 0px)), 0);
-		box-shadow: 0 20px 48px -12px var(--shadow-color);
 	}
 	.focus-card:hover::before {
-		opacity: 0.95;
-		transform: scale(1.10) translate3d(var(--mouse-x, 0px), calc(-8px + var(--mouse-y, 0px) + var(--artwork-parallax-y, 0px)), 0);
+		opacity: 0.92;
+		transform: scale(1.08) translate3d(var(--mouse-x, 0px), calc(-8px + var(--mouse-y, 0px) + var(--artwork-parallax-y, 0px)), 0);
 	}
 	.focus-card:hover::after {
-		opacity: 0.85;
+		opacity: 0.88;
 	}
 }
 
@@ -989,11 +992,14 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 .focus-card[data-glow="blue"] .focus-number { color: #6366f1; }
 .focus-card[data-glow="blue"] .focus-number-line { background: #6366f1; }
 .focus-card[data-glow="blue"]:hover,
+.focus-card[data-glow="blue"]:focus-within,
 .focus-card[data-glow="blue"].is-active {
-	border-color: rgba(99, 102, 241, 0.35);
-	background: radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.04) 0%, var(--surface) 65%);
+	border-color: rgba(99, 102, 241, 0.45);
+	box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.22);
+	background: radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="blue"]:hover .focus-icon-box,
+.focus-card[data-glow="blue"]:focus-within .focus-icon-box,
 .focus-card[data-glow="blue"].is-active .focus-icon-box,
 .focus-card:focus-visible .focus-icon-box {
 	border-color: #6366f1;
@@ -1001,46 +1007,139 @@ html[data-theme="light"] .focus-card[data-glow="green"]::after {
 	background: rgba(99, 102, 241, 0.08);
 }
 .focus-card[data-glow="blue"]:hover .focus-number-line,
+.focus-card[data-glow="blue"]:focus-within .focus-number-line,
 .focus-card[data-glow="blue"].is-active .focus-number-line {
 	background: #6366f1;
 	opacity: 1;
 	width: 28px;
 }
+.focus-card[data-glow="blue"] .focus-preview-marker {
+	color: #6366f1;
+}
 
+/* 02 Software (Violet / Purple) */
+.focus-card[data-glow="green"] .focus-number { color: #8b5cf6; }
+.focus-card[data-glow="green"] .focus-number-line { background: #8b5cf6; }
 .focus-card[data-glow="green"]:hover,
+.focus-card[data-glow="green"]:focus-within,
 .focus-card[data-glow="green"].is-active {
-	border-color: rgba(139, 92, 246, 0.35);
-	background: radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.04) 0%, var(--surface) 65%);
+	border-color: rgba(139, 92, 246, 0.45);
+	box-shadow: 0 16px 40px -10px rgba(139, 92, 246, 0.22);
+	background: radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="green"]:hover .focus-icon-box,
+.focus-card[data-glow="green"]:focus-within .focus-icon-box,
 .focus-card[data-glow="green"].is-active .focus-icon-box {
 	border-color: #8b5cf6;
 	color: #8b5cf6;
 	background: rgba(139, 92, 246, 0.08);
 }
 .focus-card[data-glow="green"]:hover .focus-number-line,
+.focus-card[data-glow="green"]:focus-within .focus-number-line,
 .focus-card[data-glow="green"].is-active .focus-number-line {
 	background: #8b5cf6;
 	opacity: 1;
 	width: 28px;
 }
+.focus-card[data-glow="green"] .focus-preview-marker {
+	color: #8b5cf6;
+}
 
+/* 03 Infrastructure (Orange / Amber) */
+.focus-card[data-glow="orange"] .focus-number { color: #f59e0b; }
+.focus-card[data-glow="orange"] .focus-number-line { background: #f59e0b; }
 .focus-card[data-glow="orange"]:hover,
+.focus-card[data-glow="orange"]:focus-within,
 .focus-card[data-glow="orange"].is-active {
-	border-color: rgba(249, 115, 22, 0.35);
-	background: radial-gradient(circle at 85% 85%, rgba(249, 115, 22, 0.04) 0%, var(--surface) 65%);
+	border-color: rgba(245, 158, 11, 0.45);
+	box-shadow: 0 16px 40px -10px rgba(245, 158, 11, 0.22);
+	background: radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.05) 0%, var(--surface) 65%);
 }
 .focus-card[data-glow="orange"]:hover .focus-icon-box,
+.focus-card[data-glow="orange"]:focus-within .focus-icon-box,
 .focus-card[data-glow="orange"].is-active .focus-icon-box {
-	border-color: #f97316;
-	color: #f97316;
-	background: rgba(249, 115, 22, 0.08);
+	border-color: #f59e0b;
+	color: #f59e0b;
+	background: rgba(245, 158, 11, 0.08);
 }
 .focus-card[data-glow="orange"]:hover .focus-number-line,
+.focus-card[data-glow="orange"]:focus-within .focus-number-line,
 .focus-card[data-glow="orange"].is-active .focus-number-line {
-	background: #f97316;
+	background: #f59e0b;
 	opacity: 1;
 	width: 28px;
+}
+.focus-card[data-glow="orange"] .focus-preview-marker {
+	color: #f59e0b;
+}
+
+/* Editorial Preview Section inside Focus Cards */
+.focus-card-preview {
+	opacity: 0;
+	max-height: 0;
+	transform: translateY(12px);
+	overflow: hidden;
+	pointer-events: none;
+	transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+	            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+	            max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+	            margin-top 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.focus-card:hover .focus-card-preview,
+.focus-card:focus-within .focus-card-preview,
+.focus-card.is-active .focus-card-preview {
+	opacity: 1;
+	max-height: 220px;
+	transform: translateY(0);
+	margin-top: 18px;
+	pointer-events: auto;
+}
+
+.focus-preview-divider {
+	height: 1px;
+	background: var(--line);
+	opacity: 0.6;
+	margin-bottom: 14px;
+	width: 100%;
+}
+
+.focus-preview-header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 6px;
+}
+
+.focus-preview-marker {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+
+.focus-preview-label {
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.focus-preview-headline {
+	font-family: var(--font-sans);
+	font-size: 1.02rem;
+	font-weight: 600;
+	line-height: 1.35;
+	color: var(--fg);
+	margin-bottom: 6px;
+}
+
+.focus-preview-desc {
+	font-family: var(--font-sans);
+	font-size: 0.85rem;
+	line-height: 1.45;
+	color: var(--muted);
 }
 
 /* Sub-components Styling */

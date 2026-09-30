@@ -1,6 +1,5 @@
 document.documentElement.classList.add('js-enabled');
 
-const typeTargets = [...document.querySelectorAll('[data-type-line]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const year = document.querySelector('[data-year]');
 
@@ -11,7 +10,6 @@ if (year) {
 
 // Reveal on Scroll / Intersection Observer
 const revealItems = [...document.querySelectorAll('.reveal')];
-const focusGrid = document.querySelector('.focus-grid');
 const approachTimeline = document.querySelector('.approach-timeline-container');
 
 if ('IntersectionObserver' in window && !reducedMotion) {
@@ -26,31 +24,16 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
 	revealItems.forEach((item) => observer.observe(item));
 
-	if (focusGrid) {
-		const gridObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('is-visible');
-					gridObserver.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.15 });
+	const sectionObserver = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('is-visible');
+				sectionObserver.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.15 });
 
-		gridObserver.observe(focusGrid);
-	}
-
-	if (approachTimeline) {
-		const timelineObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('is-visible');
-					timelineObserver.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.15 });
-
-		timelineObserver.observe(approachTimeline);
-	}
+	if (approachTimeline) sectionObserver.observe(approachTimeline);
 
 	// Hero Scroll Cue Observer (fades out cue when scrolling past Hero)
 	const heroEl = document.querySelector('.hero');
@@ -70,107 +53,10 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 	}
 } else {
 	revealItems.forEach((item) => item.classList.add('is-visible'));
-	if (focusGrid) {
-		focusGrid.classList.add('is-visible');
-	}
 	if (approachTimeline) {
 		approachTimeline.classList.add('is-visible');
 	}
 }
-
-// Typing Terminal Animation
-const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-
-const appendPromptPart = (target, className, text) => {
-	if (!text) {
-		return;
-	}
-
-	const span = document.createElement('span');
-	span.className = className;
-	span.textContent = text;
-	target.append(span);
-};
-
-const renderTypedLine = (target, text) => {
-	if (!target.hasAttribute('data-prompt-line')) {
-		target.textContent = text;
-		return;
-	}
-
-	const promptMatch = target.dataset.typeLine.match(/^([^:]+)(:)(~)(\$)(.*)$/);
-
-	if (!promptMatch) {
-		target.textContent = text;
-		return;
-	}
-
-	const [, user, separator, directory, symbol, command] = promptMatch;
-	const parts = [
-		['prompt-user', user],
-		['prompt-separator', separator],
-		['prompt-dir', directory],
-		['prompt-symbol', symbol],
-		['', command],
-	];
-
-	let remaining = text.length;
-	target.textContent = '';
-
-	for (const [className, part] of parts) {
-		if (remaining <= 0) {
-			break;
-		}
-
-		const visible = part.slice(0, remaining);
-		remaining -= visible.length;
-
-		if (className) {
-			appendPromptPart(target, className, visible);
-		} else {
-			target.append(document.createTextNode(visible));
-		}
-	}
-};
-
-const runTypewriter = async () => {
-	if (reducedMotion) {
-		typeTargets.forEach((target) => {
-			renderTypedLine(target, target.dataset.typeLine);
-		});
-		typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
-		return;
-	}
-
-	typeTargets.forEach((target) => {
-		target.textContent = '';
-		target.parentElement?.classList.remove('is-active', 'is-idle');
-	});
-
-	for (const target of typeTargets) {
-		const text = target.dataset.typeLine;
-		const speed = Number(target.dataset.typeSpeed || 32);
-		const pause = Number(target.dataset.typePause || 260);
-		const line = target.parentElement;
-
-		line?.classList.add('is-active');
-		await wait(220);
-
-		for (let index = 0; index <= text.length; index += 1) {
-			renderTypedLine(target, text.slice(0, index));
-			await wait(speed);
-		}
-
-		line?.classList.remove('is-active');
-		await wait(pause);
-	}
-
-	await wait(180);
-	typeTargets.at(-1)?.parentElement?.classList.add('is-idle');
-};
-
-runTypewriter();
-
 
 // Theme Toggle Functionality
 const themeToggleButtons = document.querySelectorAll('.theme-toggle');
@@ -237,35 +123,30 @@ if (mobileMenuToggle && primaryMenu) {
 	});
 }
 
-// Desktop Progressive Morphing Navbar
+// Desktop & Mobile Scroll Transforming Navbar
 const siteHeader = document.querySelector('.site-header');
 if (siteHeader) {
 	let ticking = false;
 
-	const updateHeaderProgress = () => {
-		const scrollY = window.scrollY;
-		let rawProgress = Math.min(Math.max((scrollY - 24) / 56, 0), 1);
-		let progress = 1 - Math.pow(1 - rawProgress, 3);
-		
-		if (reducedMotion) {
-			progress = scrollY > 80 ? 1 : 0;
+	const checkScroll = () => {
+		if (window.scrollY > 50) {
+			siteHeader.classList.add('is-scrolled');
+		} else {
+			siteHeader.classList.remove('is-scrolled');
 		}
-
-		siteHeader.style.setProperty('--header-progress', progress.toFixed(3));
 		ticking = false;
 	};
 
 	window.addEventListener('scroll', () => {
 		if (!ticking) {
-			window.requestAnimationFrame(updateHeaderProgress);
+			window.requestAnimationFrame(checkScroll);
 			ticking = true;
 		}
 	}, { passive: true });
 
 	// Initial evaluation
-	updateHeaderProgress();
+	checkScroll();
 }
-
 
 // Interactive Ambient Background System
 const ambientBg = document.querySelector('.ambient-background');
@@ -337,52 +218,9 @@ if (ambientBg) {
 	}
 }
 
-// Focus Cards Interaction Logic
-const focusCards = document.querySelectorAll('.focus-card');
-if (focusCards.length > 0) {
-	const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-	
-	if (!isTouchDevice && !reducedMotion) {
-		// Desktop pointer tracking for micro-interaction
-		focusCards.forEach(card => {
-			card.addEventListener('pointermove', (e) => {
-				const rect = card.getBoundingClientRect();
-				const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-				const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-				
-				// Map to px (-8px to 8px max movement)
-				card.style.setProperty('--mouse-x', `${(x * 8).toFixed(2)}px`);
-				card.style.setProperty('--mouse-y', `${(y * 8).toFixed(2)}px`);
-			});
-			
-			card.addEventListener('pointerleave', () => {
-				card.style.setProperty('--mouse-x', '0px');
-				card.style.setProperty('--mouse-y', '0px');
-			});
-		});
-	} else {
-		// Mobile touch logic to toggle active state
-		focusCards.forEach(card => {
-			card.addEventListener('click', (e) => {
-				if (e.target.tagName.toLowerCase() === 'a') return;
-				const isActive = card.classList.contains('is-active');
-				focusCards.forEach(c => c.classList.remove('is-active'));
-				if (!isActive) card.classList.add('is-active');
-			});
-		});
-		
-		document.addEventListener('click', (e) => {
-			if (!e.target.closest('.focus-card')) {
-				focusCards.forEach(c => c.classList.remove('is-active'));
-			}
-		});
-	}
-}
 
 // Premium Scroll Choreography Engine
 if (!reducedMotion) {
-	const focusSectionEl = document.querySelector('.focus-section');
-	const focusCardEls = document.querySelectorAll('.focus-card');
 	const approachSectionEl = document.querySelector('.approach-section');
 	const approachStepItems = document.querySelectorAll('.approach-step-item');
 	const siteFooterEl = document.querySelector('.site-footer');
@@ -393,30 +231,8 @@ if (!reducedMotion) {
 	const updateScrollChoreography = () => {
 		const vh = window.innerHeight;
 		const vw = window.innerWidth;
-		const isMobile = vw < 768;
 
-		// 1. FOCUS Cards Layered Depth Parallax (Artwork Layer 3 > Scrim Layer 2 > Outer Card Layer 1)
-		if (focusSectionEl && focusCardEls.length > 0) {
-			const rect = focusSectionEl.getBoundingClientRect();
-			if (rect.bottom > 0 && rect.top < vh) {
-				const rawProgress = (vh - rect.top) / (rect.height + vh);
-				const centeredProgress = (Math.min(Math.max(rawProgress, 0), 1) - 0.5) * 2; // -1 to 1
-
-				const artworkSpeeds = isMobile ? [-10, -11, -7] : [-20, -22, -14];
-				const scrimSpeeds = isMobile ? [-3, -4, -2.5] : [-6, -8, -5];
-				const cardSpeeds = isMobile ? [-2, -3, -1.5] : [-3.5, -5, -3];
-
-				focusCardEls.forEach((card, idx) => {
-					const artSpeed = artworkSpeeds[idx % artworkSpeeds.length];
-					const scrimSpeed = scrimSpeeds[idx % scrimSpeeds.length];
-					const cardSpeed = cardSpeeds[idx % cardSpeeds.length];
-
-					card.style.setProperty('--artwork-parallax-y', `${(centeredProgress * artSpeed).toFixed(2)}px`);
-					card.style.setProperty('--scrim-parallax-y', `${(centeredProgress * scrimSpeed).toFixed(2)}px`);
-					card.style.setProperty('--card-parallax-y', `${(centeredProgress * cardSpeed).toFixed(2)}px`);
-				});
-			}
-		}
+		// 1. (Focus choreography removed — editorial layout is static)
 
 		// 2. APPROACH Timeline Scroll Progress & Step Activation
 		if (approachSectionEl) {

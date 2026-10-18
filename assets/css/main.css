@@ -713,6 +713,66 @@ html[data-theme="dark"] .site-header.is-scrolled {
 	}
 }
 
+/* Hero Isometric System Architecture Background */
+.hero-bg-isometric {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	transform: translate3d(-50%, 0, 0);
+	width: 100vw;
+	overflow: hidden;
+	pointer-events: none;
+	user-select: none;
+	z-index: 1;
+	-webkit-mask-image: linear-gradient(to bottom, #000 70%, rgba(0, 0, 0, 0.4) 88%, transparent 98%),
+	                    linear-gradient(to right, #000 82%, rgba(0, 0, 0, 0.3) 93%, transparent 98%);
+	-webkit-mask-composite: source-in;
+	mask-image: linear-gradient(to bottom, #000 70%, rgba(0, 0, 0, 0.4) 88%, transparent 98%),
+	            linear-gradient(to right, #000 82%, rgba(0, 0, 0, 0.3) 93%, transparent 98%);
+	mask-composite: intersect;
+}
+
+.hero-iso-pic {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.hero-iso-img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	width: 100%;
+	min-width: 1200px;
+	max-width: 1600px;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	pointer-events: none;
+	user-select: none;
+	display: block;
+}
+
+.hero-iso-light {
+	display: block;
+}
+
+.hero-iso-dark {
+	display: none;
+}
+
+html[data-theme="dark"] .hero-iso-light {
+	display: none;
+}
+
+html[data-theme="dark"] .hero-iso-dark {
+	display: block;
+}
+
 .hero-shell {
 	width: 100%;
 	position: relative;
@@ -2594,7 +2654,14 @@ html.js-enabled .approach-section.is-visible .approach-step-item[data-step="4"] 
 		text-align: center;
 	}
 
-
+	/* Hero Isometric Tablet Adaptation */
+	.hero-iso-img {
+		top: 52%;
+		min-width: 960px;
+		max-width: 1280px;
+		object-position: 70% center;
+		opacity: 0.85;
+	}
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -2871,6 +2938,25 @@ html[data-theme="dark"] .about-glass-panel {
 
 	.hero {
 		margin-top: 0;
+	}
+
+	/* Hero Isometric Mobile Adaptation */
+	.hero-bg-isometric {
+		-webkit-mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0.4) 90%, transparent 98%);
+		mask-image: linear-gradient(to bottom, #000 74%, rgba(0, 0, 0, 0.4) 90%, transparent 98%);
+	}
+
+	.hero-iso-img {
+		top: 0;
+		left: 0;
+		transform: none;
+		width: 100%;
+		min-width: 0;
+		max-width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+		opacity: 1;
 	}
 
 	.hero-headline {

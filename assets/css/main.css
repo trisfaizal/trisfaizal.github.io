@@ -1255,14 +1255,14 @@ html[data-theme="dark"] .focus-panel:focus-visible .focus-panel-atmos {
 	object-fit: cover;
 	object-position: center center;
 	mix-blend-mode: normal;
-	opacity: 0.85; /* Moderately visible, not washed out, not overpowering */
+	opacity: 0.92;
 	transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
 	transform: translateY(8px);
 }
 
 html[data-theme="dark"] .focus-panel-img {
-	mix-blend-mode: screen;
-	opacity: 0.65; /* Increased for better dark mode presence */
+	mix-blend-mode: normal;
+	opacity: 0.90;
 }
 
 .focus-panel:hover .focus-panel-img,
@@ -1273,7 +1273,7 @@ html[data-theme="dark"] .focus-panel-img {
 
 html[data-theme="dark"] .focus-panel:hover .focus-panel-img,
 html[data-theme="dark"] .focus-panel:focus-visible .focus-panel-img {
-	opacity: 0.8;
+	opacity: 1;
 }
 
 /* 
@@ -3378,16 +3378,14 @@ html[data-theme="dark"] .about-glass-panel {
 		height: 100%;
 		object-fit: contain;
 		object-position: center center !important;
-		opacity: 0.98;
-		mix-blend-mode: multiply;
+		opacity: 1;
+		mix-blend-mode: normal;
 		transform: none !important;
 		transition: opacity 0.3s ease;
 	}
 	html[data-theme="dark"] .focus-panel-img {
-		mix-blend-mode: screen;
-		opacity: 0.82;
-		-webkit-mask-image: radial-gradient(ellipse 82% 74% at 50% 50%, black 45%, transparent 92%);
-		mask-image: radial-gradient(ellipse 82% 74% at 50% 50%, black 45%, transparent 92%);
+		mix-blend-mode: normal;
+		opacity: 0.95;
 	}
 	.focus-panel:hover .focus-panel-img,
 	.focus-panel:focus-visible .focus-panel-img {
@@ -3396,7 +3394,7 @@ html[data-theme="dark"] .about-glass-panel {
 	}
 	html[data-theme="dark"] .focus-panel:hover .focus-panel-img,
 	html[data-theme="dark"] .focus-panel:focus-visible .focus-panel-img {
-		opacity: 0.95;
+		opacity: 1;
 	}
 }
 
